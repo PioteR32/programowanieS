@@ -7,7 +7,10 @@ int main()
 {
     
     using namespace std;
+    int h;
     cout << "Hello World!\n";
+    cin >> h;
+    cout << h;
     
 
 
