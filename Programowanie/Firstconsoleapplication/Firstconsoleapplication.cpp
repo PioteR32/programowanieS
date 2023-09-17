@@ -11,6 +11,7 @@ int main()
     cout << "Hello World!\n";
     cin >> h;
     cout << h;
+    cout << "gg";
     
 
 
