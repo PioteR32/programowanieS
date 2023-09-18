@@ -23,20 +23,13 @@ int main()
         case 1:
             cout << "Podaj swój login \n";
             cin >> write_login;
+            if (write_login == login[e]) {
+                cout << " Podaj password";
+                cin >> write_password;
+                if (write_password == password[e]) {
+                    cout << " U sing in \n";
 
-            if (write_login != login[e]) {
-                e++;
-                if (e == 21) {
-                    cout << "podaj poprawny login \n";
 
-                }
-                while (write_login != login[e] or p != 6) {
-                    cout << "podaj has³o \n";
-                    cin >> write_password;
-                    if (write_password == password[e]) {
-                        cout << " U sing in \n";
-
-                    }
 
                     if (write_password != password[e]) {
                         cout << " podaj password ponownie";
@@ -44,28 +37,53 @@ int main()
                         if (p == 6) {
 
                         }
+
                     }
                 }
-            }
 
-            break;
+                if (write_login != login[e]) {
+                    e++;
+                    if (e == 21) {
+                        cout << "podaj poprawny login \n";
+
+                    }
+                    while (write_login != login[e] or p != 6) {
+                        cout << "podaj has³o \n";
+                        cin >> write_password;
+                        if (write_password == password[e]) {
+                            cout << " U sing in \n";
+
+                        }
+
+                        if (write_password != password[e]) {
+                            cout << " podaj password ponownie";
+                            p++;
+                            if (p == 6) {
+
+                            }
+                        }
+                    }
+                }
+
+                break;
 
         case 2:
             int ll = 0;
             if (ll == 20) {
 
-                cout << " za ma³o miejsca";
+                int ll = 0;
             }
-                
-                int pp = 0;
-                cout << " podaj login";
-                cin >> login[ll];
-                ll++;
-                cout << " podaj password ";
-                cin >> password[pp];
-                pp++;
+
+            int pp = 0;
+            cout << " podaj login";
+            cin >> login[ll];
+            ll++;
+            cout << " podaj password ";
+            cin >> password[pp];
+            pp++;
 
 
+            }
         }
     }
 
