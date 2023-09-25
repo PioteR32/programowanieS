@@ -5,11 +5,16 @@
 
 int main()
 {
+    int a;
     using namespace std;
-    cout << " fff";
-    cout << 'f';
-    cout << 65;
-  
+    cout << " fff\n";
+    cout << 'f\n';
+    cout << 65; cout << '\n';
+    cout << 65 << '\n' << " ooppppeerrraaatttooorrr" << "ZZZZZZZZZ";
+        
+
+        cin >> a;
+
     }
 
 
