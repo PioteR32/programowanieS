@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+
 using namespace std;
 
 void task1() 
@@ -102,11 +103,61 @@ void task5()
 
   }
 // Program obliczający średnią ważoną trzech liczb z podanymi odpowiednimi wagami w1, w2 i w3.
+  void task10()
+  {
+      double number_first, number_second, number_third, first_weight, second_weight, third_weight;
+      cout << " Podaj pierwszą liczę /n";
+      cin >> number_first;
+      cout << "/n"
+      cout << " Podaj wagę tej liczby /n ";
+      cin >> first_wight;
+      cout << "/n"
+      cout << " Podaj drugą liczę /n" ;
+      cin >> number_second;
+      cout << "/n"
+      cout << " Podaj wagę tej liczby /n";
+      cin >> second_wight;
+      cout << "/n"
+      cout << " Podaj trzecią liczę /n";
+      cin >> number_third;
+      cout << "/n"
+      cout << " Podaj wagę tej liczby /n";
+      cin >> third_wight;
+      cout << "/n"
+      
+      cout << "Średnia ważona   : " << (number_first + number_second + number_third) / (first_weight + second_weight + third_weight);
+
+  }
 // Stwórz program, który pobiera od użytkownika długość w metrach i przelicza ją na centymetry i milimetry, wyświetlając wynik.
+  task11() {
+      double first_number;
+      cout << " Podaj pierwszą długość w m  ";
+      cin >> first_number;
+      cout << " Ta długość w cm";
+      cout << first_number * 100;
+      cout << " Ta długość w mm";
+      cout << first_number * 1000;
+
+      
+  }
 // Napisz program, który konwertuje wprowadzoną kwotę w jednej walucie na inną, korzystając z określonego kursu wymiany.
+  task12() {
+      double price_zl;
+      int = unlink(const char = )
+      cout << " Podaj pierwszy bok trójkąta";
+      cin >> price_zl;
+      cout << " W dolarach";
+      cin >> price_zl * 4.31;
+      cout << " w Euro";
+      cin >> price_zl * 4.56;
+
+      
+  }
+  
 
 
 
+  }
 //Oblicz średnią arytmetyczxną dwóch liczb
 
 void task2() 
@@ -130,7 +181,8 @@ void task2()
         setlocale(LC_CTYPE, "polish");
            // task2();
            // task3();
-        task4();
+        task13()
+        
 
 }
 
