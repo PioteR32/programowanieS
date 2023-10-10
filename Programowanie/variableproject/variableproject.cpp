@@ -11,7 +11,7 @@ void task1()
 
 
     using namespace std;
-    cout << " Give  a number";
+    cout << " Give  a number ";
     cout << "\n";
     cin >> number_from_user; cout << "\n";
     cout << number_from_user << "\n";
@@ -24,33 +24,33 @@ void task1()
 void  task3()
 {
     double side_first, side_second;
-    cout << "Podaj pierwszy  bok:";
+    cout << "Podaj pierwszy  bok: \n ";
     cin >> side_first;
-    cout << "Podaj drugi   bok:";
+    cout << "\n Podaj drugi   bok: \n ";
     cin >> side_second;
-    cout << "Pole to: " << side_first * side_second;
+    cout << " \n Pole to: " << side_first * side_second;
 
  }
 // Program obliczający objętość stożka.
 void task4() 
 {
     double base_diameter, height, area_cone_base, volume;
-    cout << "Podaj promień  :";
+    cout << "Podaj promień  : \n";
     cin >> base_diameter;
-    cout << "Podaj wysokość:";
+    cout << " \n Podaj wysokość: \n ";
     cin >> height;
     area_cone_base = base_diameter * base_diameter * 3.1415;
 
-    cout << "Objętość: " << 1/3.0 * (area_cone_base * height);
+    cout << " \n Objętość: " << 1/3.0 * (area_cone_base * height);
 
 }
 // Program obliczający pole koła.
 void task5() 
 {
-    double first_radius, secend_radius;
-    cout << " Podaj promień koła";
+    double first_radius;
+    cout << "\n Podaj promień koła \n";
     cin >> first_radius;
-    cout << "Wynik : " << first_radius * first_radius * 3.1415;
+    cout << " \n Pole koła : " << first_radius * first_radius * 3.1415;
 
 
 }
@@ -58,11 +58,11 @@ void task5()
   void task6() 
 {
     double first_number, secend_number;
-    cout << " Podaj pierwszą liczbę";
+    cout << " Podaj pierwszą liczbę \n";
     cin >> first_number;
-    cout << " Podaj drugą liczbę";
+    cout << "\n Podaj drugą liczbę \n";
     cin >> secend_number;
-    cout << "Wynik : " << first_number * first_number + secend_number * secend_number;
+    cout << " \n Wynik : " << first_number * first_number + secend_number * secend_number;
 
 
 }
@@ -70,11 +70,11 @@ void task5()
   void task7()
   {
       double first_side, height;
-      cout << " Podaj pierwszy bok trójkąta";
+      cout << " Podaj pierwszy bok trójkąta\n";
       cin >> first_side;
-      cout << " Podaj wysokość ";
+      cout << "\n Podaj wysokość \n";
       cin >> height;
-      cout << "Wynik : " << (first_side * height) / 2;
+      cout << " \n Pole trójkąta : " << (first_side * height) / 2;
 
 
   }
@@ -82,74 +82,76 @@ void task5()
   void task8()
   {
       double first_radius;
-      cout << " Podaj pierwszy bok trójkąta";
+      cout << "\n Podaj promień \n";
       cin >> first_radius;
       
-      cout << "Objętość kuli  : " << 4.0 / 3 * 3.1415 * first_radius * first_radius * first_radius;
+      cout << " \n Objętość kuli  : " << 4.0 / 3 * 3.1415 * first_radius * first_radius * first_radius;
 
   }
 // Program obliczający pole trapezu o podstawach a i b oraz wysokości h
   void task9()
   {
       double side_first, side_second, height;
-      cout << " Podaj pierwszy bok trójkąta";
+      cout << " Podaj pierwszy bok trapezu \n";
       cin >> side_first;
-      cout << " Podaj drugi bok trójkąta";
+      cout << "\n Podaj drugi bok trapezu \n";
       cin >> side_second;
-      cout << " Podaj wysokość trójkąta";
+      cout << "\n Podaj wysokość trapezu \n";
       cin >> height;
 
-      cout << "Pole trapezu  : " << (side_first + side_second) * height /2
+      cout << "Pole trapezu  : " << (side_first + side_second) * height / 2;
 
   }
 // Program obliczający średnią ważoną trzech liczb z podanymi odpowiednimi wagami w1, w2 i w3.
   void task10()
   {
-      double number_first, number_second, number_third, first_weight, second_weight, third_weight;
-      cout << " Podaj pierwszą liczę /n";
+      double number_first,number_second,number_third,first_weight,second_weight,third_weight;
+      cout << " Podaj pierwszą liczę \n";
       cin >> number_first;
-      cout << "/n"
-      cout << " Podaj wagę tej liczby /n ";
-      cin >> first_wight;
-      cout << "/n"
-      cout << " Podaj drugą liczę /n" ;
+      cout << "\n";
+      cout << " Podaj wagę tej liczby \n ";
+      cin >> first_weight;
+      cout << "\n";
+      cout << " Podaj drugą liczę \n" ;
       cin >> number_second;
-      cout << "/n"
-      cout << " Podaj wagę tej liczby /n";
-      cin >> second_wight;
-      cout << "/n"
-      cout << " Podaj trzecią liczę /n";
+      cout << "\n";
+      cout << " Podaj wagę tej liczby \n";
+      cin >> second_weight;
+      cout << "\n";
+      cout << " Podaj trzecią liczę \n";
       cin >> number_third;
-      cout << "/n"
-      cout << " Podaj wagę tej liczby /n";
-      cin >> third_wight;
-      cout << "/n"
+      cout << "\n";
+      cout << " Podaj wagę tej liczby \n";
+      cin >> third_weight;
+      cout << "\n";
       
       cout << "Średnia ważona   : " << (number_first + number_second + number_third) / (first_weight + second_weight + third_weight);
 
   }
 // Stwórz program, który pobiera od użytkownika długość w metrach i przelicza ją na centymetry i milimetry, wyświetlając wynik.
-  task11() {
+  void task11() 
+  {
       double first_number;
       cout << " Podaj pierwszą długość w m  ";
       cin >> first_number;
-      cout << " Ta długość w cm";
+      cout << "\n Ta długość w cm \n";
       cout << first_number * 100;
-      cout << " Ta długość w mm";
+      cout << "\n Ta długość w mm \n";
       cout << first_number * 1000;
 
       
   }
 // Napisz program, który konwertuje wprowadzoną kwotę w jednej walucie na inną, korzystając z określonego kursu wymiany.
-  task12() {
-      double price_zl;
-      int = unlink(const char = )
-      cout << " Podaj pierwszy bok trójkąta";
-      cin >> price_zl;
-      cout << " W dolarach";
-      cin >> price_zl * 4.31;
-      cout << " w Euro";
-      cin >> price_zl * 4.56;
+  void task12() 
+  {
+      double price, converter;
+      cout << " Podaj cenę \n";
+      cin >> price;
+      cout << " \n Podaj przelicznik waluty \n";
+      cin >> converter;
+
+      cout << " \n Ta kwota w innej walucie \n";
+      cout << price* converter;
 
       
   }
@@ -157,7 +159,7 @@ void task5()
 
 
 
-  }
+  
 //Oblicz średnią arytmetyczxną dwóch liczb
 
 void task2() 
@@ -181,7 +183,17 @@ void task2()
         setlocale(LC_CTYPE, "polish");
            // task2();
            // task3();
-        task13()
+           // task4();
+            //task5();
+            //task6();
+           //task7();
+          //task8();
+            //task9();
+           //task10();
+            //task11();
+           // task12();
+
+        
         
 
 }
