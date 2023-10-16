@@ -14,6 +14,7 @@ operatory warunkowe:
 */
 void task1()
 {
+	
 	double firstNumber;
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
@@ -34,9 +35,46 @@ void task1()
 
 
 }
+
+
+
+
+
+void task2()
+{
+
+	int firstNumber, rest;
+	std::cout << "Podaj liczbę\n";
+	cin >> firstNumber;
+	rest = firstNumber % 2;
+	if (rest == 0)
+	{
+		cout << "\n Liczba parzysta";
+	}
+
+	if (firstNumber != 0)
+	{
+		cout << " \n Liczba nieparzysta";
+	}
+
+	// pełna instrukcja if
+	if (rest == 0)
+	{
+		cout << "\n Liczba parzysta";
+	}
+	else
+	{
+		cout << " \n Liczba nieparzysta";
+		cout << " \n Liczba nieparzysta";
+	}
+
+
+	
+}
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task1();
+	//task1();
+	task2();
 }
 
