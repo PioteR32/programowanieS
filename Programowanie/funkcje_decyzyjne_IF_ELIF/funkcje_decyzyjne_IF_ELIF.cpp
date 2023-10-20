@@ -233,8 +233,77 @@ void task8() {
 		} }
 	}
 //  Napisz program, który poprosi użytkownika o podanie dwóch liczb całkowitych i wyświetli większą z nich.
+void task9()
+{
+
+	double firstNumber, secondNumber;
+	std::cout << "Podaj liczbę\n";
+	cin >> firstNumber;
+	std::cout << "Podaj liczbę\n";
+	cin >> secondNumber;
+	if (firstNumber < secondNumber)
+	{
+		cout << "\n Liczba większa to : " << secondNumber;
+	}
+	else 
+	{
+		cout << "\n Liczba większa to : " << firstNumber;
+	}
+	
+
+
+}
 //  Napisz program, który poprosi użytkownika o podanie roku i sprawdzi, czy jest to rok przestępny. Wyświetl odpowiedni komunikat.
+void task10()
+{
+
+	int firstNumber, secondNumber, thirdNumber;
+	std::cout << "Podaj rok \n";
+	cin >> firstNumber;
+	secondNumber = firstNumber % 4;
+	thirdNumber = firstNumber % 100;
+	if (0 < firstNumber)
+	{
+
+
+		if (firstNumber != 0) {
+
+
+			if (thirdNumber == 0)
+			{
+
+				secondNumber = firstNumber;
+
+				secondNumber = firstNumber % 400;
+				if (secondNumber == 0)
+				{
+					cout << "\n rok  " << firstNumber << " jest przestępny ";
+				}
+				else
+				{
+					cout << "\n rok  " << firstNumber << " nie jest przestępny ";
+				}
+			}
+			else
+			{
+				if (secondNumber == 0)
+				{
+					cout << "\n rok  " << firstNumber << " jest przestępny ";
+				}
+				else
+				{
+					cout << "\n rok  " << firstNumber << " nie jest przestępny ";
+				}
+			}
+		}
+		else
+			cout << "\n rok  " << firstNumber << " nwm czy  jest przestępny ";
+	}
+	else
+		cout << "\n ty kur... jeb.. próbowałeś wywalic program";
+}
 // Napisz program, który poprosi użytkownika o podanie liczby całkowitej i sprawdzi, czy jest ona podzielna zarówno przez 3, jak i przez 5. Wyświetl odpowiedni komunikat.
+
 //  Napisz program, który poprosi użytkownika o podanie masy ciała (w kilogramach) i wzrostu (w metrach).
 // to do nad tym Na podstawie tych danych oblicz wskaźnik BMI (Body Mass Index) i wyświetl odpowiedni komunikat informujący o stanie zdrowia.
 //  Napisz program, który poprosi użytkownika o podanie długości trzech odcinków i sprawdzi, czy można zbudować z nich trójkąt. Wyświetl odpowiedni komunikat.
@@ -246,10 +315,11 @@ void task8() {
 
 
 
-int main();
+int main()
 {
 	setlocale(LC_CTYPE, "polish");
 	//task1();
-	task3();
+	task10();
+
 }
 
