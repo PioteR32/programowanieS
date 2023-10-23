@@ -1,14 +1,14 @@
 ﻿
 
 #include <iostream>
-
+#include <cmath>
 using namespace std;
 /*
 operatory warunkowe:
 - WIĘKSZE  >
 - MNIEJSZE <
 - MNIEJSZE LUB RÓWNE <=
-- WIĘKSZE LUB RÓWNE >= 
+- WIĘKSZE LUB RÓWNE >=
 - RÓWNE ==
 - NIE RÓWNE !=
 
@@ -17,15 +17,15 @@ operatory logiczne
 || - OR
 ! - NOT		                     Albo
 XOR - nie w c++
-a	b	a&&b	a||b	!a		a XOR b		
+a	b	a&&b	a||b	!a		a XOR b
 F   F	  F		F		T			F
 F	T	  F		T		T			T
 T	F	  F		T		F			T
-T	T	  T		T		F			F		
+T	T	  T		T		F			F
 */
 void task1()
 {
-	
+
 	double firstNumber;
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
@@ -80,12 +80,12 @@ void task2()
 	}
 }
 
-	// sprawdź czy liczba jest z zakresu <-1,10)
+// sprawdź czy liczba jest z zakresu <-1,10)
 void task3()
 {
-		
-	int firstNumber ;
-	
+
+	int firstNumber;
+
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
 	if (firstNumber >= 1 && firstNumber < 10)
@@ -94,7 +94,7 @@ void task3()
 	}
 	else
 	{
-		if (firstNumber >= 10) 
+		if (firstNumber >= 10)
 		{
 			cout << " liczba   jest większa od zakresu <1,10)";
 		}
@@ -104,7 +104,7 @@ void task3()
 		}
 	}
 	// wersja druga
-	
+
 
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
@@ -115,13 +115,13 @@ void task3()
 			cout << " liczba   jest większa od zakresu <1,10)";
 		else
 			cout << " liczba   jest mniejsza od zakresu <1,10)";
-		
-	
+
+
 }
 // podziel dwie liczby
 #include <string>
 void task4()
- 
+
 
 {
 	string a = " debilem";
@@ -132,12 +132,12 @@ void task4()
 	std::cout << "Podaj liczbę\n";
 	cin >> secondNumber;
 
-	
-	if (secondNumber == 0) 
+
+	if (secondNumber == 0)
 	{
 		cout << " Jesteś " << a << "nie dziel przez zero ty" << a;
 	}
-	
+
 	else
 	{
 		float quoitent = firstNumber / secondNumber;
@@ -152,7 +152,7 @@ void task5()
 	cin >> firstNumber;
 	std::cout << "Podaj liczbę\n";
 	cin >> secondNumber;
-	if (firstNumber == secondNumber) 
+	if (firstNumber == secondNumber)
 	{
 		std::cout << "Liczba jest równa liczbie drugiej\n";
 	}
@@ -168,8 +168,8 @@ void task6()
 	int firstNumber;
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
-	
-	if (18 >= firstNumber )
+
+	if (18 >= firstNumber)
 	{
 		std::cout << "Pełnoletni\n";
 	}
@@ -184,10 +184,10 @@ void task7() {
 
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
-	
-	if (0 <firstNumber )
+
+	if (0 < firstNumber)
 	{
-		std::cout << "Liczba bezwzględna tej liczby \n" << firstNumber* -1;
+		std::cout << "Liczba bezwzględna tej liczby \n" << firstNumber * -1;
 	}
 	else
 	{
@@ -230,8 +230,9 @@ void task8() {
 				std::cout << "Dzień tygodnia to niedziela \n";
 			}
 
-		} }
+		}
 	}
+}
 //  Napisz program, który poprosi użytkownika o podanie dwóch liczb całkowitych i wyświetli większą z nich.
 void task9()
 {
@@ -245,11 +246,11 @@ void task9()
 	{
 		cout << "\n Liczba większa to : " << secondNumber;
 	}
-	else 
+	else
 	{
 		cout << "\n Liczba większa to : " << firstNumber;
 	}
-	
+
 
 
 }
@@ -300,19 +301,19 @@ void task10()
 			cout << "\n rok  " << firstNumber << " nwm czy  jest przestępny ";
 	}
 	else
-		cout << "\n ty kur.. jeb.., próbowałeś wywalic program";
+		cout << "\n nie wpisuj liczby mniejszej niż zero";
 }
 // Napisz program, który poprosi użytkownika o podanie liczby całkowitej i sprawdzi, czy jest ona podzielna zarówno przez 3, jak i przez 5. Wyświetl odpowiedni komunikat.
 void task11()
 {
 
-	int firstNumber, secondNumber , thirdNumber;
+	int firstNumber, secondNumber, thirdNumber;
 	std::cout << "Podaj liczbę\n";
 	cin >> firstNumber;
 	secondNumber = firstNumber % 3;
 	thirdNumber = firstNumber % 5;
 
-	if (secondNumber  == 0 && thirdNumber == 0)
+	if (secondNumber == 0 && thirdNumber == 0)
 	{
 		cout << "\n Liczba : " << firstNumber << " jest podzielna przez 3 i 5";
 	}
@@ -338,10 +339,10 @@ powyżej 40.0 - otyłość skrajną
 Wzór:
 
 BMI = masa/wysokość^2
-*/ 
+*/
 void task11()
 {
-	double weightNumber, tallNumber , bmiNumber;
+	double weightNumber, tallNumber, bmiNumber;
 	std::cout << "Podaj liczbę\n";
 	cin >> weightNumber;
 	std::cout << "Podaj liczbę\n";
@@ -349,7 +350,7 @@ void task11()
 	if (tallNumber <= 0 || weightNumber <= 0)
 	{
 		bmiNumber = weightNumber / (tallNumber * tallNumber);
-	
+
 		if (bmiNumber < 16)
 		{
 			cout << "\n BMI = " << bmiNumber << "- jesteś wygłodzony";
@@ -409,24 +410,132 @@ void task11()
 		}
 	}
 }
-/* 
- Napisz program, który poprosi użytkownika o podanie długości trzech odcinków i sprawdzi, 
+/*
+ Napisz program, który poprosi użytkownika o podanie długości trzech odcinków i sprawdzi,
  czy można zbudować z nich trójkąt. Wyświetl odpowiedni komunikat.
  */
+void task12() {
+	double firstNumber, secondNumber, thirdNumber, triangle;
+	std::cout << "Podaj liczbę\n";
+	cin >> firstNumber;
+	std::cout << "Podaj liczbę\n";
+	cin >> secondNumber;
+	std::cout << "Podaj liczbę\n";
+	cin >> thirdNumber;
 
-//  Napisz program, który poprosi użytkownika o podanie liczby dodatniej i obliczy jej pierwiastek kwadratowy, jeśli jest to możliwe. Wyświetl wynik lub odpowiedni komunikat, jeśli liczba jest ujemna.
-//  Program sprawdzający czy podana data jest poprawna (np. sprawdzając, czy dzień jest z zakresu od 1 do 31, miesiąc od 1 do 12 itd.)
+	if (firstNumber > secondNumber)
+	{
+		if (firstNumber > thirdNumber)
+		{
+			triangle = secondNumber + thirdNumber;
+			if (triangle > firstNumber)
+			{
+				cout << " da się zbudować trójkąta ";
+			}
+			else
+			{
+				cout << " nie da się zbudować trójkąta ";
+			}
+		}
+		else
+		{
+			triangle = secondNumber + firstNumber;
+			if (triangle > thirdNumber)
+			{
+				cout << " da się zbudować trójkąta ";
+			}
+			else
+			{
+				cout << " nie da się zbudować trójkąta ";
+			}
+		}
+	}
+	else
+	{
+		if (secondNumber > thirdNumber)
+		{
+			triangle = firstNumber + thirdNumber;
+			if (triangle > secondNumber)
+			{
+				cout << " da się zbudować trójkąta ";
+			}
+			else
+			{
+				cout << " nie da się zbudować trójkąta ";
+			}
+		}
+		else
+		{
+			triangle = secondNumber + firstNumber;
+			if (triangle > thirdNumber)
+			{
+				cout << " da się zbudować trójkąta ";
+			}
+			else
+			{
+				cout << " nie da się zbudować trójkąta ";
+			}
+		}
+	}
+	//  Napisz program, który poprosi użytkownika o podanie liczby dodatniej i obliczy jej pierwiastek kwadratowy, jeśli jest to możliwe. Wyświetl wynik lub odpowiedni komunikat, jeśli liczba jest ujemna.
+	void task13()
+
+	{
+
+		double firstNumber, primalGrade, result;
+		
+		std::cout << "Podaj liczbę\n";
+		cin >> firstNumber;
+		
+		primalGrade = 2; 
+
+		if (firstNumber <0)
+		{
+			double result = pow(firstNumber, 1 / primalGrade);
+			cout << " Wynik" << result;
+		}
+		else
+		{
+			cout << " Podałeś liczbę ujemną ";
+		}
+
+
+
+
+	}
+	//  Program sprawdzający czy podana data jest poprawna (np. sprawdzając, czy dzień jest z zakresu od 1 do 31, miesiąc od 1 do 12 itd.)
+	void task14()
+
+	{
+
+		double monthNumber, dayNumber, usersMonthNumber, usersDayNumber;
+
+		std::cout << "Podaj dzień \n";
+		cin >> usersDayNumber ;
+		std::cout << "Podaj miesiąc \n";
+		cin >> usersMonthNumber;
+		if (usersDayNumber)
+
+
+		
+
+		
+		
+
+
+
+	}
 
 
 
 
 
 
-int main()
-{
-	setlocale(LC_CTYPE, "polish");
-	//task1();
-	task10();
+	int main()
+	{
+		setlocale(LC_CTYPE, "polish");
+		//task1();
+		task12();
 
-}
+	}
 
