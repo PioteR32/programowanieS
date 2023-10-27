@@ -4,6 +4,7 @@
 #include <cmath>
 using namespace std;
 /*
+* DRY - dont repeat yourself - nie powtarzaj się
 operatory warunkowe:
 - WIĘKSZE  >
 - MNIEJSZE <
@@ -231,6 +232,33 @@ void task8() {
 			}
 
 		}
+	}
+	switch (firstNumber)
+	{
+	case 1:
+		std::cout << "Podniedziałek\n";
+		break;
+	case 2:
+		std::cout << "Wtorek\n";
+		break;
+	case 3:
+		std::cout << "Środa\n";
+		break;
+	case 4:
+		std::cout << "Czwartek\n";
+		break;
+	case 5:
+		std::cout << "Piątek\n";
+		break;
+	case 6:
+		std::cout << "Sobota\n";
+		break;
+	case 0:
+	case 7:
+		std::cout << "Niedziela\n";
+		break;
+	default:
+		std::cout << "Dzień niepoprawny\n";
 	}
 }
 //  Napisz program, który poprosi użytkownika o podanie dwóch liczb całkowitych i wyświetli większą z nich.
