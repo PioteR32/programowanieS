@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 funkcje decyzyjny", "02 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "funkcje_decyzyjne_IF_ELIF", "funkcje_decyzyjne_IF_ELIF\funkcje_decyzyjne_IF_ELIF.vcxproj", "{23DE3F80-0E2F-4929-9796-76E8B8A89DDD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LoopDoWhileConsoleApplication", "LoopDoWhileConsoleApplication\LoopDoWhileConsoleApplication.vcxproj", "{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -45,6 +47,14 @@ Global
 		{23DE3F80-0E2F-4929-9796-76E8B8A89DDD}.Release|x64.Build.0 = Release|x64
 		{23DE3F80-0E2F-4929-9796-76E8B8A89DDD}.Release|x86.ActiveCfg = Release|Win32
 		{23DE3F80-0E2F-4929-9796-76E8B8A89DDD}.Release|x86.Build.0 = Release|Win32
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Debug|x64.ActiveCfg = Debug|x64
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Debug|x64.Build.0 = Debug|x64
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Debug|x86.ActiveCfg = Debug|Win32
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Debug|x86.Build.0 = Debug|Win32
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Release|x64.ActiveCfg = Release|x64
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Release|x64.Build.0 = Release|x64
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Release|x86.ActiveCfg = Release|Win32
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +63,7 @@ Global
 		{C0B0E95B-5528-4FF7-953B-BCFE66B42C7E} = {BFA59B28-0F1F-4C9E-A0C9-BC4D9D4AA5A2}
 		{91915480-67D8-4439-B600-7697313664B4} = {BFA59B28-0F1F-4C9E-A0C9-BC4D9D4AA5A2}
 		{23DE3F80-0E2F-4929-9796-76E8B8A89DDD} = {CBC4F5CA-B326-4C9D-A206-7349A90EBEEB}
+		{8FBBF357-1974-41BF-9330-4D3F4FFD0DA4} = {CBC4F5CA-B326-4C9D-A206-7349A90EBEEB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {619618EF-75E1-447D-8644-98AB1D5E3A3D}

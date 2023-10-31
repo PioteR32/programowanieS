@@ -555,8 +555,20 @@ void task15()
 
 
 
+// Napisz program który pobiera tylko liczbe dodatnią
+void task16() 
+{
+	int number;
+	cout << " podaj liczbe \n";
+	cin >> number;
+	while (number < 0)
+	{
+		cout << " podaj liczbe dodatnią  \n";
+		cin >> number;
 
+	}
 
+}
 
 int main()
 {
