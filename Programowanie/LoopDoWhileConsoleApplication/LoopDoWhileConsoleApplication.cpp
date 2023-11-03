@@ -28,11 +28,21 @@ void task2()
 		cin >> number;
 	} while (number < 0);
 
-	lekcjascout << " liczba jest dodatnia "
+	cout << " liczba jest dodatnia ";
 
 
 }
 
+void task3() 
+{
+	srand(7);
+	int NumberOfUser, randomNumber, rangeNumber;
+	cout << "Podaj zakres. Zakres od 1 do : "; cin >> rangeNumber;
+	randomNumber = rand() % rangeNumber + 1;
+	do
+	{
+      
+	}
 }
 int main()
 {
