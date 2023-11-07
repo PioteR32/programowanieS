@@ -2,50 +2,143 @@
 //
 
 #include <iostream>
-using namespace std;
+
 //Napisz program, który ma pobraæ od u¿ytkownika liczbê dodatni¹. 
 //Zabezpiecz program przed pobieraniem liczb ujemnych.
 void task1()
 {
-	int number;
-	cout << " podaj liczbe \n";
-	cin >> number;
-	while (number < 0)
-	{
-		cout << " podaj liczbe dodatni¹  \n";
-		cin >> number;
+	int numberFromUser;
 
+	std::cout << "Podaj liczbê doodatni¹:\n";
+	std::cin >> numberFromUser;
+	if (numberFromUser < 0)
+	{
+		std::cout << "Podaj liczbê doodatni¹:\n";
+		std::cin >> numberFromUser;
+		if (numberFromUser < 0)
+		{
+			std::cout << "Podaj liczbê doodatni¹:\n";
+			std::cin >> numberFromUser;
+			if (numberFromUser < 0)
+			{
+				std::cout << "Podaj liczbê doodatni¹:\n";
+				std::cin >> numberFromUser;
+				if (numberFromUser < 0)
+				{
+					std::cout << "Podaj liczbê doodatni¹:\n";
+					std::cin >> numberFromUser;
+					//wklejamy ca³ego If'a
+				}
+			}
+		}
 	}
 
+	std::cout << "Liczba dodatnia pobrana od uzytkownika " << numberFromUser << "\n";
 }
 
+//Napisz program, który ma pobraæ od u¿ytkownika liczbê dodatni¹. 
+//Zabezpiecz program przed pobieraniem liczb ujemnych.
 void task2()
 {
-	int number;
+	int numberFromUser;
+
 	do
 	{
-		cout << " podaj liczbe \n";
-		cin >> number;
-	} while (number < 0);
+		std::cout << "Podaj liczbê dodatni¹:\n";
+		std::cin >> numberFromUser;
+	} while (numberFromUser < 0);
 
-	cout << " liczba jest dodatnia ";
-
-
+	std::cout << "Liczba dodatnia pobrana od uzytkownika " << numberFromUser << "\n";
 }
 
-void task3() 
+//Napisz program, który wylosuje liczbê a nastêpnie uzytkownik bêdzie musia³ j¹ zgadn¹æ.
+void task3()
 {
-	srand(7);
-	int NumberOfUser, randomNumber, rangeNumber;
-	cout << "Podaj zakres. Zakres od 1 do : "; cin >> rangeNumber;
-	randomNumber = rand() % rangeNumber + 1;
+	const int LOWER_RANGE = 1;
+	const int UPPER_RANGE = 100;
+	srand(time(NULL));
+	int randomNumber = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+	//std::cout << randomNumber << "\n";
+
+	int numberFromUser;
+
+	/*
+	std::cout << "Podaj liczbê:\n";
+	std::cin >> numberFromUser;
+	if (numberFromUser != randomNumber)
+	{
+		std::cout << "Podaj liczbê:\n";
+		std::cin >> numberFromUser;
+		if (numberFromUser != randomNumber)
+		{
+			std::cout << "Podaj liczbê:\n";
+			std::cin >> numberFromUser;
+			//...
+		}
+	}*/
+
 	do
 	{
-      
-	}
+		std::cout << "Podaj liczbê:\n";
+		std::cin >> numberFromUser;
+		if (numberFromUser > randomNumber)
+			std::cout << "Za du¿a liczba\n";
+		if (numberFromUser < randomNumber)
+			std::cout << "Za ma³a liczba\n";
+	} while (numberFromUser != randomNumber);
+
+	std::cout << "Gratulacje!!!!\n";
+
 }
+
+//Napisz program wyœwietlaj¹cy liczby ca³kowite z przedzia³u <1,x>.
+//Gdzie x pdaje u¿ytkownika.
+void task4()
+{
+	//std::cout << "1, 2, 3, 4, 5, 6 \n";
+	unsigned long long upperRange;
+	std::cout << "Podaj  zakres który nie jest równy 0\n";
+	std::cin >> upperRange;
+
+	/*
+	std::cout << "1, ";
+	if (upperRange > 1)
+	{
+		std::cout << "2, ";
+		if (upperRange > 2)
+		{
+			std::cout << "3, ";
+			if (upperRange > 3)
+			{
+				std::cout << "4, ";
+				//.....
+			}
+		}
+	}
+	*/
+	unsigned long long currentNumber = 0;
+	if (upperRange >= 0) {
+		unsigned long long currentNumber = 0;
+		do
+		{
+			currentNumber++;
+			std::cout << currentNumber << ", ";
+		} while (upperRange > currentNumber);
+	}
+	else
+	{
+		do
+		{
+			
+			currentNumber = currentNumber - 1 ;
+			std::cout << currentNumber << ", ";
+		} while (upperRange > currentNumber);
+	}
+	
+}
+
 int main()
 {
+	task4();
 
 }
-
