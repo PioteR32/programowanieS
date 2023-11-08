@@ -96,7 +96,7 @@ void task3()
 void task4()
 {
 	//std::cout << "1, 2, 3, 4, 5, 6 \n";
-	unsigned long long upperRange;
+	long long upperRange;
 	std::cout << "Podaj  zakres który nie jest równy 0\n";
 	std::cin >> upperRange;
 
@@ -116,9 +116,8 @@ void task4()
 		}
 	}
 	*/
-	unsigned long long currentNumber = 0;
+	long long currentNumber = 0;
 	if (upperRange >= 0) {
-		unsigned long long currentNumber = 0;
 		do
 		{
 			currentNumber++;
@@ -132,7 +131,7 @@ void task4()
 			
 			currentNumber = currentNumber - 1 ;
 			std::cout << currentNumber << ", ";
-		} while (upperRange > currentNumber);
+		} while (upperRange < currentNumber);
 	}
 	
 }
