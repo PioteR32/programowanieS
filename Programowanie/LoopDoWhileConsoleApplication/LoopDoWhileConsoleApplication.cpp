@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-
+using namespace std;
 //Napisz program, który ma pobraæ od u¿ytkownika liczbê dodatni¹. 
 //Zabezpiecz program przed pobieraniem liczb ujemnych.
 void task1()
@@ -134,6 +134,21 @@ void task4()
 		} while (upperRange < currentNumber);
 	}
 	
+}
+
+
+void task5()
+{
+	int number,sum,rest;
+	std::cout << " Podaj liczbê";
+	cin >> number;
+	do {
+		rest = number % 10;
+		sum = sum + rest;
+		number = number / 10;
+
+	} while (sum != 0);
+
 }
 
 int main()
