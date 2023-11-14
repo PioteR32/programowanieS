@@ -128,18 +128,19 @@ void task4()
 	{
 		do
 		{
-			
-			currentNumber = currentNumber - 1 ;
+
+			currentNumber = currentNumber - 1;
 			std::cout << currentNumber << ", ";
 		} while (upperRange < currentNumber);
 	}
-	
+
 }
 
 
 void task5()
 {
-	int number,sum,rest;
+	int number, sum, rest;
+	sum = 0;
 	std::cout << " Podaj liczbê";
 	cin >> number;
 	do {
@@ -148,11 +149,25 @@ void task5()
 		number = number / 10;
 
 	} while (sum != 0);
-
+	cout << " suma liczby to" << sum;
 }
-
-int main()
+void task6()
 {
-	task4();
+	int number, i;
+	double sum = 0;
+	i = 0;
+	do
+	{
+		std::cout << " Podaj liczbê";
+		cin >> number;
+		i++;
+		sum += number;
+	} while (number != 0);
+	std::cout << " Suma liczb = " << sum;
+	std::cout << " Œrednia arytmetyczna  = " << sum / i;
+}
+	int main()
+{
+	task6();
 
 }
