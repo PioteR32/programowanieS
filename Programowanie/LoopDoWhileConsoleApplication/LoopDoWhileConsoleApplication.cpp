@@ -166,8 +166,24 @@ void task6()
 	std::cout << " Suma liczb = " << sum;
 	std::cout << " Œrednia arytmetyczna  = " << sum / i;
 }
+// Napisz program który obliczy i wyœwietli liczbê cyfr
+void task7()
+{
+	int number, numberOfDigits;
+	numberOfDigits = 0;
+	std::cout << " Podaj liczbê \n";
+	cin >> number;
+	do {
+		number = number / 10;
+		numberOfDigits++;
+
+	} while (number != 0);
+	
+	cout << "Liczba cyfr to " << numberOfDigits;
+
+}
 	int main()
 {
-	task6();
+	task7();
 
 }
