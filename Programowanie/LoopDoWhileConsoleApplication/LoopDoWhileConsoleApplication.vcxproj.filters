@@ -13,10 +13,35 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Zdjęcia">
+      <UniqueIdentifier>{a4fbbb10-ae5c-4f97-b4ce-bc530624efc3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LoopDoWhileConsoleApplication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Programowanie\if else (2).jpeg">
+      <Filter>Source Files\Zdjęcia</Filter>
+    </Image>
+    <Image Include="Programowanie\if else.jpeg">
+      <Filter>Source Files\Zdjęcia</Filter>
+    </Image>
+    <Image Include="Programowanie\liczba parzysta.jpeg">
+      <Filter>Source Files\Zdjęcia</Filter>
+    </Image>
+    <Image Include="Programowanie\pętle zad trudne.jpeg">
+      <Filter>Source Files\Zdjęcia</Filter>
+    </Image>
+    <Image Include="Programowanie\wiek.jpeg">
+      <Filter>Source Files\Zdjęcia</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Programowanie\Liczby parzyste">
+      <Filter>Source Files\Zdjęcia</Filter>
+    </None>
   </ItemGroup>
 </Project>

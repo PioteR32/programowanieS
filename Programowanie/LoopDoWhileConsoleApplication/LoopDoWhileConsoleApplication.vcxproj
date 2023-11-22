@@ -129,6 +129,16 @@
   <ItemGroup>
     <ClCompile Include="LoopDoWhileConsoleApplication.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Programowanie\if else (2).jpeg" />
+    <Image Include="Programowanie\if else.jpeg" />
+    <Image Include="Programowanie\liczba parzysta.jpeg" />
+    <Image Include="Programowanie\pętle zad trudne.jpeg" />
+    <Image Include="Programowanie\wiek.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Programowanie\Liczby parzyste" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
