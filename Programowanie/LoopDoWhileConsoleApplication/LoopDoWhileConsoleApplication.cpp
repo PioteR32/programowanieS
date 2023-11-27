@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-
+using namespace std;
 //Napisz program, który ma pobraæ od u¿ytkownika liczbê dodatni¹. 
 //Zabezpiecz program przed pobieraniem liczb ujemnych.
 void task1()
@@ -96,7 +96,7 @@ void task3()
 void task4()
 {
 	//std::cout << "1, 2, 3, 4, 5, 6 \n";
-	unsigned long long upperRange;
+	long long upperRange;
 	std::cout << "Podaj  zakres który nie jest równy 0\n";
 	std::cin >> upperRange;
 
@@ -116,9 +116,8 @@ void task4()
 		}
 	}
 	*/
-	unsigned long long currentNumber = 0;
+	long long currentNumber = 0;
 	if (upperRange >= 0) {
-		unsigned long long currentNumber = 0;
 		do
 		{
 			currentNumber++;
@@ -129,16 +128,62 @@ void task4()
 	{
 		do
 		{
-			
-			currentNumber = currentNumber - 1 ;
+
+			currentNumber = currentNumber - 1;
 			std::cout << currentNumber << ", ";
-		} while (upperRange > currentNumber);
+		} while (upperRange < currentNumber);
 	}
-	
+
 }
 
-int main()
+
+void task5()
 {
-	task4();
+	int number, sum, rest;
+	sum = 0;
+	std::cout << " Podaj liczbê";
+	cin >> number;
+	do {
+		rest = number % 10;
+		sum = sum + rest;
+		number = number / 10;
+
+	} while (sum != 0);
+	cout << " suma liczby to" << sum;
+}
+void task6()
+{
+	int number, i;
+	double sum = 0;
+	i = 0;
+	do
+	{
+		std::cout << " Podaj liczbê";
+		cin >> number;
+		i++;
+		sum += number;
+	} while (number != 0);
+	std::cout << " Suma liczb = " << sum;
+	std::cout << " Œrednia arytmetyczna  = " << sum / i;
+}
+// Napisz program który obliczy i wyœwietli liczbê cyfr
+void task7()
+{
+	int number, numberOfDigits;
+	numberOfDigits = 0;
+	std::cout << " Podaj liczbê \n";
+	cin >> number;
+	do {
+		number = number / 10;
+		numberOfDigits++;
+
+	} while (number != 0);
+	
+	cout << "Liczba cyfr to " << numberOfDigits;
+
+}
+	int main()
+{
+	task7();
 
 }

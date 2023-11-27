@@ -510,7 +510,7 @@ void task15()
 
 {
 
-	int    usersMonthNumber, usersDayNumber, firstResult, usersYearNumber;
+	int    usersMonthNumber, usersDayNumber, firstResult, usersYearNumber=0;
 
 	std::cout << "Podaj dzień \n";
 	cin >> usersDayNumber;
@@ -531,7 +531,7 @@ void task15()
 		}
 		else
 		{
-			if (usersMonthNumber == 2) {
+			/*if (usersMonthNumber == 2) {
 				cout 
 				
 
@@ -540,7 +540,7 @@ void task15()
 			{
 
 
-			}
+			}*/
 		}
 	}
 	
