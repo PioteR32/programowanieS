@@ -25,9 +25,9 @@ void task2()
 	cin >> numberOfUser;
 	std::cout << " Podaj liczbê";
 	cin >> firstNumber;
-	nwd = numberOfUser;
+	nwd = numberOfUser < firstNumber ? numberOfUser : firstNumber;
 
-	while(numberOfUser != 0
+	while (numberOfUser != 0
 		|| firstNumber != 0)
 	{
 		nwd--;
@@ -37,13 +37,44 @@ void task2()
 
 void task3()
 {
-	int numberOfUser,  nwd, firstNumber;
+	int numberOfUser,  nwd, firstNumber,dividend = 1;
 	std::cout << " Podaj liczbê";
 	cin >> numberOfUser;
 	std::cout << " Podaj liczbê";
 	cin >> firstNumber;
-	
+	nwd = 1;
+	while (numberOfUser >= dividend
+		&& firstNumber >= dividend)
+	{ 
+		if (firstNumber % dividend == 0
+			&& numberOfUser % dividend == 0)
+		{
+			firstNumber /= dividend;
+			numberOfUser /= dividend;
+			nwd *= dividend;
+		}
+		else
+			dividend++;
+	}
+	cout << " NWD = " << nwd << "\n";
+		
 }
+void task3()
+{
+	int a, nwd, b, dividend = 1;
+	std::cout << " Podaj liczbê";
+	cin >> a;
+	std::cout << " Podaj liczbê";
+	cin >> b;
+	nwd = 1;
+	while (b != 0)
+	{
+		int tmpA = a;
+		a = b;
+		b = tmpA % b;
+
+	}
+	
 int main()
 {
    

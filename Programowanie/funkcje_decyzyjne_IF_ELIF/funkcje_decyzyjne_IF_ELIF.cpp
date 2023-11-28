@@ -503,10 +503,10 @@ void task14()
 
 
 
+void task15()
 
 }
 //  Program sprawdzający czy podana data jest poprawna (np. sprawdzając, czy dzień jest z zakresu od 1 do 31, miesiąc od 1 do 12 itd.)
-void task15()
 
 {
 
