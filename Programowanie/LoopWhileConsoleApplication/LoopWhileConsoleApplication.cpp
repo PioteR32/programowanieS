@@ -47,7 +47,7 @@ void task1()
 //Napisz program, który policzy NWD dwóch liczb.
 void task2()
 {
-<<<<<<< HEAD
+
 	int firstNumber, secondNumber;
 	std::cout << "Podaj pierwszą liczbę\n";
 	std::cin >> firstNumber;
@@ -138,7 +138,6 @@ void task2()
 //Sprawdzanie czy liczba jest palindromem.
 void task3()
 {
-<<<<<<< HEAD
 	int number;
 	std::cout << "Podaj liczbę\n";
 	std::cin >> number;
@@ -191,7 +190,7 @@ void task3()
 		cout << "liczbq jest palindromem";
 	else
 		cout << "liczba nie  jest palindromem";
-=======
+
 	int numberOfUser,  nwd, firstNumber,dividend = 1;
 	std::cout << " Podaj liczb�";
 	cin >> numberOfUser;
@@ -214,7 +213,7 @@ void task3()
 	cout << " NWD = " << nwd << "\n";
 		
 }
-void task3()
+void task4()
 {
 	int a, nwd, b, dividend = 1;
 	std::cout << " Podaj liczb�";
@@ -230,11 +229,7 @@ void task3()
 
 	}
 	
-int main()
-{
-   
->>>>>>> d6ab3fd0fff5f5321b13253f049c5f4dead52582
-}
+	
 
 int main()
 {
