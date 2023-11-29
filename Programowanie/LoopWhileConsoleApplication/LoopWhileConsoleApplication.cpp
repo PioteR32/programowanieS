@@ -47,6 +47,7 @@ void task1()
 //Napisz program, który policzy NWD dwóch liczb.
 void task2()
 {
+<<<<<<< HEAD
 	int firstNumber, secondNumber;
 	std::cout << "Podaj pierwszą liczbę\n";
 	std::cin >> firstNumber;
@@ -65,6 +66,17 @@ void task2()
 	/*
 	if (secondNumber % nwd != 0
 		|| firstNumber % nwd != 0)
+=======
+	int numberOfUser, firstNumber,nwd;
+	std::cout << " Podaj liczb�";
+	cin >> numberOfUser;
+	std::cout << " Podaj liczb�";
+	cin >> firstNumber;
+	nwd = numberOfUser < firstNumber ? numberOfUser : firstNumber;
+
+	while (numberOfUser != 0
+		|| firstNumber != 0)
+>>>>>>> d6ab3fd0fff5f5321b13253f049c5f4dead52582
 	{
 		nwd--;
 		if (secondNumber % nwd != 0
@@ -126,6 +138,7 @@ void task2()
 //Sprawdzanie czy liczba jest palindromem.
 void task3()
 {
+<<<<<<< HEAD
 	int number;
 	std::cout << "Podaj liczbę\n";
 	std::cin >> number;
@@ -178,6 +191,49 @@ void task3()
 		cout << "liczbq jest palindromem";
 	else
 		cout << "liczba nie  jest palindromem";
+=======
+	int numberOfUser,  nwd, firstNumber,dividend = 1;
+	std::cout << " Podaj liczb�";
+	cin >> numberOfUser;
+	std::cout << " Podaj liczb�";
+	cin >> firstNumber;
+	nwd = 1;
+	while (numberOfUser >= dividend
+		&& firstNumber >= dividend)
+	{ 
+		if (firstNumber % dividend == 0
+			&& numberOfUser % dividend == 0)
+		{
+			firstNumber /= dividend;
+			numberOfUser /= dividend;
+			nwd *= dividend;
+		}
+		else
+			dividend++;
+	}
+	cout << " NWD = " << nwd << "\n";
+		
+}
+void task3()
+{
+	int a, nwd, b, dividend = 1;
+	std::cout << " Podaj liczb�";
+	cin >> a;
+	std::cout << " Podaj liczb�";
+	cin >> b;
+	nwd = 1;
+	while (b != 0)
+	{
+		int tmpA = a;
+		a = b;
+		b = tmpA % b;
+
+	}
+	
+int main()
+{
+   
+>>>>>>> d6ab3fd0fff5f5321b13253f049c5f4dead52582
 }
 
 int main()
