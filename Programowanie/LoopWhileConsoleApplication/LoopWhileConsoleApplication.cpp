@@ -231,10 +231,34 @@ void task3()
 
 		}
 	}
-	
+	void task5()
+	{
+		int howManyTimes;
+		cout << "Podaj liczbę \n";
+		cin >> howManyTimes;
+		int i = 0;
+		while (i != howManyTimes)
+		{
+			cout << "Hallo world\n";
+			i++;
+		}
+	}
+	// NAPISZ PROGRAM KTÓRY POJKAŻE LICZBY PARZYSTE DO DANEGO 
+	void task6()
+	{
+		int howManyTimes;
+		cout << "Podaj liczbę \n";
+		cin >> howManyTimes;
+		int i = 0;
+		while (i <= howManyTimes)
+		{
+			cout << i << "\n";
+			i+= 2;
+		}
+	}
 	
 
 int main()
 {
-	task3();
+	task5();
 }
