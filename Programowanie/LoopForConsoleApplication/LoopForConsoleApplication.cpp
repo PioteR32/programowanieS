@@ -112,8 +112,57 @@ void task7()
 	for (int i = 1; i <= 10;i++ )
 		cout << i << "!";
 }
+// Program wyświetlający na ekranie tabliczkę mnożenia od 1 do 9 (np. 1x1 = 1, 1x2 = 2, 1x3 = 3 itd.)
+void task8() {
+	int number = 1;
+	for (int i = 1; number != 11; i++)
+	{
+		cout <<" "<< number<<" * "<< i <<" = "<<i * number << "\n";
+
+		if (i == 10) 
+		{
+			i = 1;
+			number++;
+		}
+	}
+}
+// Program wyświetlający na ekranie wszystkie liczby podzielne przez 3 z zakresu od 1 do 100
+void task9()
+{
+	int number = 3;
+	for (int i = 3; number <= 100; number += i)
+	{
+		
+		cout << number <<"\n";
+	}
+}
+// Program obliczający sumę kwadratów liczb od 1 do 10
+void task10()
+{
+	int number = 0;
+	for (int i = 1; i != 11; i++)
+	{
+		number = (i * i) + number;
+		cout << number << " ";
+	}
+}
+//* Program wyświetlający na ekranie ciąg Fibonacciego do 20 elementu (ciąg Fibonacciego to ciąg gdzie każdy element jest sumą dwóch poprzednich, np. 0, 1, 1, 2, 3, 5, 8, 13 itd.)
+void task11()
+{
+	int number = 1, firstNumber = 0;
+	for (int i = 0; i != 21; i++)
+	{
+		cout << firstNumber << "\n";
+		cout << number << "\n";
+		
+		firstNumber += number;
+		number += firstNumber;
+	}
+
+}
+
 int main()
 {
-	task7();
+	task11();
 }
 
