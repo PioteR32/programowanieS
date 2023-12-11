@@ -160,9 +160,65 @@ void task11()
 	}
 
 }
+/*Program, kóry wyświetli poniższe cztery zwory :
+****54321        121212        122333
+* ** 65432       212121        223334444
+* *76543        121212        333444455555
+* 87654        212121        444455555666666*/
+void task12()
+{
+	
+	for (int i = 0; i != 4; i++)
+	{
+		for(int j = i ;j != 4;j++)
+		{
+			cout << "*";
+		}
+		 
+		cout << "\n";
+	}
+}
+void task13()
+{
+	int  number = 43210;
+	for (int i = 50000; i != 90000; i += 10000)
+	{
+		number /= 10;
+		number += i;
+		cout << number << "\n";
+		
+		
+		cout << "\n";
+	}
+}
+void task14()
+{
+	int  number = 121212;
+	int numberFirst = 212121;
+	for (int i = 4; i != 0 ; i--)
+	{
+		if (i % 2 == 0)
+			cout << number;
+		else
+			cout << numberFirst;
 
+
+		cout << "\n";
+	}
+}
+void task15()
+{
+	int  number = 1;
+	for (int i = 1; i != 7; i++)
+	{
+		for (int j = 0; j != i; j++)
+		{
+			
+		}
+		if( i =)
+	}
+}
 int main()
 {
-	task11();
+	task15();
 }
-
