@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <math.h>
 using namespace std;
 void task1()
 {
@@ -168,9 +169,9 @@ void task11()
 void task12()
 {
 	
-	for (int i = 0; i != 4; i++)
+	for (int i = 0; i != 9; i++)
 	{
-		for(int j = i ;j != 4;j++)
+		for(int j = i ;j != 9;j++)
 		{
 			cout << "*";
 		}
@@ -209,16 +210,47 @@ void task14()
 void task15()
 {
 	int  number = 1;
-	for (int i = 1; i != 7; i++)
+	int k = 3;
+	int j = 0;
+	for (int i = 1; i != 7; i++  )
 	{
-		for (int j = 0; j != i; j++)
+		
+		for (; j != i; j++)
 		{
+			cout << i;
+			
 			
 		}
-		if( i =)
+		
+		if (i == k  )
+		{
+			if (i == 6)
+				break;
+			i -= 2;
+			k++;
+			cout << "\n";
+		}
+		j = 0;
 	}
+}
+
+//Oblicz sumę szeregu 1 / 1 ^ 2 + 1 / 2 ^ 2 + 1 / 3 ^ 2 + ... + 1 / n ^ 2. Jeżeli się nie pomylisz, to dla odpowiednio dużej wartości n po przemnożeniu jej przez 6 i spierwiastkowaniu powinieneś otrzymać 
+//wartość liczby π(suma szeregu jest równa π2 / 6).Zwróć uwagę, że pierwsza wartość indeksu to 1, a nie 0. Dokładność obliczeń można sprawdzić porównując z wartością odczytaną z własności Math.PI.
+void task16()
+{
+	int numberFirst = 1;
+	int number = 1;
+	for (int i = 1; i != 10; i++)
+	{
+		numberFirst = numberFirst / (i * i + 1);
+	}
+	cout << numberFirst;
+	numberFirst *= 6;
+	numberFirst = sqrt(numberFirst);
+	if (numberFirst == MATH_PI))
+		cout << "dobre";
 }
 int main()
 {
-	task15();
+	task16();
 }
