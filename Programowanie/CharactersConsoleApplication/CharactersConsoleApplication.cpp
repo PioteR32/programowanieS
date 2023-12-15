@@ -1,20 +1,46 @@
-// CharactersConsoleApplication.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+
+//Napisz program który pobierze znak od u¿ytkownika i wyœwieli go.
+void task1()
+{
+    char characterFromUser;
+    std::cout << "Podaj znak\n";
+    std::cin >> characterFromUser;
+
+    std::cout << "Poda³eœ znak:" << characterFromUser << "\n";
+}
+
+//Napisz program, który wczyta znak z klawiatury 
+//i sprawdzi czy jest to ma³a litera alfabetu.
+void task2()
+{
+    unsigned char characterFromUser;
+    std::cout << "Podaj znak\n";
+    std::cin >> characterFromUser;
+
+    //if (characterFromUser >= 97 && characterFromUser <= 122)
+    if (characterFromUser >= 'a' && characterFromUser <= 'z')
+        std::cout << "Jest to ma³a litera alfabetu\n";
+    else
+        std::cout << "Nie jest to ma³a litera alfabetu\n";
+
+    /*char x = 'a';
+    std::cout << x;
+    x = 'g' + 1;
+    std::cout << x;
+    x = 100;
+    std::cout << x;*/
+
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    setlocale(LC_CTYPE, "polish");
+    task2();
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+/*
+Typy znakowe:
+* char - 1 bajt ca³kowitoliczbowa ze znakiem <-128; 127>
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+*/
