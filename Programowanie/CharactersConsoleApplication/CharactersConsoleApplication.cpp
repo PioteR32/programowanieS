@@ -131,21 +131,46 @@ void task9()
     int i = 0;
     bool word = true;
     int usersWordLength = usersWord.length();
-    int tousersWord = usersWordLength - 1;
-    while (usersWordLength != i)
+    int toUsersWord = usersWordLength - 1;
+    while (usersWordLength >= i)
     {
-        if (usersWord[i] != usersWord[tousersWord ])
+        if (usersWord[i] != usersWord[toUsersWord ])
         {
             word = false;
+            break;
         }
-        i++
+        i++;
+        toUsersWord--;
     }
-
+    cout << word;
 }
 // Program sprawdzaj¹cy czy podane dwa s³owa s¹ anagramami (czyli takimi, które zawieraj¹ te same litery, ale w innym uk³adzie, np. "klasa" i "salka")
+void task10()
+{
+    string firstWord, secondWord;
+    cout << "Podaj wyraz";
+    cin >> firstWord;
+    cout << "podaj drugi wyraz";
+    cin >> secondWord;
+    
+
+}
 // Program wyci¹gaj¹cy informacje z numeru PESEL
 // Program implementuj¹cy algorytm szyfrowania Cezara (proste szyfrowanie, w którym ka¿dy znak w tekœcie jest zastêpowany innym znakiem, przesuniêtym o sta³¹ liczbê pozycji w alfabecie).
-
+void task12()
+{
+    string word;
+    int numberSzyfr, szyfr;
+    cout << "Podaj wyraz";
+    cin >> word;
+    cout << "POdaj przesuniêcie";
+    cin >> numberSzyfr;
+    for (int i = 0; i < word.length(); i++)
+    {
+        word[i] = word[i] + numberSzyfr;
+    }
+    cout << word;
+}
 // Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 234*+
 // Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
 // Algorytm szyfrowania AtBash Cipher - algorytm szyfruj¹cy, w którym ka¿da litera jest zamieniana na literê z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
