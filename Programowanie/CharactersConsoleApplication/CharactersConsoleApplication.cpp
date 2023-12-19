@@ -1,6 +1,8 @@
 #include <iostream>
+#include <string>
 
 //Napisz program który pobierze znak od u¿ytkownika i wyœwieli go.
+using namespace std;
 void task1()
 {
     char characterFromUser;
@@ -32,11 +34,126 @@ void task2()
     std::cout << x;*/
 
 }
+void task3()
+{
+    std::string name;
+    cout << "Podaj  swoje imiê\n";
+    cin >> name;
+    cout << "Witaj" << name;
+}
+void task4()
+{
+    string password = "aaa",userpassword;
+    cout << "Podaj has³o";
+    cin >> userpassword;
+    if (password == userpassword)
+        cout << "Poprawne has³o";
+    else
+        cout << "Niepoprawne has³o";
+   
+}void task5()
+{
+    string textFromUser;
+    cout << "Podaj ³añcuch znaków\n";
+    cin >> textFromUser;
+    int numberOfCharacters = 0;
+    cout << "Pierwszy znak to" << textFromUser[0] << "\n";
+    textFromUser[1] = 'x';
+    cout << "Iloœæ znaków" << textFromUser.length() << "\n";
+    for (int i = 0; i < textFromUser.length(); i++)
+    {
+        if (textFromUser[i] == 'a')
+            numberOfCharacters++;
+    }
+    cout << "Ma³ych liter 'a' jest " << numberOfCharacters << "\n";
+
+}
+
+// Napisz program, który bêdzie prosi³ o has³o. Nie przepuœci dalej dopóki nie zostanie ono podane prawid³owo.
+void task6()
+{
+    string password ;
+    do 
+    {
+        cout << "Podaj has³o\n";
+        cin >> password;
+        
+    } while (password != "aa");
+}
+// Napisz program, który pobiera od u¿ytkownika ci¹g znaków i wyœwietla liczbê samog³osek i spó³g³osek w tym ci¹gu.
+void task7()
+{
+    string textFromUser;
+    cout << "Podaj ³añcuch znaków\n";
+    cin >> textFromUser;
+    int numberOfVowel = 0;
+    int numberOfConsonant = 0;
+    for (int i = 0; i < textFromUser.length(); i++)
+    {
+        if (textFromUser[i] == 'a' || textFromUser[i] == 'e' || textFromUser[i] == 'i' || textFromUser[i] == 'o'
+            || textFromUser[i] == 'u' || textFromUser[i] == 'y')
+            numberOfVowel++;
+        else 
+            numberOfConsonant++;
+    }
+    cout << numberOfVowel << "\n" << numberOfConsonant;
+
+}
+//Poproœ u¿ytkownika o wprowadzenie liczby ca³kowitej w systemie dziesiêtnym.
+//  Nastêpnie skonwertuj tê liczbê na system dwójkowy (binarny) i wyœwietl wynik.
+void task8()
+{
+    int numberOfUser;
+    string numberBin;
+    int reszta;
+    cout << "Podaj liczbê\n";
+    cin >> numberOfUser;
+    int i = 0;
+    while (numberOfUser != 0)
+    {
+        reszta = numberOfUser % 2;
+        numberOfUser /= 2;
+        if (reszta == 0)
+        {
+            numberBin = "0" + numberBin;// doklejam na przód
+        }
+        else
+            numberBin = "1" + numberBin;
+    }
+    cout << numberBin;
+}
+// Program sprawdzaj¹cy czy podany ci¹g znaków jest palindromem (czyli takim, który czytany od ty³u jest taki sam, jak czytany od przodu, np. "kajak")
+void task9()
+{
+    cout << "Podaj wyraz\n";
+    string usersWord;
+    cin >> usersWord;
+    int i = 0;
+    bool word = true;
+    int usersWordLength = usersWord.length();
+    int tousersWord = usersWordLength - 1;
+    while (usersWordLength != i)
+    {
+        if (usersWord[i] != usersWord[tousersWord ])
+        {
+            word = false;
+        }
+        i++
+    }
+
+}
+// Program sprawdzaj¹cy czy podane dwa s³owa s¹ anagramami (czyli takimi, które zawieraj¹ te same litery, ale w innym uk³adzie, np. "klasa" i "salka")
+// Program wyci¹gaj¹cy informacje z numeru PESEL
+// Program implementuj¹cy algorytm szyfrowania Cezara (proste szyfrowanie, w którym ka¿dy znak w tekœcie jest zastêpowany innym znakiem, przesuniêtym o sta³¹ liczbê pozycji w alfabecie).
+
+// Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 234*+
+// Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
+// Algorytm szyfrowania AtBash Cipher - algorytm szyfruj¹cy, w którym ka¿da litera jest zamieniana na literê z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
 
 int main()
 {
     setlocale(LC_CTYPE, "polish");
-    task2();
+    task8();
 }
 
 /*
