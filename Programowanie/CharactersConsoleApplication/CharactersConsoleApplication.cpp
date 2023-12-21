@@ -128,21 +128,23 @@ void task9()
     cout << "Podaj wyraz\n";
     string usersWord;
     cin >> usersWord;
-    int i = 0;
-    bool word = true;
+    bool isPalindrom = true;
     int usersWordLength = usersWord.length();
-    int toUsersWord = usersWordLength - 1;
-    while (usersWordLength >= i)
+    
+    for(int fromStart = 0,  fromEnd = usersWordLength - 1; fromEnd >= fromStart; fromStart++ , fromEnd-- )
     {
-        if (usersWord[i] != usersWord[toUsersWord ])
+        if (usersWord[fromStart] != usersWord[fromEnd])
         {
-            word = false;
+            isPalindrom = false;
             break;
-        }
-        i++;
-        toUsersWord--;
+        }   
     }
-    cout << word;
+    if (isPalindrom)
+    {
+        cout << "Jest palindromem";
+    }
+    else
+        cout << "Nie Jest palindromem";
 }
 // Program sprawdzaj¹cy czy podane dwa s³owa s¹ anagramami (czyli takimi, które zawieraj¹ te same litery, ale w innym uk³adzie, np. "klasa" i "salka")
 void task10()
@@ -152,7 +154,37 @@ void task10()
     cin >> firstWord;
     cout << "podaj drugi wyraz";
     cin >> secondWord;
-    
+    bool isAnagram = true;
+    if (secondWord.length() != firstWord.length())
+    {
+
+        for (int i = 0; i < secondWord.length();)
+        {
+            if (isAnagram)
+                break;
+            else
+                for (int j = 0; j < secondWord.length(); j++)
+                {
+
+                    if (secondWord[i] == firstWord[j])
+                    {
+                        secondWord[i] = '0';
+                        firstWord[j] = '1';
+                    }
+                    if (secondWord.length() - 1 == j)
+                    {
+                        isAnagram = false;
+                        break;
+                    }
+
+                }
+        }
+        if (isAnagram)
+            cout << "Prawda";
+        else
+            cout << "false";
+    }
+
 
 }
 // Program wyci¹gaj¹cy informacje z numeru PESEL
@@ -171,14 +203,16 @@ void task12()
     }
     cout << word;
 }
-// Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 234*+
+// Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 2 3 4 * +
+
 // Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
 // Algorytm szyfrowania AtBash Cipher - algorytm szyfruj¹cy, w którym ka¿da litera jest zamieniana na literê z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
+
 
 int main()
 {
     setlocale(LC_CTYPE, "polish");
-    task8();
+    task10();
 }
 
 /*
