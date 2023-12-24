@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 
 //Napisz program który pobierze znak od u¿ytkownika i wyœwieli go.
 using namespace std;
@@ -155,12 +156,12 @@ void task10()
     cout << "podaj drugi wyraz";
     cin >> secondWord;
     bool isAnagram = true;
-    if (secondWord.length() != firstWord.length())
+    if (secondWord.length() == firstWord.length())
     {
 
         for (int i = 0; i < secondWord.length();)
         {
-            if (isAnagram)
+            if (!(isAnagram))
                 break;
             else
                 for (int j = 0; j < secondWord.length(); j++)
@@ -179,15 +180,40 @@ void task10()
 
                 }
         }
-        if (isAnagram)
-            cout << "Prawda";
-        else
-            cout << "false";
+        
     }
-
+    if (isAnagram)
+        cout << "Prawda";
+    else
+        cout << "false";
 
 }
 // Program wyci¹gaj¹cy informacje z numeru PESEL
+void task123()
+{
+    string pesel;
+    cout << "Podaj pesel";
+    cin >> pesel;
+    
+   
+   
+    if (pesel[2]  == '2' || pesel[2] == '3')
+    {
+        pesel[2] -=  2;
+        cout << "20" << pesel[0] << pesel[1] << " twój rok urodzenia\n";
+    }
+    else
+      cout << "19" << pesel[0] << pesel[1] << " twój rok urodzenia\n";
+    cout << "twój miesi¹c urodzenia " << pesel[2] << pesel[3] << "\n";
+    cout << "twój dzieñ urodzenia " << pesel[4] << pesel[5] << "\n";
+    if (pesel[9] % 2 == 0)
+    {
+        cout << "Jesteœ kobiet¹\n";
+    }
+    else
+        cout << "Jesteœ mê¿czyzn¹\n";
+
+}
 // Program implementuj¹cy algorytm szyfrowania Cezara (proste szyfrowanie, w którym ka¿dy znak w tekœcie jest zastêpowany innym znakiem, przesuniêtym o sta³¹ liczbê pozycji w alfabecie).
 void task12()
 {
@@ -207,12 +233,24 @@ void task12()
 
 // Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
 // Algorytm szyfrowania AtBash Cipher - algorytm szyfruj¹cy, w którym ka¿da litera jest zamieniana na literê z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
+void task16()
+{
+    string word;
+    int numberSzyfr, szyfr;
+    cout << "Podaj wyraz";
+    cin >> word;
 
-
+    for (int i = 0; i < word.length(); i++)
+    {
+        char litera = word[i];
+        word[i] = 'z' - (litera - 'a');
+    }
+    cout << word;
+}
 int main()
 {
     setlocale(LC_CTYPE, "polish");
-    task10();
+    task16();
 }
 
 /*
