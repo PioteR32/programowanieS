@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdlib.h>
+#include <stack>
 
 //Napisz program który pobierze znak od u¿ytkownika i wyœwieli go.
 using namespace std;
@@ -229,10 +230,40 @@ void task12()
     }
     cout << word;
 }
-// Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 2 3 4 * +
+/// Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 2 3 4 * +
+void taskONP()
+{
+    string numbers;
+    string characters;
+    string mathOperation;
+    string onp;
+    int charactersNumber = 0;
+    cin >> mathOperation;
+    for (int i = 0; i < mathOperation.length(); i++)
+    {
+        if (mathOperation[i] >= '0' && mathOperation[i] == '9')
+        {
+            numbers += mathOperation[i];
+        }
+        if (charactersNumber == 1)
+        {
+            onp = onp + numbers;
+            numbers = "";
+            onp = onp + characters;
+            characters = "";
+        }
+        if (mathOperation[i] == '+' || mathOperation[i] == '-' || mathOperation[i] == '*' || mathOperation[i] == '/')
+        {
+            characters  += mathOperation[i];
+            charactersNumber++;
+        }
+ 
 
-// Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
-// Algorytm szyfrowania AtBash Cipher - algorytm szyfruj¹cy, w którym ka¿da litera jest zamieniana na literê z przeciwnej strony alfabetu (np. A na Z, B na Y itd.)
+    }
+    cout << onp;
+}
+
+//szyfr
 void task16()
 {
     string word;
@@ -249,8 +280,7 @@ void task16()
 }
 int main()
 {
-    setlocale(LC_CTYPE, "polish");
-    task16();
+    taskONP();
 }
 
 /*
