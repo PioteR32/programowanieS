@@ -267,14 +267,16 @@ void taskONP()
 void task16()
 {
     string word;
-    int numberSzyfr, szyfr;
+    
     cout << "Podaj wyraz";
     cin >> word;
 
     for (int i = 0; i < word.length(); i++)
     {
-        char litera = word[i];
-        word[i] = 'z' - (litera - 'a');
+       if(word[i] <= 'z' && word[i] >= 'a')
+           word[i] = 'z' - (word[i] - 'a');
+       if (word[i] <= 'Z' && word[i] >= 'A')
+           word[i] = 'Z' - (word[i] - 'A');
     }
     cout << word;
 }
