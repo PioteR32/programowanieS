@@ -233,32 +233,69 @@ void task12()
 /// Program który na wejœciu przyjmie równanie a na wyjœciu da równanie w odwrotnej notacji polskiej ONP. Np. na wejœciu 2+3*4 na wyjœcu da 2 3 4 * +
 void taskONP()
 {
+    bool comeOfFor = true;
+    int placeOfplus = 0;
     string numbers;
     string characters;
+    string secondNumbers;
+    string secondCharacters;
     string mathOperation;
     string onp;
     int charactersNumber = 0;
     cin >> mathOperation;
     for (int i = 0; i < mathOperation.length(); i++)
     {
-        if (mathOperation[i] >= '0' && mathOperation[i] == '9')
+        if (mathOperation[i] >= '0' && mathOperation[i] <= '9')
         {
             numbers += mathOperation[i];
         }
-        if (charactersNumber == 1)
+        if (mathOperation[i] == '*' || mathOperation[i] == '/')
         {
+            int k = i + 1;
+            if (i < mathOperation.length() - 1)
+            {
+                for (; k <= mathOperation.length() - 1 && mathOperation[k] != '+' && mathOperation[k] != '-'; k++)
+                {
+                    if (mathOperation[k] >= '0' && mathOperation[k] <= '9')
+                    {
+                        secondNumbers += mathOperation[k];
+                    }
+                }
+                if (mathOperation[i] == '*')
+                {
+                    secondCharacters = '*';
+                }
+                else
+                {
+                    secondCharacters = '/';
+                }
+                i = k;
+                comeOfFor = false;
+            }
+        }
+        if ((charactersNumber == 1 || i >= mathOperation.length() - 1) && comeOfFor)
+        {
+
             onp = onp + numbers;
             numbers = "";
             onp = onp + characters;
             characters = "";
+            charactersNumber = 0;
+            placeOfplus = i;
+            i = j;
         }
-        if (mathOperation[i] == '+' || mathOperation[i] == '-' || mathOperation[i] == '*' || mathOperation[i] == '/')
-        {
-            characters  += mathOperation[i];
-            charactersNumber++;
-        }
- 
+        if (mathOperation[i] == '+' || mathOperation[i] == '-')
 
+        {
+            characters += mathOperation[i];
+            charactersNumber++;
+
+        }
+        if (!(comeOfFor))
+        {
+            onp.insert(placeOfplus, secondNumbers + secondCharacters);
+            comeOfFor = true;
+        }
     }
     cout << onp;
 }
