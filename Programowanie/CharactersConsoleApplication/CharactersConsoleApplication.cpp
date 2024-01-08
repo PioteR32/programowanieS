@@ -282,7 +282,7 @@ void taskONP()
             characters = "";
             charactersNumber = 0;
             placeOfplus = i;
-            i = j;
+            
         }
         if (mathOperation[i] == '+' || mathOperation[i] == '-')
 
@@ -299,7 +299,51 @@ void taskONP()
     }
     cout << onp;
 }
+void taskONP2()
+{
+    bool comeOfFor = true;
+    int placeOfplus = 0;
+    string numbers;
+    string characters;
+    string secondNumbers;
+    string secondCharacters;
+    string mathOperation;
+    string onp;
+    int charactersNumber[40] = {};
+    int numberOfchar = -1;
+    cin >> mathOperation;
+    for (int i = 0; i < mathOperation.length(); i++)
+    {
+        if (mathOperation[i] >= '0' && mathOperation[i] <= '9')
+        {
+            onp += mathOperation[i];
+        }
+        if (mathOperation[i] == '+' || mathOperation[i] == '-')
+        {
+            numberOfchar++;        
+            characters += mathOperation[i];
+            charactersNumber[numberOfchar] = 1;
+        }
+        if (mathOperation[i] == '*' || mathOperation[i] == '/')
+        {
+            numberOfchar++;           
+            characters += mathOperation[i];
+            charactersNumber[numberOfchar] = 2;
+        }
+        if ((numberOfchar != -1
+            && charactersNumber[numberOfchar - 1] >= charactersNumber[numberOfchar])
+            || i >= mathOperation.length() - 1)
+        {
+            onp += characters;
+            characters.clear();
+            for (int j = 0; j != numberOfchar; j++)
+            {
 
+            }
+        }
+    }
+    cout << onp;
+}
 //szyfr
 void task16()
 {
@@ -319,7 +363,7 @@ void task16()
 }
 int main()
 {
-    taskONP();
+    taskONP2();
 }
 
 /*
