@@ -315,15 +315,13 @@ void taskONP2()
 	cin >> mathOperation;
 	for (int i = 0; i < mathOperation.length(); i++)
 	{
-		
+
 		if (mathOperation[i] >= '0' && mathOperation[i] <= '9')
 		{
 			onp += mathOperation[i];
 		}
 		if (mathOperation[i] == '+' || mathOperation[i] == '-')
 		{
-
-
 			if (numberOfchar <= 1)
 				if (charactersNumber[numberOfchar] == 1 || charactersNumber[numberOfchar] == 2)
 				{
