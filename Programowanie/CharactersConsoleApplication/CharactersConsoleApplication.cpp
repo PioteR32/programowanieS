@@ -322,7 +322,7 @@ void taskONP2()
 		}
 		if (mathOperation[i] == '+' || mathOperation[i] == '-')
 		{
-			if (numberOfchar <= 1)
+			if (numberOfchar >= 0)
 				if (charactersNumber[numberOfchar] == 1 || charactersNumber[numberOfchar] == 2)
 				{
 					plusGoto = false;
@@ -334,11 +334,12 @@ void taskONP2()
 		}
 		if (mathOperation[i] == '*' || mathOperation[i] == '/')
 		{
-			if (charactersNumber[numberOfchar] == 2)
-			{
-				mno¿enieGoto = false;
-				goto koniec;
-			}
+			if (numberOfchar >= 1)
+				if (charactersNumber[numberOfchar] == 2)
+				{
+					mno¿enieGoto = false;
+					goto koniec;
+				}
 			numberOfchar++;
 			characters = mathOperation[i] + characters;
 			charactersNumber[numberOfchar] = 2;
