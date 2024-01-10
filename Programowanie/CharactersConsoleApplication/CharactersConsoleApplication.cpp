@@ -349,6 +349,13 @@ void taskONP2()
 		{
 		pluss:
 		koniec:
+			if (i != mathOperation.length() - 1)
+			{
+				for (int j = i; j < mathOperation.length() && mathOperation[i] != mathOperation; j++;)
+				{
+
+				}
+			}
 			onp += characters;
 			characters.clear();
 			numberOfchar = -1;
