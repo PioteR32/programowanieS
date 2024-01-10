@@ -334,7 +334,7 @@ void taskONP2()
 		}
 		if (mathOperation[i] == '*' || mathOperation[i] == '/')
 		{
-			if (numberOfchar >= 1)
+			if (numberOfchar >= 0)
 				if (charactersNumber[numberOfchar] == 2)
 				{
 					mno¿enieGoto = false;
@@ -342,7 +342,7 @@ void taskONP2()
 				}
 			numberOfchar++;
 			characters = mathOperation[i] + characters;
-			charactersNumber[numberOfchar] = 2;
+			charactersNumber[numberOfchar] = 2 ;
 		}
 		if ((numberOfchar > 0 && charactersNumber[numberOfchar - 1] > charactersNumber[numberOfchar])
 			|| i == mathOperation.length() - 1)
