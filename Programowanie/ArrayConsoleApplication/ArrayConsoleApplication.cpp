@@ -18,8 +18,8 @@ void task1()
 }
 void task2()
 {
-	const unsigned short LOWER_RANGE = 6;
-	const unsigned short UPPER_RANGE = 6;
+	const unsigned short LOWER_RANGE = 5;
+	const unsigned short UPPER_RANGE = 7;
 	const unsigned ARRAY_SIZE = 5;
 	int number[ARRAY_SIZE] = {};
 	srand(time(0));
@@ -30,6 +30,10 @@ void task2()
 		cout << number[i] << ", ";
 	}
 	cout << "\n";
+	double sum; 
+	for(int i = 0; i < ARRAY_SIZE; i++)
+		sum = number[i];
+	double avg = sum / ARRAY_SIZE;
 }
 int main()
 {

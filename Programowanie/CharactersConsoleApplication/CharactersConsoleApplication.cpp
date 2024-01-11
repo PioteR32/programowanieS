@@ -301,9 +301,11 @@ void taskONP()
 }
 void taskONP2()
 {
+	int positionOfCharacters;
 	bool plusGoto = true;
 	bool mno¿enieGoto = true;
 	int placeOfplus = 0;
+	string theLastCharachters;
 	string numbers;
 	string characters;
 	string secondNumbers;
@@ -334,29 +336,31 @@ void taskONP2()
 		}
 		if (mathOperation[i] == '*' || mathOperation[i] == '/')
 		{
-			if (numberOfchar >= 0)
-				if (charactersNumber[numberOfchar] == 2)
-				{
-					mno¿enieGoto = false;
-					goto koniec;
-				}
+
+			if ((theLastCharachters == "*+" || theLastCharachters == "/+")|| (theLastCharachters == "*-" || theLastCharachters == "/-"))
+			{
+				characters = mathOperation[i] + onp[positionOfCharacters];
+				onp[positionOfCharacters] = ' ';	
+			}
+			else
+				if (numberOfchar >= 0)
+					if (charactersNumber[numberOfchar] == 2)
+					{
+						mno¿enieGoto = false;
+						goto koniec;
+					}
 			numberOfchar++;
 			characters = mathOperation[i] + characters;
-			charactersNumber[numberOfchar] = 2 ;
+			charactersNumber[numberOfchar] = 2;
 		}
 		if ((numberOfchar > 0 && charactersNumber[numberOfchar - 1] > charactersNumber[numberOfchar])
 			|| i == mathOperation.length() - 1)
 		{
 		pluss:
 		koniec:
-			if (i != mathOperation.length() - 1)
-			{
-				for (int j = i; j < mathOperation.length() && mathOperation[i] != mathOperation; j++;)
-				{
-
-				}
-			}
 			onp += characters;
+			theLastCharachters = characters;
+			positionOfCharacters = onp.length() - 1;
 			characters.clear();
 			numberOfchar = -1;
 			for (int j = 0; j <= numberOfchar; j++)
