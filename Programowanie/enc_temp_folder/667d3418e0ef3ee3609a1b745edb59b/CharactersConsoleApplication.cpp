@@ -434,7 +434,7 @@ void taskONP3()
 			}
 		}
 		int secondI = i - 1;
-		if ( i != 0&& (mathOperation[i] == '*' || mathOperation[secondI] == '*' || mathOperation[i] == '/' || mathOperation[secondI] == '/'))
+		if (mathOperation[i] == '*' || mathOperation[secondI] == '*' || mathOperation[i] == '/' || mathOperation[secondI] == '/')
 		{
 			if (theLastCharachters == "*+" || theLastCharachters == "/+" || theLastCharachters == "*-" || theLastCharachters == "/-")
 			{
