@@ -421,26 +421,29 @@ void taskONP3()
 		if ((numberOfchar >= 0 && charactersNumber[numberOfchar - 1] > charactersNumber[numberOfchar])
 			|| i == mathOperation.length() - 1
 			|| ((mathOperation[i] == '+' || mathOperation[i] == '-') && (charactersNumber[numberOfchar] == 1 || (charactersNumber[numberOfchar] == 2))
-			|| ((mathOperation[i] == '*' || mathOperation[i] == '/') && (charactersNumber[numberOfchar] == 2))))
+				|| ((mathOperation[i] == '*' || mathOperation[i] == '/') && (charactersNumber[numberOfchar] == 2))))
 		{
 			onp += characters;
-				theLastCharachters = characters;
-				positionOfCharacters = onp.length() - 1;
-				characters.clear();
-				numberOfchar = -1;
+			theLastCharachters = characters;
+			positionOfCharacters = onp.length() - 1;
+			characters.clear();
+			numberOfchar = -1;
 			for (int j = 0; j <= numberOfchar; j++)
 			{
 				charactersNumber[j] = -1;
 			}
 		}
 		int secondI = i - 1;
-		if ( i != 0&& (mathOperation[i] == '*' || mathOperation[secondI] == '*' || mathOperation[i] == '/' || mathOperation[secondI] == '/'))
+		if (i != 0 && (mathOperation[i] == '*' || mathOperation[i] == '/' ))
 		{
 			if (theLastCharachters == "*+" || theLastCharachters == "/+" || theLastCharachters == "*-" || theLastCharachters == "/-")
 			{
-				characters += mathOperation[i];
+				int toONP = onp.length() - 1;
+
+				characters.clear();
 				characters += onp[positionOfCharacters];
 				onp[positionOfCharacters] = ' ';
+
 			}
 		}
 		if (mathOperation[i] == '+' || mathOperation[i] == '-')
