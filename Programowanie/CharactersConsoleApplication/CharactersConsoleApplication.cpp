@@ -219,7 +219,7 @@ void task123()
 void task12()
 {
 	string word;
-	int numberSzyfr, szyfr;
+	int numberSzyfr;
 	cout << "Podaj wyraz";
 	cin >> word;
 	cout << "POdaj przesuniêcie";
@@ -466,7 +466,61 @@ void taskONP3()
 	}
 	cout << onp;
 }
+//Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
+void taskONPtoNormal()
+{
+	int positionOfCharacters = 0;
+	bool plusGoto = true;
+	bool mno¿enieGoto = true;
+	int placeOfplus = 0;
+	string theLastCharachters;
+	string numbers;
+	string characters;
+	string secondNumbers;
+	string secondCharacters;
+	string mathOperation;
+	string onp;
+	int charactersNumber[40] = {};
+	int numberOfchar = -1;
+	cin >> mathOperation;
+	for (int i = mathOperation.length()- 1 ; i >= 0; i--)
+	{
+		if (mathOperation[i] >= '0' && mathOperation[i] <= '9')
+		{
+			onp += mathOperation[i];
+		}
+		if (numberOfchar >= 0 || i == 1)
+		{
+			onp = characters + onp;
+			characters.clear();
+			numberOfchar = -1;
+			for (int j = 0; j <= numberOfchar; j++)
+			{
+				charactersNumber[j] = -1;
+			}
+		}
+		if (mathOperation[i] == '+' || mathOperation[i] == '-')
+		{
+
+			numberOfchar++;
+			characters += mathOperation[i];
+			charactersNumber[numberOfchar] = 1;
+			theLastCharachters.clear();
+		}
+
+		if (mathOperation[i] == '*' || mathOperation[i] == '/')
+		{
+
+
+			numberOfchar++;
+			characters = mathOperation[i] + characters;
+			charactersNumber[numberOfchar] = 2;
+		}
+	}
+	cout << onp;
+}
 //szyfr
+
 
 void task16()
 {
@@ -486,7 +540,7 @@ void task16()
 }
 int main()
 {
-	taskONP3();
+	taskONPtoNormal();
 }
 
 /*
