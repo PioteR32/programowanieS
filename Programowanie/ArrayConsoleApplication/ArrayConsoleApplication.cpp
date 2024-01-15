@@ -35,9 +35,38 @@ void task2()
 		sum = number[i];
 	double avg = sum / ARRAY_SIZE;
 }
+// napisz program który zape³ni tablice liczbami pseudolosowymi znajdŸ najmniejsz¹ i najwiêksz¹ liczbê
+void task3()
+{
+	
+	const unsigned short LOWER_RANGE = 1;
+	const unsigned short UPPER_RANGE = 100000;
+	const unsigned ARRAY_SIZE = 1000;
+	int sprawdzamUpper = 0;
+	int sprawdzamLower = UPPER_RANGE;
+	int number[ARRAY_SIZE] = {};
+	srand(time(0));
+	bool lower = false;
+	bool upper = false;
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		number[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		if (number[i] > sprawdzamUpper)
+		{
+			sprawdzamUpper = number[i];
+		}
+		if (number[i] < sprawdzamLower)
+		{
+			sprawdzamLower = number[i];
+		}
+		cout << number[i] << " ";
+	}
+	cout << "\n";
+	cout << "najwiêksza " << sprawdzamUpper << " najmniejsza " << sprawdzamLower;
+}
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task1();
+	task3();
 }
 
