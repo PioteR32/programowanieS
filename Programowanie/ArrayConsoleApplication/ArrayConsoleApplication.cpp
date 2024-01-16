@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 //Napisz program , który wczyta np.5 liczb a nastêpnie je wyœwietli
-void task1()
+static void task1()
 {
 	const unsigned ARRAY_SIZE = 5;
 	int number[ARRAY_SIZE] = {};
@@ -16,7 +16,7 @@ void task1()
 	}
 	
 }
-void task2()
+static void task2()
 {
 	const unsigned short LOWER_RANGE = 5;
 	const unsigned short UPPER_RANGE = 7;
@@ -36,33 +36,37 @@ void task2()
 	double avg = sum / ARRAY_SIZE;
 }
 // napisz program który zape³ni tablice liczbami pseudolosowymi znajdŸ najmniejsz¹ i najwiêksz¹ liczbê
-void task3()
+static void task3()
 {
 	
-	const unsigned short LOWER_RANGE = 1;
-	const unsigned short UPPER_RANGE = 100000;
-	const unsigned ARRAY_SIZE = 1000;
-	int sprawdzamUpper = 0;
-	int sprawdzamLower = UPPER_RANGE;
-	int number[ARRAY_SIZE] = {};
+	const int LOWER_RANGE = 1;
+	const int UPPER_RANGE = 50000;
+	const unsigned ARRAY_SIZE = 32;
+	int number[ARRAY_SIZE] = {}, table[ARRAY_SIZE]{};
+	int max = number[0];
+	int theLowest = max;
+	
 	srand(time(0));
-	bool lower = false;
-	bool upper = false;
-	for (int i = 0; i < ARRAY_SIZE; i++)
+
+	for (int i = 1; i < ARRAY_SIZE; i++)
 	{
 		number[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
-		if (number[i] > sprawdzamUpper)
+		if (number[i] > max)
 		{
-			sprawdzamUpper = number[i];
+			max = number[i];
 		}
-		if (number[i] < sprawdzamLower)
+		if (number[i] < theLowest)
 		{
-			sprawdzamLower = number[i];
+			theLowest = number[i];
 		}
 		cout << number[i] << " ";
 	}
 	cout << "\n";
-	cout << "najwiêksza " << sprawdzamUpper << " najmniejsza " << sprawdzamLower;
+	cout << "najwiêksza " << max << " najmniejsza " << theLowest;
+}
+void task4()
+{
+
 }
 int main()
 {

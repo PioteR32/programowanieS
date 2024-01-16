@@ -469,15 +469,7 @@ void taskONP3()
 //Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
 void taskONPtoNormal()
 {
-	int positionOfCharacters = 0;
-	bool plusGoto = true;
-	bool mno¿enieGoto = true;
-	int placeOfplus = 0;
-	string theLastCharachters;
-	string numbers;
 	string characters;
-	string secondNumbers;
-	string secondCharacters;
 	string mathOperation;
 	string onp;
 	int charactersNumber[40] = {};
@@ -505,13 +497,10 @@ void taskONPtoNormal()
 			numberOfchar++;
 			characters += mathOperation[i];
 			charactersNumber[numberOfchar] = 1;
-			theLastCharachters.clear();
 		}
 
 		if (mathOperation[i] == '*' || mathOperation[i] == '/')
 		{
-
-
 			numberOfchar++;
 			characters = mathOperation[i] + characters;
 			charactersNumber[numberOfchar] = 2;
