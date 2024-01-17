@@ -469,44 +469,41 @@ void taskONP3()
 //Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.
 void taskONPtoNormal()
 {
+	int sum;
+	int numbers[40]{};
+	int whichNumbers = 0;
 	string characters;
 	string mathOperation;
 	string onp;
 	int charactersNumber[40] = {};
 	int numberOfchar = -1;
 	cin >> mathOperation;
-	for (int i = mathOperation.length()- 1 ; i >= 0; i--)
+	for (int i = 0 ; i < mathOperation.length(); i++)
 	{
 		if (mathOperation[i] >= '0' && mathOperation[i] <= '9')
 		{
-			onp += mathOperation[i];
-		}
-		if (numberOfchar >= 0 || i == 1)
-		{
-			onp = characters + onp;
-			characters.clear();
-			numberOfchar = -1;
-			for (int j = 0; j <= numberOfchar; j++)
-			{
-				charactersNumber[j] = -1;
-			}
-		}
-		if (mathOperation[i] == '+' || mathOperation[i] == '-')
-		{
+			whichNumbers++;
+			numbers[whichNumbers] = mathOperation[i] - 48;
 
-			numberOfchar++;
-			characters += mathOperation[i];
-			charactersNumber[numberOfchar] = 1;
 		}
-
-		if (mathOperation[i] == '*' || mathOperation[i] == '/')
+		if (mathOperation[i] == '+')
+		{
+			numbers[0] = numbers[whichNumbers - 1] + numbers[whichNumbers];
+			whichNumbers = 0;
+		}
+		if (mathOperation[i] == '-')
+		{
+			numbers[0] = numbers[whichNumbers - 1] - numbers[whichNumbers];
+			whichNumbers = 0;
+		}
+		if (mathOperation[i] == '*')
 		{
 			numberOfchar++;
 			characters = mathOperation[i] + characters;
 			charactersNumber[numberOfchar] = 2;
 		}
 	}
-	cout << onp;
+	cout << numbers[0];
 }
 //szyfr
 
