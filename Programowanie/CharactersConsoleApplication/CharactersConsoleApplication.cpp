@@ -478,7 +478,7 @@ void taskONPtoNormal()
 	int charactersNumber[40] = {};
 	int numberOfchar = -1;
 	cin >> mathOperation;
-	for (int i = 0 ; i < mathOperation.length(); i++)
+	for (int i = 0; i < mathOperation.length(); i++)
 	{
 		if (mathOperation[i] >= '0' && mathOperation[i] <= '9')
 		{
@@ -496,11 +496,39 @@ void taskONPtoNormal()
 			numbers[0] = numbers[whichNumbers - 1] - numbers[whichNumbers];
 			whichNumbers = 0;
 		}
-		if (mathOperation[i] == '*')
+		if (mathOperation[i] == '*' && !(mathOperation[i + 1] == '+'))
 		{
-			numberOfchar++;
-			characters = mathOperation[i] + characters;
-			charactersNumber[numberOfchar] = 2;
+			numbers[0] = numbers[whichNumbers - 1] * numbers[whichNumbers];
+			whichNumbers = 0;
+		}
+		if (mathOperation[i] == '/')
+		{
+			numbers[0] = numbers[whichNumbers - 1] / numbers[whichNumbers];
+			whichNumbers = 0;
+		}
+		if (i < mathOperation.length() - 1 && (mathOperation[i] == '/' && mathOperation[i + 1] == '+'))
+		{
+			numbers[0] = numbers[whichNumbers - 1] / numbers[whichNumbers] + numbers[whichNumbers - 2];
+			whichNumbers = 0;
+			i++;
+		}
+		if (i < mathOperation.length() - 1 && (mathOperation[i] == '/' && mathOperation[i + 1] == '-'))
+		{
+			numbers[0] = numbers[i - 2] - numbers[whichNumbers - 1] / numbers[whichNumbers] ;
+			whichNumbers = 0;
+			i++;
+		}
+		if (i < mathOperation.length() - 1 && (mathOperation[i] == '*' && mathOperation[i + 1] == '+'))
+		{
+			numbers[0] = numbers[whichNumbers - 1] * numbers[whichNumbers] + numbers[whichNumbers - 2];
+			whichNumbers = 0;
+			i++;
+		}
+		if (i < mathOperation.length() - 1 && (mathOperation[i] == '*' && mathOperation[i + 1] == '-'))
+		{
+			numbers[0] = numbers[whichNumbers - 2] - numbers[whichNumbers - 1] * numbers[whichNumbers];
+			whichNumbers = 0;
+			i++;
 		}
 	}
 	cout << numbers[0];
