@@ -471,6 +471,7 @@ void taskONPtoNormal()
 {
 	int sum;
 	int numbers[40]{};
+	 numbers[0] = 0;
 	int whichNumbers = 0;
 	string characters;
 	string mathOperation;

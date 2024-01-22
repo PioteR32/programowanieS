@@ -64,9 +64,68 @@ static void task3()
 	cout << "\n";
 	cout << "najwiêksza " << max << " najmniejsza " << theLowest;
 }
-void task4()
+//Napisz program, który wyznaczy wszystkie liczby pierwsze od 2 do zadeklarowanego zakresu. Metoda sito Eratostenesa.
+static void task4()
 {
+	const long long UPPER_RANGE = 1000000;
 
+	//wersja 1
+
+	for (long long numberToCheck = 2; numberToCheck <= UPPER_RANGE; numberToCheck++)
+	{
+		bool isPrime = true;
+		for (long long i = 2; i <= numberToCheck / 2; i++)
+		{
+			if (numberToCheck % i == 0)
+			{
+				isPrime = false;
+				break;
+			}
+		}
+
+		if (isPrime)
+			std::cout << numberToCheck << ", ";
+	}
+	std::cout << "\n";
+
+	//wersja 2
+	bool sieveOfEratosthenes[UPPER_RANGE + 1]{};
+
+	for (unsigned long long i = 2; i <= UPPER_RANGE; i++)
+	{
+		sieveOfEratosthenes[i] = true;
+	}
+
+	for (unsigned long long number = 2; number <= UPPER_RANGE; number++)
+	{
+		if (sieveOfEratosthenes[number] /*== true*/)
+		{
+			for (long long numberToCrossOut = number + number; numberToCrossOut <= UPPER_RANGE; numberToCrossOut = numberToCrossOut + number)
+				sieveOfEratosthenes[numberToCrossOut] = false;
+		}
+	}
+
+	for (unsigned long long i = 2; i <= UPPER_RANGE; i++)
+	{
+		if (sieveOfEratosthenes[i] /*== true*/)
+			std::cout << i << ", ";
+	}
+	std::cout << "\n";
+}
+void static task5()
+{
+	int numberOfWeek = 5;
+	cout << "Podaj numer dnia tygodnia \n";
+	cin >> numberOfWeek;
+
+	string dayNames[] = { "Poniedzia³ek" , "Wtorek" , "Œroda" , "Czwartek" , "Piatek", "Sobota" ,"Niedziela" };
+
+
+
+	if (numberOfWeek >= 0 && numberOfWeek <= 9)
+		cout << "Ten dzieñ to" << dayNames[numberOfWeek];
+	else
+		cout << "Niew³¹œciwy numer ";
 }
 int main()
 {
