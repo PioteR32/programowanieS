@@ -420,8 +420,9 @@ void taskONP3()
 		}
 		if ((numberOfchar >= 0 && charactersNumber[numberOfchar - 1] > charactersNumber[numberOfchar])
 			|| i == mathOperation.length() - 1
-			|| ((mathOperation[i] == '+' || mathOperation[i] == '-') && (charactersNumber[numberOfchar] == 1 || (charactersNumber[numberOfchar] == 2))
-				|| ((mathOperation[i] == '*' || mathOperation[i] == '/') && (charactersNumber[numberOfchar] == 2))))
+			|| ((mathOperation[i] == '+' || mathOperation[i] == '-') && (charactersNumber[numberOfchar] == 1 || (charactersNumber[numberOfchar] == 2 || charactersNumber[numberOfchar] == 3))
+				|| ((mathOperation[i] == '*' || mathOperation[i] == '/') && (charactersNumber[numberOfchar] == 2 || charactersNumber[numberOfchar] == 3))
+				|| (mathOperation[i] == '^'  && charactersNumber[numberOfchar] == 3)))
 		{
 			onp += characters;
 			theLastCharachters = characters;
@@ -445,6 +446,25 @@ void taskONP3()
 				onp[positionOfCharacters] = ' ';
 
 			}
+		}
+		if (i != 0 && mathOperation[i] == '^')
+		{
+			if (theLastCharachters == "^*+" || theLastCharachters == "^/+" || theLastCharachters == "^*-" || theLastCharachters == "/-")
+			{
+				int toONP = positionOfCharacters - 1;
+
+				characters.clear();
+				characters += onp[positionOfCharacters];
+				characters = onp[toONP] + characters;
+				onp[positionOfCharacters] = ' ';
+				onp[toONP] = ' ';
+			}
+		}
+		if (mathOperation[i] == '^')
+		{
+			numberOfchar++;
+			characters = mathOperation[i] + characters;
+			charactersNumber[numberOfchar] = 3;
 		}
 		if (mathOperation[i] == '+' || mathOperation[i] == '-')
 		{
@@ -555,7 +575,7 @@ void task16()
 }
 int main()
 {
-	taskONPtoNormal();
+	taskONP3();
 }
 
 /*
