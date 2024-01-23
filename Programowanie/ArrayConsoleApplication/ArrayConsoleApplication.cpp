@@ -119,17 +119,49 @@ void static task5()
 	cin >> numberOfWeek;
 
 	string dayNames[] = { "Poniedzia³ek" , "Wtorek" , "Œroda" , "Czwartek" , "Piatek", "Sobota" ,"Niedziela" };
-
-
+	  
 
 	if (numberOfWeek >= 0 && numberOfWeek <= 9)
 		cout << "Ten dzieñ to" << dayNames[numberOfWeek];
 	else
 		cout << "Niew³¹œciwy numer ";
 }
+void task6()
+{
+	const unsigned short LOWER_RANGE = 2;
+	const unsigned short UPPER_RANGE = 7;
+	const unsigned ARRAY_SIZE = 5;
+	int number[ARRAY_SIZE] = {};
+	srand(time(0));
+	cout << "wylosowane liczby";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		number[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		cout << number[i] << ", ";
+	}
+	for (int i = 0; i < ARRAY_SIZE - 1; i++)
+	{
+		int minIndex = i;
+		for (int j = i + 1; j < ARRAY_SIZE; j++)
+		{
+			if (number[j] < number[minIndex])
+			{
+				minIndex = j;
+			}
+			int tmp = number[minIndex];
+			number[minIndex] = number[i];
+			number[i] = tmp;
+		}
+	}
+	cout << " posortowane";
+	for (int k = 0; k < ARRAY_SIZE; k++)
+	{
+		cout << number[k] << ", ";
+	}
+}
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task3();
+	task6();
 }
 
