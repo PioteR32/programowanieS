@@ -409,6 +409,7 @@ void taskONP3()
 	string secondCharacters;
 	string mathOperation;
 	string onp;
+	string onp1;
 	int charactersNumber[40] = {};
 	int numberOfchar = -1;
 	cin >> mathOperation;
@@ -449,10 +450,9 @@ void taskONP3()
 		}
 		if (i != 0 && mathOperation[i] == '^')
 		{
-			if (theLastCharachters == "^*+" || theLastCharachters == "^/+" || theLastCharachters == "^*-" || theLastCharachters == "/-")
+			if (theLastCharachters == "^*+" || theLastCharachters == "^/+" || theLastCharachters == "^*-" || theLastCharachters == "^/-")
 			{
 				int toONP = positionOfCharacters - 1;
-
 				characters.clear();
 				characters += onp[positionOfCharacters];
 				characters = onp[toONP] + characters;
@@ -477,13 +477,20 @@ void taskONP3()
 
 		if (mathOperation[i] == '*' || mathOperation[i] == '/')
 		{
-
-
 			numberOfchar++;
 			characters = mathOperation[i] + characters;
 			charactersNumber[numberOfchar] = 2;
 		}
 	}
+	/*for (int i = 0; i < onp.length(); i++)
+	{
+		if(onp[i] = ' ')
+		{ }
+		else
+		{
+			onp1 += onp[i];
+		}
+	}*/
 	cout << onp;
 }
 //Program, który na wejœciu przyjmie rówanie w ONP a na wyjœciu wyœwietli wynik rówania.

@@ -159,9 +159,71 @@ void task6()
 		cout << number[k] << ", ";
 	}
 }
+void task7()
+{
+	const unsigned short LOWER_RANGE = 2;
+	const unsigned short UPPER_RANGE = 7;
+	const unsigned ARRAY_SIZE = 5;
+	int number[ARRAY_SIZE] = {};
+	srand(time(0));
+	cout << "wylosowane liczby";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		number[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		cout << number[i] << ", ";
+	}
+	for (int i = 0; i < ARRAY_SIZE - 1; i++)
+	{
+		int pom = number[i];
+
+		int j;
+		for  (j = i - 1; j < ARRAY_SIZE && pom < number[j]; j--)
+		{
+			number[j + 1] = number[j];
+		}
+		number[j + 1] = pom;
+	}
+	cout << " posortowane";
+	for (int k = 0; k < ARRAY_SIZE; k++)
+	{
+		cout << number[k] << ", ";
+	}
+}
+void task8()
+{
+	const unsigned short LOWER_RANGE = 2;
+	const unsigned short UPPER_RANGE = 10000;
+	const unsigned ARRAY_SIZE = 1000;
+	int number[ARRAY_SIZE] = {};
+	srand(time(0));
+	cout << "wylosowane liczby";
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		number[i] = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+		cout << number[i] << ", ";
+	}
+	for (int i = 0; i < ARRAY_SIZE - 1; i++)
+	{
+		for (int j = 0; j < ARRAY_SIZE - 1 - i; j++)
+		{
+			if (number[j + 1] < number[j])
+			{
+				int tmp = number[j];
+				number[j] = number[j + 1];
+				number[j + 1] = tmp;
+			}
+		}
+		
+	}
+	cout << " posortowane \n ";
+	for (int k = 0; k < ARRAY_SIZE; k++)
+	{
+		cout << number[k] << ", ";
+	}
+} 
 int main()
 {
 	setlocale(LC_CTYPE, "polish");
-	task6();
+	task8();
 }
 
