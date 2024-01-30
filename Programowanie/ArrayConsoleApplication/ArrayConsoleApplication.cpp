@@ -126,6 +126,10 @@ void static task5()
 	else
 		cout << "Niew³¹œciwy numer ";
 }
+
+// programy sortuj¹ce
+
+
 void task6()
 {
 	const unsigned short LOWER_RANGE = 2;
