@@ -16,7 +16,7 @@ void task1()
 }
 void task2(string textParam)
 {
-	std::cout << textParam <<"\n";
+	std::cout << textParam << "\n";
 }
 // wyœwietl czy ktoœ jest pe³noletni i jakie ma imiê i nazwisko
 void task3(string name, int age)
@@ -27,13 +27,48 @@ void task3(string name, int age)
 	else
 		cout << "jesteœ pe³noletni";
 }
+void task4(int number)
+{
+	number--;
+	cout << "number w funkcji 4 " << number << "\n";
+}
+// Napisz program który wykorzysta przekazywanie parametru przez referencje 
+void task5(int &number)
+{
+	number--;
+	cout << "number w funkcji 5 " << number << "\n";
+}
+// N
+void task6_GetNumber(int &numberFromUser)
+{
+	cout << "Podaj liczbê \n";
+	cin >> numberFromUser;
+}
 int main()
 {
-	string text;
+	/*string text;
 	int age;
 	cout << "Podaj imiê \n";
 	cin >> text;
 	cout << "Podaj wiek \n";
 	cin >> age;
-	task3(text, age);
+	task3(text, age);*/
+	int number = 5;
+	int const NUMBER = 9;
+
+	/*cout << "number w main " << number << "\n";
+	task4(number);
+	cout << "const number w main " << NUMBER << "\n";
+	task4(NUMBER);*/
+
+	////cout << "number w main " << number << "\n";
+	//task5(number);
+	//cout << "const number w main " << number << "\n";
+	/*task5(NUMBER);
+	cout << "const number w main " << NUMBER << "\n"; b³¹d
+	task5(5);*/
+	int numberFromUsers;
+	task6_GetNumber(numberFromUsers);
+	cout << "Liczba podana przez urzytkownika " << numberFromUsers;
+	
 }
