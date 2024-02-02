@@ -44,6 +44,12 @@ void task6_GetNumber(int &numberFromUser)
 	cout << "Podaj liczbê \n";
 	cin >> numberFromUser;
 }
+int sumOfNumbers(int fn, int sn)
+{
+	int s = fn + sn;
+	return s;
+}
+
 int main()
 {
 	/*string text;
@@ -53,8 +59,8 @@ int main()
 	cout << "Podaj wiek \n";
 	cin >> age;
 	task3(text, age);*/
-	int number = 5;
-	int const NUMBER = 9;
+	//int number = 5;
+	//int const NUMBER = 9;
 
 	/*cout << "number w main " << number << "\n";
 	task4(number);
@@ -67,8 +73,10 @@ int main()
 	/*task5(NUMBER);
 	cout << "const number w main " << NUMBER << "\n"; b³¹d
 	task5(5);*/
-	int numberFromUsers;
+	/*int numberFromUsers;
 	task6_GetNumber(numberFromUsers);
-	cout << "Liczba podana przez urzytkownika " << numberFromUsers;
-	
+	cout << "Liczba podana przez urzytkownika " << numberFromUsers;*/
+	int firstNumber = 9;
+	int secondNumbers = 1;
+	cout << "Wynik to " << sumOfNumbers(firstNumber, secondNumbers) << "\n";
 }
