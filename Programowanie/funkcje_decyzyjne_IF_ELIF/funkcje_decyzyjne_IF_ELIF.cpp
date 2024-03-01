@@ -500,14 +500,8 @@ void task14()
 	{
 		cout << " Podałeś liczbę ujemną ";
 	}
-
-
-
-void task15()
-
 }
-//  Program sprawdzający czy podana data jest poprawna (np. sprawdzając, czy dzień jest z zakresu od 1 do 31, miesiąc od 1 do 12 itd.)
-
+void task15()
 {
 
 	int    usersMonthNumber, usersDayNumber, firstResult, usersYearNumber=0;
@@ -529,28 +523,7 @@ void task15()
 			
 			
 		}
-		else
-		{
-			/*if (usersMonthNumber == 2) {
-				cout 
-				
-
-			}
-			else
-			{
-
-
-			}*/
-		}
 	}
-	
-
-
-
-
-
-
-
 }
 
 
