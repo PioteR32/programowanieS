@@ -49,7 +49,32 @@ int sumOfNumbers(int fn, int sn)
 	int s = fn + sn;
 	return s;
 }
+// napisz funkcje która obliczy wartoœæ silni
+long long calculatedFactorial(int number)
+{
+	int factorial = 1;
+	for (int i = 2; i <= number; i++)
+	{
+		factorial = i * factorial;
+	}
+	return factorial;
+}
 
+long long calculatedFactorialV2(int number)
+{
+	if (number <= 1)
+		return 1;
+	else
+		return number * calculatedFactorialV2(number - 1);
+}
+
+void task7()
+{
+	int number;
+	cout << "Podaj silniê\n";
+	cin >> number;
+	cout << "Silnia yo : " << calculatedFactorialV2(number) << "\n";
+}
 int main()
 {
 	/*string text;
@@ -76,7 +101,7 @@ int main()
 	/*int numberFromUsers;
 	task6_GetNumber(numberFromUsers);
 	cout << "Liczba podana przez urzytkownika " << numberFromUsers;*/
-	int firstNumber = 9;
+	/*int firstNumber = 9;
 	int secondNumbers = 1;
 	cout << "Wynik to " << sumOfNumbers(firstNumber, secondNumbers) << "\n";
-}
+}*/
