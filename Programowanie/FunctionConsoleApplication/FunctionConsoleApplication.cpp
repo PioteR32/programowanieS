@@ -60,6 +60,9 @@ long long calculatedFactorial(int number)
 	return factorial;
 }
 
+
+
+
 long long calculatedFactorialV2(int number)
 {
 	if (number <= 1)
