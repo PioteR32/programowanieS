@@ -55,22 +55,28 @@ void calculate(long double *firstNumber, long double *secondNumber,char *mathCha
 }
 void calculator()
 {
+	long double* firstNumber = new long double;
+	long double* secondNumber = new long double;
+	char* mathChar = new char;
 	while (true)
 	{
-		long double* firstNumber = new long double;
+
 		cout << "Podaj pierwsz¹ liczbê\n";
 		cin >> *firstNumber;
 
-		long double* secondNumber = new long double;
 		cout << "Podaj drug¹ liczbê\n";
 		cin >> *secondNumber;
 
-		char* mathChar = new char;
 		cout << "Podaj znak operacji\n";
 		cin >> mathChar;
 
 		calculate(firstNumber, secondNumber, mathChar);
 	}
+	delete firstNumber, secondNumber,mathChar;
+	
+	firstNumber = nullptr;
+	secondNumber = nullptr;
+	mathChar = nullptr;
 }
 int main()
 {
