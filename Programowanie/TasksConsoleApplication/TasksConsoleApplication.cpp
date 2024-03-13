@@ -61,14 +61,14 @@ void calculator()
 	while (true)
 	{
 
+		cout << "Podaj znak operacji\n";
+		cin >> mathChar;
+
 		cout << "Podaj pierwsz¹ liczbê\n";
 		cin >> *firstNumber;
 
 		cout << "Podaj drug¹ liczbê\n";
 		cin >> *secondNumber;
-
-		cout << "Podaj znak operacji\n";
-		cin >> mathChar;
 
 		calculate(firstNumber, secondNumber, mathChar);
 	}
