@@ -63,23 +63,29 @@ long long calculatedFactorial(int number)
 
 
 
-long long calculatedFactorialV2(int number)
+unsigned  long long calculatedFactorialV2(unsigned long long *number)
 {
-	if (number <= 1)
+	*number--;
+	if (*number <= 1)
 		return 1;
 	else
-		return number * calculatedFactorialV2(number - 1);
+	{
+		 *number *= calculatedFactorialV2(number);
+	}
 }
 
 void task7()
 {
-	int number;
+	unsigned  long long* number = new unsigned  long long;
 	cout << "Podaj silniê\n";
-	cin >> number;
-	cout << "Silnia yo : " << calculatedFactorialV2(number) << "\n";
+	cin >> *number;
+	*number = calculatedFactorialV2(number);
+	cout << "Silnia yo : " << *number << "\n";
+	
 }
 int main()
 {
+	task7();
 	/*string text;
 	int age;
 	cout << "Podaj imiê \n";
@@ -107,4 +113,5 @@ int main()
 	/*int firstNumber = 9;
 	int secondNumbers = 1;
 	cout << "Wynik to " << sumOfNumbers(firstNumber, secondNumbers) << "\n";
-}*/
+	*/
+}
