@@ -30,11 +30,11 @@ Podaj drug¹ liczbê: 3
 
 Wynik mno¿enia: 15
 */
-long double findNumber(long double table[], int &i)
+long double findNumber(long double table[], int& i)
 {
 	while (table[i] == 0 && i < 20)
 	{
-		if (i+1 == 20)
+		if (i + 1 == 20)
 			return 0;
 		i++;
 	}
@@ -71,7 +71,7 @@ long double calculate(long double table[], char mathChar[], int j)
 	int number = 0;
 	int tmpK = place;
 	long double reesult = 0;
-	for ( k = 0; k < 20 ; k++)
+	for (k = 0; k < 20; k++)
 	{
 		if (mathChar[k] == '+')
 		{
@@ -79,7 +79,7 @@ long double calculate(long double table[], char mathChar[], int j)
 			number = findNumber(table, tmpK);
 			int nu = table[k];
 			table[tmpK] = table[k] + number;
-			reesult = reesult +  table[tmpK];
+			reesult = reesult + table[tmpK];
 			table[tmpK] = 0;
 			table[k] = 0;
 			mathChar[k] = ' ';
@@ -88,7 +88,7 @@ long double calculate(long double table[], char mathChar[], int j)
 		{
 			table[k + 1] = table[k] - table[k + 1];
 			table[k] = 0;
-			mathChar[k ] = ' ';
+			mathChar[k] = ' ';
 		}
 		table[tmpK] = number;
 	}
@@ -150,6 +150,7 @@ void calculator()
 	}
 }
 
+#pragma region task2
 //Napisz program, który bêdzie konwertowaæ temperaturê pomiêdzy skalami : Celsiusza, Fahrenheita i Kelvina.
 //
 //Instrukcje :
@@ -192,11 +193,11 @@ int convertStringToInt(std::string value)
 double changeF(double& temperature)
 {
 	int Celcjusze;
-	Celcjusze = (temperature - 32) / (9/5) ;
+	Celcjusze = (temperature - 32) / (9 / 5);
 	temperature = Celcjusze + 273, 15;
 	return Celcjusze;
 }
-double changeC(double &temperature)
+double changeC(double& temperature)
 {
 	int Fahreneit;
 	Fahreneit = temperature * 9 / 5 + 32;
@@ -207,18 +208,18 @@ void chooseThe()
 {
 	string temperature;
 	int getUser;
-	
+
 	cin >> temperature;
 	cin >> getUser;
 	double convertedTemperature = convertStringToInt(temperature);
 	switch (getUser)
 	{
 	case 1:
-		cout <<"Fahreneit : " << changeC(convertedTemperature);
-		cout <<"Kelvin : " << convertedTemperature;
+		cout << "Fahreneit : " << changeC(convertedTemperature);
+		cout << "Kelvin : " << convertedTemperature;
 		break;
 	case 2:
-		cout << "Celcjusze : " << changeF(convertedTemperature); 
+		cout << "Celcjusze : " << changeF(convertedTemperature);
 		cout << "Kelvin : " << convertedTemperature;
 		break;
 	case 3:
@@ -236,6 +237,8 @@ void task2()
 	cout << "3. Kelvin(K)\n";
 	chooseThe();
 }
+#pragma endregion task2
+#pragma region task3
 /*
 ZADANIE
 Symulator rzutu kostk¹
@@ -267,6 +270,75 @@ Suma wyników: 33
 
 */
 
+int menu(int* numberOfThrows)
+{
+	while (true)
+	{
+		cout << "Podaj iloœæ rzutów kostk¹\n";
+		string sGetUser;
+		cin >> sGetUser;
+		*numberOfThrows = convertStringToInt(sGetUser);
+
+		cout << "1. kostka szeœcienna\n";
+		cout << "2. kostka dziesiêcioœcienna\n";
+		cout << "3. kostka dwudziestoœcienna\n";
+		int getUser;
+		cin >> getUser;
+		switch (getUser)
+		{
+		case 1:
+			return 6;
+		case 2:
+			return 10;
+		case 3:
+			return 20;
+		default:
+			cout << "z³a cyfra \n";
+			continue;
+			break;
+		}
+	}
+}
+int randomNumber(short LOWER_RANGE, short UPPER_RANGE)
+{
+	short number;
+	number = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+	return number;
+}
+void throwTheDice(int* numberOfStitches, int* numberOfThrows)
+{
+	int tmpNumber;
+	int sum = 0;
+	for (int i = 0; i < *numberOfThrows; i++)
+	{
+		tmpNumber = randomNumber(1, *numberOfStitches);
+		cout << i + 1 << ". Rzut" << i + 1 << ": " << tmpNumber << "\n";
+		sum += tmpNumber;
+	}
+	cout << "\n £¹czna suma rzutów : " << sum << "\n";
+}
+void task3()
+{
+	srand(time(0));
+	int* numberOfThrows = new int;
+	int* numberOfStitches = new int;
+
+	*numberOfStitches = menu(numberOfThrows);
+	if (*numberOfStitches < 0)
+	{
+		cout << "b³¹d";
+	}
+	else
+	{
+		throwTheDice(numberOfStitches, numberOfThrows);
+	}
+
+	delete numberOfStitches, numberOfThrows;
+	numberOfStitches = nullptr;
+	numberOfThrows = nullptr;
+}
+#pragma endregion task3
+#pragma region task4
 /*
 ZADANIE
 Konwerter jednostek
@@ -301,8 +373,84 @@ Podaj wartoœæ do konwersji: 5
 Wynik konwersji: 500 centymetrów
 
 */
+int findNumbers(std::string value,int& startPosition)
+{
+	int result = 0;
+	for (startPosition = 0; startPosition < value.length(); startPosition++)
+	{
+		if (value[startPosition] >= '0' && value[startPosition] <= '9')
+			result = result * 10 + (value[startPosition] - '0');
+		else
+		{
+			return 0;
+		}
+	}
+	return result;
+}
 
+string findUnitOfMeasurment(std::string value, int startPosition )
+{
+	string unitOfMeasurment;
+	for (startPosition = 0; startPosition < value.length(); startPosition++)
+	{
+
+		if (value.length() == 1 && value[startPosition] == 'm')
+		{
+			return "m";
+		}
+		else
+		{
+			return "b³¹d";
+			break;
+		}
+
+		if (startPosition < value.length() - 1 && ((value[startPosition] >= 'k' && value[startPosition + 1] <= 'm') ||
+			(value[startPosition] >= 'm' && value[startPosition + 1] <= 'm') ||
+			(value[startPosition] >= 'c' && value[startPosition + 1] <= 'm'))
+			)
+		{
+			unitOfMeasurment[startPosition] += value[startPosition];
+			unitOfMeasurment[startPosition + 1] += value[startPosition + 1];
+			return unitOfMeasurment;
+		}
+		else
+		{
+			if (startPosition == 0 && (value[startPosition] == ' ' || value[startPosition + 1] == 'm'))
+				return "m";
+			else
+			{
+				return "b³¹d";
+			}
+		}
+	}
+	return "b³¹d";
+}
+
+void convertStringToInt(std::string value, string& unitOfMeasure)
+{
+	int i = 0;
+	int result = findNumbers(value,i);
+	unitOfMeasure = findUnitOfMeasurment(value,i);
+	if (unitOfMeasure == "km")
+	{
+
+	}
+}
+void menu()
+{
+	string unitOfMeasure;
+	string measurment;
+	cout << "Podaj miarê (Na koñcu podaj jednostkê miary\n";
+	cin >> measurment;
+	cout << "podaj na jak¹ miarê przekonwertowaæ";
+	convertStringToInt(measurment, unitOfMeasure);
+}
+void task4()
+{
+
+}
+#pragma endregion task4
 int main()
 {
-	calculator();
+	task3();
 }
