@@ -373,84 +373,95 @@ Podaj wartoœæ do konwersji: 5
 Wynik konwersji: 500 centymetrów
 
 */
-int findNumbers(std::string value,int& startPosition)
+
+int findNumberOfUnitOfMeasurment(string units[], string unitOfMeasure, const int ARRAY_SIZE)
+{
+	for (int i = 0; i < ARRAY_SIZE; i++)
+	{
+		if (units[i] == unitOfMeasure)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+int getMeasureValue(std::string value, int& endMeasureValuePosition)
 {
 	int result = 0;
-	for (startPosition = 0; startPosition < value.length(); startPosition++)
+	for (int i = 0; i < value.length(); i++)
 	{
-		if (value[startPosition] >= '0' && value[startPosition] <= '9')
-			result = result * 10 + (value[startPosition] - '0');
+		endMeasureValuePosition = i;
+		if (value[i] >= '0' && value[i] <= '9')
+			result = result * 10 + (value[i] - '0');
 		else
 		{
-			return 0;
+			return result;
 		}
 	}
 	return result;
 }
 
-string findUnitOfMeasurment(std::string value, int startPosition )
+string getUnitOfMeasurment(std::string value, int startPosition)
 {
-	string unitOfMeasurment;
-	for (startPosition = 0; startPosition < value.length(); startPosition++)
+	string unitOfMeasurment = "";
+	int placeOfFirstChar;
+	int placeOfSecondChar;
+	for (int i = startPosition; i < value.length(); i++)
 	{
-
-		if (value.length() == 1 && value[startPosition] == 'm')
+		if (value[i] != ' ')
 		{
-			return "m";
-		}
-		else
-		{
-			return "b³¹d";
+			placeOfFirstChar = i;
 			break;
 		}
-
-		if (startPosition < value.length() - 1 && ((value[startPosition] >= 'k' && value[startPosition + 1] <= 'm') ||
-			(value[startPosition] >= 'm' && value[startPosition + 1] <= 'm') ||
-			(value[startPosition] >= 'c' && value[startPosition + 1] <= 'm'))
-			)
+	}
+	for (int i = value.length() - 1; i >= startPosition  ; i--)
+	{
+		if (value[i] != ' ')
 		{
-			unitOfMeasurment[startPosition] += value[startPosition];
-			unitOfMeasurment[startPosition + 1] += value[startPosition + 1];
-			return unitOfMeasurment;
-		}
-		else
-		{
-			if (startPosition == 0 && (value[startPosition] == ' ' || value[startPosition + 1] == 'm'))
-				return "m";
-			else
-			{
-				return "b³¹d";
-			}
+			placeOfSecondChar = i;
+			break;
 		}
 	}
-	return "b³¹d";
+	for (int i = placeOfFirstChar; i <= placeOfSecondChar; i++)
+	{
+		unitOfMeasurment += value[i];
+	}
+	return unitOfMeasurment;
 }
 
-void convertStringToInt(std::string value, string& unitOfMeasure)
+void convertStringToInt(string value, string& unitOfMeasure, double& result)
 {
 	int i = 0;
-	int result = findNumbers(value,i);
-	unitOfMeasure = findUnitOfMeasurment(value,i);
-	if (unitOfMeasure == "km")
-	{
 
-	}
+	result = getMeasureValue(value, i);
+	unitOfMeasure = getUnitOfMeasurment(value, i);
 }
-void menu()
+string getStringValue(string message)
 {
 	string unitOfMeasure;
-	string measurment;
-	cout << "Podaj miarê (Na koñcu podaj jednostkê miary\n";
-	cin >> measurment;
-	cout << "podaj na jak¹ miarê przekonwertowaæ";
-	convertStringToInt(measurment, unitOfMeasure);
+	cout << message;
+	getline(cin, unitOfMeasure);
+	return unitOfMeasure;
 }
 void task4()
 {
+	string unitOfMeasure = getStringValue("Podaj wartoœæ do przekonwertowania \n");
+	string measurment = "";
+	string unitsToConvert = getStringValue("Podaj jednostkê na któr¹ chcesz  przekonwertowaæ \n");
+	double result;
+	const int ARRAY_UNIT_SIZE = 4;
+	string units[ARRAY_UNIT_SIZE]{ "mm","cm","m","km" };
+	double unitToConvertTable[ARRAY_UNIT_SIZE]{ 0.001,0.01,1,1000 };
+	double givenValueTable[ARRAY_UNIT_SIZE]{ 1000,100,1,0.001 };
+	convertStringToInt(unitOfMeasure, measurment, result);
+	int firstPositionInTable = findNumberOfUnitOfMeasurment(units, measurment, ARRAY_UNIT_SIZE);
+	int secondPositionInTable = findNumberOfUnitOfMeasurment(units, unitsToConvert, ARRAY_UNIT_SIZE);
+	result = result * unitToConvertTable[firstPositionInTable] * givenValueTable[secondPositionInTable];
+	cout << "wynik : " << result;
 
 }
 #pragma endregion task4
 int main()
 {
-	task3();
+	task4();
 }
