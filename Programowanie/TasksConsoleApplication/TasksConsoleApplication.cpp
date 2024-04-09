@@ -32,7 +32,7 @@ Wynik mno¿enia: 15
 */
 long double findNumber(long double table[], int& i)
 {
-	while (table[i] == 0 && i < 20)
+	while (table[i + 1] == 0 && i < 20)
 	{
 		if (i + 1 == 20)
 			return 0;
@@ -75,7 +75,6 @@ long double calculate(long double table[], char mathChar[], int j)
 	{
 		if (mathChar[k] == '+')
 		{
-			tmpK = k + 1;
 			number = findNumber(table, tmpK);
 			int nu = table[k];
 			table[tmpK] = table[k] + number;
@@ -92,7 +91,7 @@ long double calculate(long double table[], char mathChar[], int j)
 		}
 		table[tmpK] = number;
 	}
-	return table[j];
+	return reesult;
 	//for(int i = 0 ;i < j;i++)
 }
 
@@ -176,7 +175,7 @@ void calculator()
 //Kelvin : 298.15 K
 //* /\
 
-int convertStringToInt(std::string value)
+int convertIntToString(std::string value)
 {
 	int result = 0;
 
@@ -211,7 +210,7 @@ void chooseThe()
 
 	cin >> temperature;
 	cin >> getUser;
-	double convertedTemperature = convertStringToInt(temperature);
+	double convertedTemperature = convertIntToString(temperature);
 	switch (getUser)
 	{
 	case 1:
@@ -277,7 +276,7 @@ int menu(int* numberOfThrows)
 		cout << "Podaj iloœæ rzutów kostk¹\n";
 		string sGetUser;
 		cin >> sGetUser;
-		*numberOfThrows = convertStringToInt(sGetUser);
+		*numberOfThrows = convertIntToString(sGetUser);
 
 		cout << "1. kostka szeœcienna\n";
 		cout << "2. kostka dziesiêcioœcienna\n";
@@ -295,7 +294,6 @@ int menu(int* numberOfThrows)
 		default:
 			cout << "z³a cyfra \n";
 			continue;
-			break;
 		}
 	}
 }
@@ -429,7 +427,7 @@ string getUnitOfMeasurment(std::string value, int startPosition)
 	return unitOfMeasurment;
 }
 
-void convertStringToInt(string value, string& unitOfMeasure, double& result)
+void getMeasureAndValue(string value, string& unitOfMeasure, double& result)
 {
 	int i = 0;
 
@@ -445,15 +443,19 @@ string getStringValue(string message)
 }
 void task4()
 {
-	string unitOfMeasure = getStringValue("Podaj wartoœæ do przekonwertowania \n");
-	string measurment = "";
-	string unitsToConvert = getStringValue("Podaj jednostkê na któr¹ chcesz  przekonwertowaæ \n");
 	double result;
+	string measurment = "";
+
 	const int ARRAY_UNIT_SIZE = 4;
 	string units[ARRAY_UNIT_SIZE]{ "mm","cm","m","km" };
 	double unitToConvertTable[ARRAY_UNIT_SIZE]{ 0.001,0.01,1,1000 };
 	double givenValueTable[ARRAY_UNIT_SIZE]{ 1000,100,1,0.001 };
-	convertStringToInt(unitOfMeasure, measurment, result);
+	
+
+	string unitOfMeasure = getStringValue("Podaj wartoœæ do przekonwertowania \n");
+	string unitsToConvert = getStringValue("Podaj jednostkê na któr¹ chcesz  przekonwertowaæ \n");
+
+	getMeasureAndValue(unitOfMeasure, measurment, result);
 	int firstPositionInTable = findNumberOfUnitOfMeasurment(units, measurment, ARRAY_UNIT_SIZE);
 	int secondPositionInTable = findNumberOfUnitOfMeasurment(units, unitsToConvert, ARRAY_UNIT_SIZE);
 	result = result * unitToConvertTable[firstPositionInTable] * givenValueTable[secondPositionInTable];
@@ -463,5 +465,5 @@ void task4()
 #pragma endregion task4
 int main()
 {
-	task4();
+	calculator();
 }
