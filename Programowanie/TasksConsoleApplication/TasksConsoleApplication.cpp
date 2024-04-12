@@ -465,5 +465,14 @@ void task4()
 #pragma endregion task4
 int main()
 {
-	calculator();
+	//calculator();
+	int* tableee = new int[20] {5,7,78,3};
+	int* table[43] = { tableee };
+	cout << (int)tableee << "\n";
+	cout <<*table[0];
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "\n" <<  * (table[0] + i);
+	}
+
 }
