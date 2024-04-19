@@ -1,7 +1,9 @@
 
 
+#include <windows.h>
+#include <conio.h>
 #include <iostream>
-#include <string>
+#include <string.h>
 using namespace std;
 /*
 Zadanie: Tworzenie prostego kalkulatora
@@ -133,7 +135,7 @@ long double getMathProblem(string message, long double table[], char mathChar[])
 	string number;
 
 	cout << message;
-	getline(cin, number);
+
 	return convertStringToInt(number, table, mathChar);
 }
 void calculator()
@@ -412,7 +414,7 @@ string getUnitOfMeasurment(std::string value, int startPosition)
 			break;
 		}
 	}
-	for (int i = value.length() - 1; i >= startPosition  ; i--)
+	for (int i = value.length() - 1; i >= startPosition; i--)
 	{
 		if (value[i] != ' ')
 		{
@@ -438,7 +440,7 @@ string getStringValue(string message)
 {
 	string unitOfMeasure;
 	cout << message;
-	getline(cin, unitOfMeasure);
+	//getline(cin, unitOfMeasure);
 	return unitOfMeasure;
 }
 void task4()
@@ -450,7 +452,7 @@ void task4()
 	string units[ARRAY_UNIT_SIZE]{ "mm","cm","m","km" };
 	double unitToConvertTable[ARRAY_UNIT_SIZE]{ 0.001,0.01,1,1000 };
 	double givenValueTable[ARRAY_UNIT_SIZE]{ 1000,100,1,0.001 };
-	
+
 
 	string unitOfMeasure = getStringValue("Podaj wartoœæ do przekonwertowania \n");
 	string unitsToConvert = getStringValue("Podaj jednostkê na któr¹ chcesz  przekonwertowaæ \n");
@@ -463,16 +465,76 @@ void task4()
 
 }
 #pragma endregion task4
+
+int randomNumber(int LOWER_RANGE, int UPPER_RANGE)
+{
+	int enemy;
+	enemy = rand() % (UPPER_RANGE - LOWER_RANGE + 1) + LOWER_RANGE;
+	return enemy;
+}
+void setCursor(int x, int y)
+{
+	COORD c;
+	c.X = x;
+	c.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
+}
+
+void showConsoleCursor(bool showFlag)
+{
+	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	CONSOLE_CURSOR_INFO     cursorInfo;
+
+	GetConsoleCursorInfo(out, &cursorInfo);
+	cursorInfo.bVisible = showFlag; // set the cursor visibility
+	SetConsoleCursorInfo(out, &cursorInfo);
+}
+
+void getConsolResolution(int& consoleWidth, int& consoleHeight)
+{
+	CONSOLE_SCREEN_BUFFER_INFO csbi;
+	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
+
+	consoleWidth = csbi.srWindow.Right - csbi.srWindow.Left;
+	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
+}
+
+void printStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int NUMBER_OF_STARS, bool isPrint)
+{
+	for (int i = 0; i < NUMBER_OF_STARS; i ++)
+	{
+		if (randomNumber(0, 1))
+		{
+			setCursor(positionX[i], positionY[i]);
+			cout << " ";
+			positionX[i] = randomNumber(0, consoleWidth);
+			positionY[i] = randomNumber(0, consoleHeight);
+			setCursor(positionX[i], positionY[i]);
+			cout << "*";
+		}
+		Sleep(randomNumber(100, 200));
+	}
+	isPrint = true;
+}
+
+void mainnn()
+{
+	bool isPrint = false;
+	const int  NUMBER_OF_STARS = 20;
+	int positionX[NUMBER_OF_STARS];
+	int positionY[NUMBER_OF_STARS];
+
+	int consoleHeight, consoleWidth;
+	getConsolResolution(consoleWidth, consoleHeight);
+
+	showConsoleCursor(false);
+	while (true)
+	{
+		printStars(consoleWidth, consoleHeight, positionX, positionY, NUMBER_OF_STARS, isPrint);
+	}
+}
 int main()
 {
-	//calculator();
-	int* tableee = new int[20] {5,7,78,3};
-	int* table[43] = { tableee };
-	cout << (int)tableee << "\n";
-	cout <<*table[0];
-	for (int i = 0; i < 3; i++)
-	{
-		cout << "\n" <<  * (table[0] + i);
-	}
-
+	mainnn();
 }
