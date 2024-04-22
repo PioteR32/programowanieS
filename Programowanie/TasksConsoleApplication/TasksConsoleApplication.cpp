@@ -499,39 +499,48 @@ void getConsolResolution(int& consoleWidth, int& consoleHeight)
 	consoleWidth = csbi.srWindow.Right - csbi.srWindow.Left;
 	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
 }
-//void printStartStars(int positionX[])
-void printStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int NUMBER_OF_STARS, bool isPrint)
+
+void printChar(char character, int positionX, int positionY)
+{
+	setCursor(positionX, positionY);
+	cout << character;
+}
+
+void changePositionStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int NUMBER_OF_STARS, bool& isPrintedFirstNumbersOfStars)
 {
 	for (int i = 0; i < NUMBER_OF_STARS; i ++)
 	{
-		if (randomNumber(0, 1))
+		if (randomNumber(0, 1) && isPrintedFirstNumbersOfStars)
 		{
-			setCursor(positionX[i], positionY[i]);
-			cout << " ";
+			printChar(' ', positionX[i], positionY[i]);
 			positionX[i] = randomNumber(0, consoleWidth);
 			positionY[i] = randomNumber(0, consoleHeight);
-			setCursor(positionX[i], positionY[i]);
-			cout << "*";
+			printChar('*', positionX[i], positionY[i]);
 		}
 		Sleep(randomNumber(100, 200));
 	}
-	isPrint = true;
+	isPrintedFirstNumbersOfStars = true;
 }
 
 void mainnn()
 {
-	bool isPrint = false;
-	const int  NUMBER_OF_STARS = 1000;
-	int positionX[NUMBER_OF_STARS];
-	int positionY[NUMBER_OF_STARS];
-
+	bool isPrintedFirstNumbersOfStars = false;
+	const int  MAX_NUMBER_OF_STARS = 1000;
+	int positionX[MAX_NUMBER_OF_STARS];
+	int positionY[MAX_NUMBER_OF_STARS];
+	int numberOfStars = 10;
 	int consoleHeight, consoleWidth;
 	getConsolResolution(consoleWidth, consoleHeight);
-
+	char plusOrMinus;
 	showConsoleCursor(false);
 	while (true)
 	{
-		printStars(consoleWidth, consoleHeight, positionX, positionY, NUMBER_OF_STARS, isPrint);
+		changePositionStars(consoleWidth, consoleHeight, positionX, positionY, MAX_NUMBER_OF_STARS, isPrintedFirstNumbersOfStars);
+		if (_kbhit())
+		{
+			plusOrMinus = _getch();
+
+		}
 	}
 }
 int main()
