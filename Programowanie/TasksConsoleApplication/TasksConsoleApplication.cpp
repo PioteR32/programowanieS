@@ -499,7 +499,7 @@ void getConsolResolution(int& consoleWidth, int& consoleHeight)
 	consoleWidth = csbi.srWindow.Right - csbi.srWindow.Left;
 	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
 }
-
+//void printStartStars(int positionX[])
 void printStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int NUMBER_OF_STARS, bool isPrint)
 {
 	for (int i = 0; i < NUMBER_OF_STARS; i ++)
@@ -521,7 +521,7 @@ void printStars( int consoleWidth, int consoleHeight, int positionX[], int posit
 void mainnn()
 {
 	bool isPrint = false;
-	const int  NUMBER_OF_STARS = 20;
+	const int  NUMBER_OF_STARS = 1000;
 	int positionX[NUMBER_OF_STARS];
 	int positionY[NUMBER_OF_STARS];
 
