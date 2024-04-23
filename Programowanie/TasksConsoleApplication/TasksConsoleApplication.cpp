@@ -506,11 +506,32 @@ void printChar(char character, int positionX, int positionY)
 	cout << character;
 }
 
-void changePositionStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int NUMBER_OF_STARS, bool& isPrintedFirstNumbersOfStars)
+void changePositionStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int MAX_NUMBER_OF_STARS,unsigned int& numberOfStars ,bool& isPrintedFirstNumbersOfStars)
 {
-	for (int i = 0; i < NUMBER_OF_STARS; i ++)
+	char plusOrMinus;
+	for (int i = 0; i < numberOfStars ; i ++)
 	{
-		if (randomNumber(0, 1) && isPrintedFirstNumbersOfStars)
+		if (_kbhit())
+		{
+			plusOrMinus = _getch();
+			if (plusOrMinus == '-')
+			{
+				if (numberOfStars > 1)
+				{
+					printChar(' ', positionX[numberOfStars - 1], positionY[numberOfStars - 1]);
+					numberOfStars--;
+				}
+			}
+			if (plusOrMinus == '+')
+			{
+				if (numberOfStars < MAX_NUMBER_OF_STARS)
+					numberOfStars++;
+				positionX[numberOfStars] = randomNumber(0, consoleWidth);
+				positionY[numberOfStars] = randomNumber(0, consoleHeight);
+				printChar('*', positionX[numberOfStars], positionY[numberOfStars]);
+			}
+		}
+		if (randomNumber(0, 1)/* && isPrintedFirstNumbersOfStars*/)
 		{
 			printChar(' ', positionX[i], positionY[i]);
 			positionX[i] = randomNumber(0, consoleWidth);
@@ -528,19 +549,14 @@ void mainnn()
 	const int  MAX_NUMBER_OF_STARS = 1000;
 	int positionX[MAX_NUMBER_OF_STARS];
 	int positionY[MAX_NUMBER_OF_STARS];
-	int numberOfStars = 10;
+	unsigned int numberOfStars = 3;
 	int consoleHeight, consoleWidth;
 	getConsolResolution(consoleWidth, consoleHeight);
 	char plusOrMinus;
 	showConsoleCursor(false);
 	while (true)
 	{
-		changePositionStars(consoleWidth, consoleHeight, positionX, positionY, MAX_NUMBER_OF_STARS, isPrintedFirstNumbersOfStars);
-		if (_kbhit())
-		{
-			plusOrMinus = _getch();
-
-		}
+		changePositionStars(consoleWidth, consoleHeight, positionX, positionY, MAX_NUMBER_OF_STARS, numberOfStars, isPrintedFirstNumbersOfStars);
 	}
 }
 int main()
