@@ -465,7 +465,11 @@ void task4()
 
 }
 #pragma endregion task4
-
+struct point
+{
+	unsigned int positionY;
+	unsigned int positionX;
+};
 int randomNumber(int LOWER_RANGE, int UPPER_RANGE)
 {
 	int enemy;
@@ -506,58 +510,63 @@ void printChar(char character, int positionX, int positionY)
 	cout << character;
 }
 
-void changePositionStars( int consoleWidth, int consoleHeight, int positionX[], int positionY[], int MAX_NUMBER_OF_STARS,unsigned int& numberOfStars ,bool& isPrintedFirstNumbersOfStars)
+void changePositionStars( int consoleWidth, int consoleHeight, point positions[], int MAX_NUMBER_OF_STARS,  int& numberOfStars, bool& isPrintedFirstNumbersOfStars)
 {
 	char plusOrMinus;
-	for (int i = 0; i < numberOfStars ; i ++)
+	for (int i = 0; ; i ++)
 	{
 		if (_kbhit())
 		{
 			plusOrMinus = _getch();
 			if (plusOrMinus == '-')
 			{
-				if (numberOfStars > 1)
+				if (numberOfStars >= 0)
 				{
-					printChar(' ', positionX[numberOfStars - 1], positionY[numberOfStars - 1]);
+					printChar(' ', positions[numberOfStars].positionX, positions[numberOfStars].positionY);
 					numberOfStars--;
 				}
 			}
 			if (plusOrMinus == '+')
 			{
 				if (numberOfStars < MAX_NUMBER_OF_STARS)
+				{
 					numberOfStars++;
-				positionX[numberOfStars] = randomNumber(0, consoleWidth);
-				positionY[numberOfStars] = randomNumber(0, consoleHeight);
-				printChar('*', positionX[numberOfStars], positionY[numberOfStars]);
+					if (numberOfStars >= 0)
+					{
+						positions[numberOfStars].positionX = randomNumber(0, consoleWidth);
+						positions[numberOfStars].positionY = randomNumber(0, consoleHeight);
+						printChar('*', positions[numberOfStars].positionX, positions[numberOfStars].positionY);
+					}
+				}
 			}
 		}
-		if (randomNumber(0, 1)/* && isPrintedFirstNumbersOfStars*/)
+		if (randomNumber(0, 1) && numberOfStars > 0 /* && isPrintedFirstNumbersOfStars*/)
 		{
-			printChar(' ', positionX[i], positionY[i]);
-			positionX[i] = randomNumber(0, consoleWidth);
-			positionY[i] = randomNumber(0, consoleHeight);
-			printChar('*', positionX[i], positionY[i]);
+			printChar(' ', positions[i].positionX, positions[i].positionY);
+			positions[i].positionX = randomNumber(0, consoleWidth);
+			positions[i].positionY = randomNumber(0, consoleHeight);
+			printChar('*', positions[i].positionX, positions[i].positionY);
 		}
 		Sleep(randomNumber(100, 200));
+		if (!(i < numberOfStars))
+		{
+			i = 0;
+		}
 	}
 	isPrintedFirstNumbersOfStars = true;
 }
 
 void mainnn()
-{
+{	
 	bool isPrintedFirstNumbersOfStars = false;
 	const int  MAX_NUMBER_OF_STARS = 1000;
-	int positionX[MAX_NUMBER_OF_STARS];
-	int positionY[MAX_NUMBER_OF_STARS];
-	unsigned int numberOfStars = 3;
+	point positions[MAX_NUMBER_OF_STARS];
+	int numberOfStars = 3;
 	int consoleHeight, consoleWidth;
 	getConsolResolution(consoleWidth, consoleHeight);
 	char plusOrMinus;
 	showConsoleCursor(false);
-	while (true)
-	{
-		changePositionStars(consoleWidth, consoleHeight, positionX, positionY, MAX_NUMBER_OF_STARS, numberOfStars, isPrintedFirstNumbersOfStars);
-	}
+	changePositionStars(consoleWidth, consoleHeight, positions, MAX_NUMBER_OF_STARS, numberOfStars, isPrintedFirstNumbersOfStars);
 }
 int main()
 {
