@@ -3,6 +3,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <iostream>
+#include "../TasksConsoleApplication/TasksConsoleApplication.cpp"
 int randomNumber(int LOWER_RANGE, int UPPER_RANGE)
 {
 	int enemy;
@@ -17,25 +18,7 @@ void setCursor(int x, int y)
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), c);
 }
 
-void showConsoleCursor(bool showFlag)
-{
-	HANDLE out = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	CONSOLE_CURSOR_INFO     cursorInfo;
-
-	GetConsoleCursorInfo(out, &cursorInfo);
-	cursorInfo.bVisible = showFlag; // set the cursor visibility
-	SetConsoleCursorInfo(out, &cursorInfo);
-}
-
-void getConsolResolution(int& consoleWidth, int& consoleHeight)
-{
-	CONSOLE_SCREEN_BUFFER_INFO csbi;
-	GetConsoleScreenBufferInfo(GetStdHandle(STD_OUTPUT_HANDLE), &csbi);
-
-	consoleWidth = csbi.srWindow.Right - csbi.srWindow.Left;
-	consoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
-}
 
 int main()
 {
