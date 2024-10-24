@@ -1,6 +1,25 @@
 
 #include <iostream> 
+class MojaKlasa {
+public:
+	int wartoœæ = 10;
 
+	// Przeci¹¿enie operatora dodawania
+	MojaKlasa operator+(const MojaKlasa& inny) {
+		MojaKlasa wynik;
+		wynik.wartoœæ = wartoœæ + inny.wartoœæ;
+		return wynik;
+	}
+	MojaKlasa operator=(const MojaKlasa& inny) {
+		MojaKlasa wynik;
+		wynik.wartoœæ = inny.wartoœæ;
+		return wynik;
+	}
+	// Przeci¹¿enie operatora porównania
+	bool operator==(const MojaKlasa& inny) {
+		return wartoœæ == inny.wartoœæ;
+	}
+};
 struct point
 {
 	double x;
@@ -14,6 +33,11 @@ long double potegowanie(double number, int potega)
 }
 void task1()
 {
+	std::string tmp;
+	MojaKlasa my1;
+	MojaKlasa my2;
+	my2= (my2 + my1);
+
 	point point;
 	std::cout << "Podaj x\n";
 	std::cin >> point.x;
