@@ -236,21 +236,21 @@ void task15()
 
 //Oblicz sumę szeregu 1 / 1 ^ 2 + 1 / 2 ^ 2 + 1 / 3 ^ 2 + ... + 1 / n ^ 2. Jeżeli się nie pomylisz, to dla odpowiednio dużej wartości n po przemnożeniu jej przez 6 i spierwiastkowaniu powinieneś otrzymać 
 //wartość liczby π(suma szeregu jest równa π2 / 6).Zwróć uwagę, że pierwsza wartość indeksu to 1, a nie 0. Dokładność obliczeń można sprawdzić porównując z wartością odczytaną z własności Math.PI.
-void task16()
-{
-	int numberFirst = 1;
-	int number = 1;
-	for (int i = 1; i != 10; i++)
-	{
-		numberFirst = numberFirst / (i * i + 1);
-	}
-	cout << numberFirst;
-	numberFirst *= 6;
-	numberFirst = sqrt(numberFirst);
-	if (numberFirst == MATH_PI))
-		cout << "dobre";
-}
+//void task16()
+//{
+//	int numberFirst = 1;
+//	int number = 1;
+//	for (int i = 1; i != 10; i++)
+//	{
+//		numberFirst = numberFirst / (i * i + 1);
+//	}
+//	cout << numberFirst;
+//	numberFirst *= 6;
+//	numberFirst = sqrt(numberFirst);
+//	if (numberFirst == MATH_PI))
+//		cout << "dobre";
+//}
 int main()
 {
-	task16();
+	/*task16();*/
 }
