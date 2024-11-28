@@ -1,20 +1,21 @@
 #pragma once
 #include <vector>
 #include <iostream>
-#define sideType = float;
+
 class Figures
 {
-private:
-	int numberOfSides = 4;
+private :
+	int numberOfSides;
 	float height;
 	std::vector<float> sides;
 public:
 	
-	Figures()
+	Figures(int numberOfSides, int height)
 	{
-		height = 1;
-		numberOfSides = 4;
+		this->height = height;
+		this->numberOfSides = numberOfSides;
 	}
+
 	Figures(int numberOfSides , std::vector<float> sides,int height)
 	{
 		this->numberOfSides = numberOfSides;
@@ -68,16 +69,9 @@ public:
 		}
 		return false;
 	}
-	virtual  float AreaSize(std::vector<float> sides) = 0;
-	int CircuitSize()
-	{
-		int result = 0;
-		for (std::vector<float>::iterator it = sides.begin(); it != sides.end(); it++)
-		{
-			result += (*it);
-		}
-		return result;
-	}
+	virtual  float AreaSize() = 0;
+	virtual float CircuitSize() = 0;
+	
 
 };
 
