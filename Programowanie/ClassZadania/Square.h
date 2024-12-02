@@ -1,6 +1,6 @@
 #pragma once
 #include "Figury.h"
-class Square:Figures
+class Square :Figures
 {
 private:
 	bool IsSameSide(std::vector<float> sides)
@@ -13,7 +13,7 @@ private:
 	}
 public:
 	const int NUMBER_OF_SIDES = 4;
-	Square(float side):Figures(NUMBER_OF_SIDES,side)
+	Square(float side) :Figures(NUMBER_OF_SIDES, side)
 	{
 		std::vector<float> tmp;
 		for (int i = 0; i < NUMBER_OF_SIDES; i++)
@@ -26,7 +26,7 @@ public:
 		std::vector<float> sides = Figures::GetSides();
 		return *sides.begin() * (*sides.begin());
 	}
-	
+
 	bool SetSides(std::vector<float> sides)
 	{
 		if (Figures::SetSides(sides))
@@ -42,9 +42,14 @@ public:
 	{
 		std::vector<float> sides = Figures::GetSides();
 		float circuit = 0;
-		for (std::vector<float>::iterator it = sides.begin();it != sides.end();it++)
+		if (sides.size() == NUMBER_OF_SIDES)
+			for (std::vector<float>::iterator it = sides.begin(); it != sides.end(); it++)
+			{
+				circuit += (*it);
+			}
+		else
 		{
-			circuit += (*it);
+			circuit = *sides.begin() * 4;
 		}
 		return circuit;
 	}

@@ -48,7 +48,7 @@ public:
 	}
 	bool SetSides(std::vector<float> sides)
 	{ 
-		if (sides.size() <= numberOfSides)
+		if (sides.size() == numberOfSides)
 		{
 			for (std::vector<float>::iterator it = sides.begin(); it != sides.end(); it++)
 			{
