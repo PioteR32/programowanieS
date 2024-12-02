@@ -27,8 +27,6 @@ public:
 		this->height = height;
 	}
 
-public:
-
 	std::vector<float> GetSides() { return  sides; }
 	bool SetHeight(float height)
 	{
@@ -71,7 +69,14 @@ public:
 	}
 	virtual  float AreaSize() = 0;
 	virtual float CircuitSize() = 0;
-	
-
+	void Information()
+	{
+		for (std::vector<float>::iterator it = sides.begin(); it != sides.end(); it++)
+		{
+			std::cout << "Bok :" << (*it);
+		}
+		std::cout << "Pole powierzchni" << AreaSize();
+		std::cout << "Obwód " << CircuitSize();
+	}
 };
 
