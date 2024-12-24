@@ -13,9 +13,8 @@ namespace DoZapełnianiaDyskow
         static int numberOfFolders = 100;
         static List<string> names = new List<string>();
         static string mainString = string.Empty;
-        static char toString = 'a';
-        static string mainFileName = "mainFile";
-        static string mainFolderName = "mainFolder";
+        public static string mainFileName = "mainFile";
+        public static string mainFolderName = "mainFolder";
         static double theBestMainFileSizeToDiskFileSize = 0.03;
         string driveName = string.Empty;    
         string globalPath = string.Empty;
@@ -38,10 +37,8 @@ namespace DoZapełnianiaDyskow
             weightOfFolder = diskFreeSpaceOnStart - 500;
             mainFileSize = (long)(theBestMainFileSizeToDiskFileSize * (double)weightOfFolder);
             driveName = this.globalPath;
-
-            SetAllDiskMemory();
         }
-        void SetAllDiskMemory()
+        public void SetAllDiskMemory()
         {
             if (!Directory.Exists(mainFolderPath))
             {
@@ -60,33 +57,31 @@ namespace DoZapełnianiaDyskow
             FileInfo fileInfo = new FileInfo(mainFilePath);
 
             StreamWriter streamWriter = new StreamWriter(mainFilePath, false);
-            for (int i = 0; fileInfo.Length / 1024 / 1024 <= mainFileSize * 1024; ++i)
+            for (int i = 0; fileInfo.Length / 1024 / 1024/1024 <= mainFileSize; ++i)
             {
                 fileInfo = new FileInfo(mainFilePath);
+                long tmp = fileInfo.Length / 1024 / 1024;
+                long tmp1 = mainFileSize * 1024;
                 streamWriter.Write(mainString);
             }
             streamWriter.Close();
         }
         public static void CreateMainString()
         {
-            int j = 0;
-            for (int i = 0; i < names.Count / 2; i++)
-            {
-                mainString += names[i];
-            }
             try
             {
-                for (j = 0; j < 100000; j++)
+                for (int i = 0; i < names.Count / 2; i++)
+                {
+                    mainString += names[i];
+                }
+                for (int j = 0; j < 100000; j++)
                 {
                     mainString += mainString;
                 }
             }
             catch
             {
-                int p = 0;
             }
-
-            int iy = 0;
         }
         void CreateFolders(object mainPath)
         {
