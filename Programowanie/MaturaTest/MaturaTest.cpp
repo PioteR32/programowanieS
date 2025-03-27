@@ -22,6 +22,7 @@ int main()
 		{
 			numbers.push_back(liczbaDodawana);
 		}
+		// zad 4.1
 		for (int number : numbers)
 		{
 			vector<int> digits = vector<int>();
@@ -44,7 +45,7 @@ int main()
 			if (number % 17 == 0)
 				std::cout << number;
 		}
-
+		// zad 4.2
 		for (int i = 0; i < reversed.size(); i++)
 		{
 			if (numbers[i] - reversed[i] < 0)
@@ -63,9 +64,9 @@ int main()
 				position = i;
 			}
 		}
-		string tmp = " " + to_string(numbers[position]) + " " + to_string(notminus0Numbers[position]);
-		std::cout << tmp;
+		std::cout << " " + to_string(numbers[position]) + " " + to_string(notminus0Numbers[position]);
 
+		//zad 4.3
 		vector<int> positions;
 		vector<int> firstsNumber;
 		int number = 1;
@@ -112,6 +113,7 @@ int main()
 		}
 		for (int position : positions)
 			cout << "\n" + to_string(numbers[position]);
+		//zad 4.4
 		int SumNumbers[3] = { 0,0,0 };
 		int i = 0;
 		for (int number : numbers)
