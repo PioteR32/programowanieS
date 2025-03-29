@@ -10,7 +10,7 @@ using namespace std;
 
 int main()
 {
-	ifstream plik = ifstream("przyklad.txt");
+	ifstream plik = ifstream("liczby.txt");
 	vector<int > numbers = vector<int>();
 	vector<int> reversed = vector<int>();
 	vector<int> notminus0Numbers = vector<int>();
@@ -22,7 +22,10 @@ int main()
 		{
 			numbers.push_back(liczbaDodawana);
 		}
+
 		// zad 4.1
+		std::cout << "zad 4.1\n";
+
 		for (int number : numbers)
 		{
 			vector<int> digits = vector<int>();
@@ -31,21 +34,24 @@ int main()
 				digits.push_back(number % 10);
 				number /= 10;
 			} while (number != 0);
+
 			int power = digits.size() - 1;
 			int tmp = 0;
+
 			for (int num : digits)
 			{
 				tmp += num * pow(10, power);
 				power--;
 			}
+
 			reversed.push_back(tmp);
+			if (tmp % 17 == 0)
+				std::cout << to_string(tmp) + "\n";
 		}
-		for (int number : reversed)
-		{
-			if (number % 17 == 0)
-				std::cout << number;
-		}
+		
 		// zad 4.2
+		cout << "zad 4.2\n";
+
 		for (int i = 0; i < reversed.size(); i++)
 		{
 			if (numbers[i] - reversed[i] < 0)
@@ -64,12 +70,15 @@ int main()
 				position = i;
 			}
 		}
-		std::cout << " " + to_string(numbers[position]) + " " + to_string(notminus0Numbers[position]);
+		std::cout << to_string(numbers[position]) + " " + to_string(notminus0Numbers[position]) + "\n";
 
 		//zad 4.3
+		cout << "zad 4.3\n";
+
 		vector<int> positions;
 		vector<int> firstsNumber;
 		int number = 1;
+
 		while (number < 5000)
 		{
 			number += 1;
@@ -89,7 +98,6 @@ int main()
 		}
 		for (int i = 1; i < reversed.size(); i++)
 		{
-
 			for (int firstNumber : firstsNumber)
 			{
 				if (firstNumber > reversed[i] / 2 && firstNumber > numbers[i] / 2)
@@ -112,9 +120,15 @@ int main()
 			}
 		}
 		for (int position : positions)
-			cout << "\n" + to_string(numbers[position]);
+			cout <<  to_string(numbers[position]) + "\n";
+
 		//zad 4.4
-		int SumNumbers[3] = { 0,0,0 };
+		cout << "zad 4.4\n";
+
+		// sumNumbers[0] = Number of numbers repeated once
+		// sumNumbers[1] = Number of numbers repeated twice
+		// sumNumbers[2] = Number of numbers repeated third
+		int sumNumbers[3] = { 0,0,0 };
 		int i = 0;
 		for (int number : numbers)
 		{
@@ -124,11 +138,13 @@ int main()
 				if (num == number)
 					numberOfNum++;
 			}
-			SumNumbers[numberOfNum - 1]++;
+			sumNumbers[numberOfNum - 1]++;
 			i++;
 		}
-		SumNumbers[1] /= 2;
-		SumNumbers[2] /= 3;
-		cout << to_string(SumNumbers[0] + SumNumbers[1] + SumNumbers[2]) + " " + to_string(SumNumbers[1]) + " " + to_string(SumNumbers[2]) + " ";
+
+		sumNumbers[1] /= 2;
+		sumNumbers[2] /= 3;
+
+		cout << to_string(sumNumbers[0] + sumNumbers[1] + sumNumbers[2]) + " " + to_string(sumNumbers[1]) + " " + to_string(sumNumbers[2]) + " ";
 	}
 }
