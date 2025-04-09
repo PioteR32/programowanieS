@@ -13,14 +13,14 @@ int main()
 	ifstream plik = ifstream("liczby.txt");
 	vector<int > numbers = vector<int>();
 	vector<int> reversed = vector<int>();
-	vector<int> notminus0Numbers = vector<int>();
-
+	vector<int> negativeNumbers = vector<int>();
+	const int MAX_PRIME_NUMBER = 5000;
 	if (plik.is_open())
 	{
-		int liczbaDodawana;
-		while (plik >> liczbaDodawana)
+		int addingNumber;
+		while (plik >> addingNumber)
 		{
-			numbers.push_back(liczbaDodawana);
+			numbers.push_back(addingNumber);
 		}
 
 		// zad 4.1
@@ -50,42 +50,42 @@ int main()
 		}
 		
 		// zad 4.2
-		cout << "zad 4.2\n";
+		std::cout << "zad 4.2\n";
 
 		for (int i = 0; i < reversed.size(); i++)
 		{
 			if (numbers[i] - reversed[i] < 0)
 			{
-				notminus0Numbers.push_back(-(numbers[i] - reversed[i]));
+				negativeNumbers.push_back(-(numbers[i] - reversed[i]));
 			}
 			else
-				notminus0Numbers.push_back((numbers[i] - reversed[i]));
+				negativeNumbers.push_back((numbers[i] - reversed[i]));
 		}
 
 		int position = 0;
-		for (int i = 0; i < notminus0Numbers.size(); i++)
+		for (int i = 0; i < negativeNumbers.size(); i++)
 		{
-			if (notminus0Numbers[i] > notminus0Numbers[position])
+			if (negativeNumbers[i] > negativeNumbers[position])
 			{
 				position = i;
 			}
 		}
-		std::cout << to_string(numbers[position]) + " " + to_string(notminus0Numbers[position]) + "\n";
+		std::cout << to_string(numbers[position]) + " " + to_string(negativeNumbers[position]) + "\n";
 
 		//zad 4.3
 		cout << "zad 4.3\n";
 
-		vector<int> positions;
-		vector<int> firstsNumber;
+		vector<int> positionsOfPrimeNumbers;
+		vector<int> primeNumbers;
 		int number = 1;
 
 		while (number < 5000)
 		{
 			number += 1;
 			bool isFirst = true;
-			for (int num : firstsNumber)
+			for (int primeNumber : primeNumbers)
 			{
-				if (number % num == 0)
+				if (number % primeNumber == 0)
 				{
 					isFirst = false;
 					break;
@@ -93,42 +93,42 @@ int main()
 			}
 			if (isFirst)
 			{
-				firstsNumber.push_back(number);
+				primeNumbers.push_back(number);
 			}
 		}
 		for (int i = 1; i < reversed.size(); i++)
 		{
-			for (int firstNumber : firstsNumber)
+			for (int primeNumber : primeNumbers)
 			{
-				if (firstNumber > reversed[i] / 2 && firstNumber > numbers[i] / 2)
+				if (primeNumber > reversed[i] / 2 && primeNumber > numbers[i] / 2)
 				{
-					positions.push_back(i);
+					positionsOfPrimeNumbers.push_back(i);
 					break;
 				}
-				if (firstNumber < reversed[i] / 2)
+				if (primeNumber < reversed[i] / 2)
 				{
-					if (reversed[i] % firstNumber == 0)
+					if (reversed[i] % primeNumber == 0)
 					{
 						break;
 					}
 				}
-				if (firstNumber < numbers[i] / 2)
-					if (numbers[i] % firstNumber == 0)
+				if (primeNumber < numbers[i] / 2)
+					if (numbers[i] % primeNumber == 0)
 					{
 						break;
 					}
 			}
 		}
-		for (int position : positions)
+		for (int position : positionsOfPrimeNumbers)
 			cout <<  to_string(numbers[position]) + "\n";
 
 		//zad 4.4
 		cout << "zad 4.4\n";
 
-		// sumNumbers[0] = Number of numbers repeated once
-		// sumNumbers[1] = Number of numbers repeated twice
-		// sumNumbers[2] = Number of numbers repeated third
-		int sumNumbers[3] = { 0,0,0 };
+		// numberOfReapetedNumbers[0] = Number of numbers repeated once
+		// numberOfReapetedNumbers[1] = Number of numbers repeated twice
+		// numberOfReapetedNumbers[2] = Number of numbers repeated third
+		int numberOfReapetedNumbers[3] = { 0,0,0 };
 		int i = 0;
 		for (int number : numbers)
 		{
@@ -138,13 +138,13 @@ int main()
 				if (num == number)
 					numberOfNum++;
 			}
-			sumNumbers[numberOfNum - 1]++;
+			numberOfReapetedNumbers[numberOfNum - 1]++;
 			i++;
 		}
 
-		sumNumbers[1] /= 2;
-		sumNumbers[2] /= 3;
+		numberOfReapetedNumbers[1] /= 2;
+		numberOfReapetedNumbers[2] /= 3;
 
-		cout << to_string(sumNumbers[0] + sumNumbers[1] + sumNumbers[2]) + " " + to_string(sumNumbers[1]) + " " + to_string(sumNumbers[2]) + " ";
+		cout << to_string(numberOfReapetedNumbers[0] + numberOfReapetedNumbers[1] + numberOfReapetedNumbers[2]) + " " + to_string(numberOfReapetedNumbers[1]) + " " + to_string(numberOfReapetedNumbers[2]) + " ";
 	}
 }
