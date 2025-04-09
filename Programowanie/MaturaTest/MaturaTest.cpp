@@ -12,7 +12,7 @@ int main()
 {
 	ifstream plik = ifstream("liczby.txt");
 	vector<int > numbers = vector<int>();
-	vector<int> reversed = vector<int>();
+	vector<int> reversedNumbers = vector<int>();
 	vector<int> negativeNumbers = vector<int>();
 	const int MAX_PRIME_NUMBER = 5000;
 	if (plik.is_open())
@@ -36,30 +36,30 @@ int main()
 			} while (number != 0);
 
 			int power = digits.size() - 1;
-			int tmp = 0;
+			int reversedNumber = 0;
 
 			for (int num : digits)
 			{
-				tmp += num * pow(10, power);
+				reversedNumber += num * pow(10, power);
 				power--;
 			}
 
-			reversed.push_back(tmp);
-			if (tmp % 17 == 0)
-				std::cout << to_string(tmp) + "\n";
+			reversedNumbers.push_back(reversedNumber);
+			if (reversedNumber % 17 == 0)
+				std::cout << to_string(reversedNumber) + "\n";
 		}
 		
 		// zad 4.2
 		std::cout << "zad 4.2\n";
 
-		for (int i = 0; i < reversed.size(); i++)
+		for (int i = 0; i < reversedNumbers.size(); i++)
 		{
-			if (numbers[i] - reversed[i] < 0)
+			if (numbers[i] - reversedNumbers[i] < 0)
 			{
-				negativeNumbers.push_back(-(numbers[i] - reversed[i]));
+				negativeNumbers.push_back(-(numbers[i] - reversedNumbers[i]));
 			}
 			else
-				negativeNumbers.push_back((numbers[i] - reversed[i]));
+				negativeNumbers.push_back((numbers[i] - reversedNumbers[i]));
 		}
 
 		int position = 0;
@@ -96,18 +96,18 @@ int main()
 				primeNumbers.push_back(number);
 			}
 		}
-		for (int i = 1; i < reversed.size(); i++)
+		for (int i = 1; i < reversedNumbers.size(); i++)
 		{
 			for (int primeNumber : primeNumbers)
 			{
-				if (primeNumber > reversed[i] / 2 && primeNumber > numbers[i] / 2)
+				if (primeNumber > reversedNumbers[i] / 2 && primeNumber > numbers[i] / 2)
 				{
 					positionsOfPrimeNumbers.push_back(i);
 					break;
 				}
-				if (primeNumber < reversed[i] / 2)
+				if (primeNumber < reversedNumbers[i] / 2)
 				{
-					if (reversed[i] % primeNumber == 0)
+					if (reversedNumbers[i] % primeNumber == 0)
 					{
 						break;
 					}
