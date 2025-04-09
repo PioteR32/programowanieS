@@ -7,28 +7,38 @@ namespace DoZapełnianiaDyskow
 
     public partial class MainPage : ContentPage
     {
-       
+
         public MainPage()
         {
             MyDisk.CreateNames();
             MyDisk.CreateMainString();
-            while (true)
+
+            DriveInfo[] drivesInfo = DriveInfo.GetDrives();
+            foreach (DriveInfo driveInfo in drivesInfo)
             {
-                DriveInfo[] drivesInfo = DriveInfo.GetDrives();
-                foreach (DriveInfo driveInfo in drivesInfo)
+                if (driveInfo.DriveType == DriveType.Fixed)
                 {
-                    if (driveInfo.DriveType == DriveType.Fixed)
+                    if (File.Exists(driveInfo.Name + MyDisk.mainFolderName + @"\" + MyDisk.mainFileName + ".txt"))
                     {
-                        if (File.Exists(driveInfo.Name + MyDisk.mainFolderName + @"\" + MyDisk.mainFileName + ".txt"))
+                        MyDisk myDisk = new MyDisk(driveInfo.Name);
+                        Thread t = new Thread(myDisk.SetAllDiskMemory);
+                        t.Start();
+                    }
+                    else
+                    {
+                        if (!Directory.Exists(driveInfo.Name + MyDisk.mainFolderName)) ;
                         {
-                            MyDisk myDisk = new MyDisk(driveInfo.Name);
-                            Thread t = new Thread(myDisk.SetAllDiskMemory);
-                            t.Start();
+                            Directory.CreateDirectory(driveInfo.Name + MyDisk.mainFolderName);
                         }
+                        File.Create(driveInfo.Name + MyDisk.mainFolderName + @"\" + MyDisk.mainFileName + ".txt");
+                        MyDisk myDisk = new MyDisk(driveInfo.Name);
+                        Thread t = new Thread(myDisk.SetAllDiskMemory);
+                        t.Start();
                     }
                 }
-                Thread.Sleep(1000);
             }
+            Thread.Sleep(1000);
+
         }
 
         public static void CopyDirectory(string sourceDir, string destDir)

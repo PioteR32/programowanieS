@@ -32,9 +32,9 @@ namespace DoZapełnianiaDyskow
             this.globalPath = globalPath.ToString().Substring(0, 3);
             driveInfo = new DriveInfo(this.globalPath);
             diskFreeSpaceOnStart = driveInfo.TotalFreeSpace / 1024 / 1024 / 1024;
-            mainFilePath = this.globalPath + mainFolderName + @"\" + mainFileName;
+            mainFilePath = this.globalPath + mainFolderName + @"\" + mainFileName + ".txt";
             mainFolderPath = this.globalPath + mainFolderName;
-            weightOfFolder = diskFreeSpaceOnStart - 500;
+            weightOfFolder = diskFreeSpaceOnStart;
             mainFileSize = (long)(theBestMainFileSizeToDiskFileSize * (double)weightOfFolder);
             driveName = this.globalPath;
         }
@@ -60,7 +60,7 @@ namespace DoZapełnianiaDyskow
             for (int i = 0; fileInfo.Length / 1024 / 1024/1024 <= mainFileSize; ++i)
             {
                 fileInfo = new FileInfo(mainFilePath);
-                long tmp = fileInfo.Length / 1024 / 1024;
+                long tmp = fileInfo.Length / 1024 / 1024/1024;
                 long tmp1 = mainFileSize * 1024;
                 streamWriter.Write(mainString);
             }
