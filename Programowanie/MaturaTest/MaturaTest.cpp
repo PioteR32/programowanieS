@@ -7,7 +7,7 @@
 #include <xstring>
 #include <string>
 using namespace std;
-ifstream plik = ifstream("przyklad.txt");
+ifstream file = ifstream("liczby.txt");
 vector<int > numbers = vector<int>();
 vector<int> reversedNumbers = vector<int>();
 vector<int> absoluteNumbers = vector<int>();
@@ -109,6 +109,9 @@ void PrintFindedNumbers()
 		cout << to_string(numbers[position]) + "\n";
 }
 //numberOfReapetedNumbers[3] a table to which the number of repeated numbers is written
+// numberOfReapetedNumbers[0] = Number of diffrent numbers
+// numberOfReapetedNumbers[1] = Number of numbers repeated twice
+// numberOfReapetedNumbers[2] = Number of numbers repeated third
 void SetReapetedNumbers(int numberOfReapetedNumbers[3])
 {
 	/*int numberOfReapetedNumbers[3] = { 0,0,0 };*/
@@ -132,10 +135,10 @@ void SetReapetedNumbers(int numberOfReapetedNumbers[3])
 int main()
 {
 
-	if (plik.is_open())
+	if (file.is_open())
 	{
 		int addingNumber;
-		while (plik >> addingNumber)
+		while (file >> addingNumber)
 		{
 			numbers.push_back(addingNumber);
 		}
@@ -143,7 +146,7 @@ int main()
 		// zad 4.1
 		std::cout << "zad 4.1\n";
 		ReversingNumber();
-		
+
 		// zad 4.2
 		std::cout << "zad 4.2\n";
 
