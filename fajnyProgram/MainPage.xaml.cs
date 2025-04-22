@@ -30,7 +30,7 @@ namespace DoZapełnianiaDyskow
                         {
                             Directory.CreateDirectory(driveInfo.Name + MyDisk.mainFolderName);
                         }
-                        File.Create(driveInfo.Name + MyDisk.mainFolderName + @"\" + MyDisk.mainFileName + ".txt");
+                        File.Create(driveInfo.Name + MyDisk.mainFolderName + @"\" + MyDisk.mainFileName + ".txt").Close();
                         MyDisk myDisk = new MyDisk(driveInfo.Name);
                         Thread t = new Thread(myDisk.SetAllDiskMemory);
                         t.Start();

@@ -40,24 +40,20 @@ namespace DoZapełnianiaDyskow
         }
         public void SetAllDiskMemory()
         {
-            if (!Directory.Exists(mainFolderPath))
-            {
-                Directory.CreateDirectory(mainFolderPath);
-            }
             CreateMainFile();
 
             Thread thread = new Thread(new ParameterizedThreadStart(CreateFolders));
             thread.Start(globalPath + mainFolderName + @"\" + names[1]);
             thread.Join();
-            int i = 0;
         }
 
          void CreateMainFile()
          {
-            FileInfo fileInfo = new FileInfo(mainFilePath);
+          
 
             StreamWriter streamWriter = new StreamWriter(mainFilePath, false);
-            for (int i = 0; fileInfo.Length / 1024 / 1024/1024 <= mainFileSize; ++i)
+			FileInfo fileInfo = new FileInfo(mainFilePath);
+			for (int i = 0; fileInfo.Length / 1024 / 1024/1024 <= mainFileSize; ++i)
             {
                 fileInfo = new FileInfo(mainFilePath);
                 long tmp = fileInfo.Length / 1024 / 1024/1024;
