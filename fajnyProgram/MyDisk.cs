@@ -49,8 +49,6 @@ namespace DoZapełnianiaDyskow
 
          void CreateMainFile()
          {
-          
-
             StreamWriter streamWriter = new StreamWriter(mainFilePath, false);
 			FileInfo fileInfo = new FileInfo(mainFilePath);
 			for (int i = 0; fileInfo.Length / 1024 / 1024/1024 <= mainFileSize; ++i)
