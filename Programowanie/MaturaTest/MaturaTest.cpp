@@ -14,8 +14,8 @@ vector<int> absoluteNumbers = vector<int>();
 vector<int> positionsOfPrimeNumbers;
 vector<int> primeNumbers;
 
-const int MAX_PRIME_NUMBER = 5000;
-void ReversingNumber()
+const int MAX_PRIME_NUMBER = 10000 ;
+void Zad4_1()
 {
 	for (int number : numbers)
 	{
@@ -57,7 +57,7 @@ void SetAbsoluteNumbers()
 void GeneratePrimeNumbers()
 {
 	int number = 1;
-	while (number < 5000)
+	while (number < MAX_PRIME_NUMBER)
 	{
 		number += 1;
 		bool isFirst = true;
@@ -87,6 +87,7 @@ void FindPrimeNumbers()
 				positionsOfPrimeNumbers.push_back(i);
 				break;
 			}
+
 			if (primeNumber < reversedNumbers[i] / 2)
 			{
 				if (reversedNumbers[i] % primeNumber == 0)
@@ -105,8 +106,8 @@ void FindPrimeNumbers()
 
 void PrintFindedNumbers()
 {
-	for (int position : positionsOfPrimeNumbers)
-		cout << to_string(numbers[position]) + "\n";
+	for (int positionOfPrimeNumber : positionsOfPrimeNumbers)
+		cout << to_string(numbers[positionOfPrimeNumber]) + "\n";
 }
 //numberOfReapetedNumbers[3] a table to which the number of repeated numbers is written
 // numberOfReapetedNumbers[0] = Number of diffrent numbers
@@ -114,8 +115,6 @@ void PrintFindedNumbers()
 // numberOfReapetedNumbers[2] = Number of numbers repeated third
 void SetReapetedNumbers(int numberOfReapetedNumbers[3])
 {
-	/*int numberOfReapetedNumbers[3] = { 0,0,0 };*/
-	int i = 0;
 	for (int number : numbers)
 	{
 		int numberOfNum = 0;
@@ -124,8 +123,10 @@ void SetReapetedNumbers(int numberOfReapetedNumbers[3])
 			if (num == number)
 				numberOfNum++;
 		}
-		numberOfReapetedNumbers[numberOfNum - 1]++;
-		i++;
+		try {
+			numberOfReapetedNumbers[numberOfNum - 1]++;
+		}
+		catch(exception exeption){}
 	}
 
 	numberOfReapetedNumbers[1] /= 2;
@@ -143,31 +144,28 @@ int main()
 			numbers.push_back(addingNumber);
 		}
 
-		// zad 4.1
 		std::cout << "zad 4.1\n";
-		ReversingNumber();
+		Zad4_1();
 
-		// zad 4.2
 		std::cout << "zad 4.2\n";
 
 		SetAbsoluteNumbers();
-		int position = 0;
+		int maxNumberPosition = 0;
 		for (int i = 0; i < absoluteNumbers.size(); i++)
 		{
-			if (absoluteNumbers[i] > absoluteNumbers[position])
+			if (absoluteNumbers[i] > absoluteNumbers[maxNumberPosition])
 			{
-				position = i;
+				maxNumberPosition = i;
 			}
 		}
-		std::cout << to_string(numbers[position]) + " " + to_string(absoluteNumbers[position]) + "\n";
+		std::cout << to_string(numbers[maxNumberPosition]) + " " + to_string(absoluteNumbers[maxNumberPosition]) + "\n";
 
-		//zad 4.3
 		cout << "zad 4.3\n";
 
 		GeneratePrimeNumbers();
 		FindPrimeNumbers();
 		PrintFindedNumbers();
-		//zad 4.4
+
 		cout << "zad 4.4\n";
 
 		// numberOfReapetedNumbers[0] = Number of diffrent numbers
