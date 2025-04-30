@@ -16,15 +16,15 @@ void ReadNumbers(std::ifstream* file, std::vector<int>* vector)
 }
 int GetOddNumberAbbreviation(int liczba)
 {
-	int i = 0;
+	int powerExponent = 0;
 	int oddNumberAbbreviation = 0;
 	do
 	{
-		int tmp = (liczba % 10);
-		if (tmp % 2)
+		int digit = liczba % 10;
+		if (digit % 2)
 		{
-			oddNumberAbbreviation += tmp * pow(10, i);
-			i++;
+			oddNumberAbbreviation += digit * pow(10, powerExponent);
+			powerExponent++;
 		}
 		liczba /= 10;
 	} while (liczba != 0);
@@ -54,15 +54,15 @@ void GeneratePrimeNumbers(std::vector<int>* primeNumbers)
 int NWD(int highestValue, int lowerValue, std::vector<int> primeNumbers)
 {
 	int NWD = 1;
-	std::vector<int> dzielniki;
+	std::vector<int> divisors;
 	for (int primeNum : primeNumbers)
 	{
 		if (primeNum > lowerValue)
 			break;
 		if (lowerValue % primeNum == 0 && highestValue % primeNum == 0)
-			dzielniki.push_back(primeNum);
+			divisors.push_back(primeNum);
 	}
-	for (int divisor : dzielniki)
+	for (int divisor : divisors)
 		NWD *= divisor;
 	return NWD;
 }
@@ -98,7 +98,7 @@ int main()
 	{
 		if (int oddNumber = GetOddNumberAbbreviation(num))
 		{
-			if(NWD(num,oddNumber,primeNumbers) == 7)
+			if (NWD(num, oddNumber, primeNumbers) == 7)
 				std::cout << std::to_string(num) + "\n";
 		}
 	}
