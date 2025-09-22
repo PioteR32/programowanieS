@@ -24,6 +24,25 @@ void Parv2(ref PointStruct pointStruct)
     Console.WriteLine($"firstPointStruct {pointStruct}");
 }
 
+void Parv3(ref PointClass pointClass)
+{
+    Console.WriteLine($"firstPointStruct {pointClass}");
+    
+    pointClass = new PointClass();
+    pointClass.x = 79;
+      
+    Console.WriteLine($"firstPointStruct {pointClass}");
+}
+void Parv4(ref PointClass pointClass)
+{
+    Console.WriteLine($"firstPointStruct {pointClass}");
+
+    pointClass = new PointClass();
+    pointClass.x = 199;
+
+    Console.WriteLine($"firstPointStruct {pointClass}");
+}
+
 Parv1(firstPointStruct);
 Console.WriteLine($"firstPointStruct {firstPointStruct}");
 
@@ -38,6 +57,11 @@ Console.WriteLine($"firstPointClass {firstPointClass}");
 
 PointClass secondPointClass = firstPointClass;
 secondPointClass.x = 29;
+
+Console.WriteLine($"firstPointClass {firstPointClass}");
+Console.WriteLine($"secondPointClass {secondPointClass}");
+
+Parv3(ref firstPointClass);
 
 Console.WriteLine($"firstPointClass {firstPointClass}");
 Console.WriteLine($"secondPointClass {secondPointClass}");
