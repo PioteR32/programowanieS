@@ -23,13 +23,19 @@ namespace PracticalTasksConsoleApp.Task2023_06
         {
            return tytul;
         }
-        public void SetIloscWypozyczen(int iloscWypozyczen)
-        {
-            this.iloscWypozyczen = iloscWypozyczen;
-        }
         public int GetIloscWypozyczen()
         {
            return iloscWypozyczen;
+        }
+
+        public void InkrementowanieWypozyczen()
+        {
+            iloscWypozyczen++;
+        }
+
+        public void WyświetlPola()
+        {
+            Console.WriteLine($"Tytuł {tytul} Ilosć wypozyczeń {iloscWypozyczen}")
         }
     }
 }
