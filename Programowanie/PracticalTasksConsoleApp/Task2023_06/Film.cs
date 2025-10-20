@@ -35,7 +35,7 @@ namespace PracticalTasksConsoleApp.Task2023_06
 
         public void WyświetlPola()
         {
-            Console.WriteLine($"Tytuł {tytul} Ilosć wypozyczeń {iloscWypozyczen}")
+            Console.WriteLine($"Tytuł {tytul} Ilosć wypozyczeń {iloscWypozyczen}");
         }
     }
 }
