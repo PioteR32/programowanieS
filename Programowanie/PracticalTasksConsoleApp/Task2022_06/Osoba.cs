@@ -34,7 +34,5 @@ namespace PracticalTasksConsoleApp.Task2022_06
         {
             Console.WriteLine($"Cześć {imieWitajacego}, mam na imię {imie} ");
         }
-
-     
     }
 }

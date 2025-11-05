@@ -6,6 +6,14 @@ using System.Threading.Tasks;
 
 namespace PracticalTasksConsoleApp.Styczeń2023_1Mobilna
 {
+    //*******************************************
+    //klasa: Notatka
+    //opis: reprezentuje notatkę
+    //pola: iloscNotatek - przechowuje ilość notatek
+    //      id - przechowuje id notatki
+    //      tytuł - przechowuje tytuł notatki
+    //      notatka - przechowuje treść notatki
+    //autor: 01234567890
     public class Notatka
     {
         static int iloscNotatek;
@@ -23,11 +31,3 @@ namespace PracticalTasksConsoleApp.Styczeń2023_1Mobilna
         public void Diagnostyczna() => Console.WriteLine($"{iloscNotatek};{id};{tytul};{notatka}");
     }
 }
-//*******************************************
-//klasa: Notatka
-//opis: reprezentuje notatkę
-//pola: iloscNotatek - przechowuje ilość notatek
-//      id - przechowuje id notatki
-//      tytuł - przechowuje tytuł notatki
-//      notatka - przechowuje treść notatki
-//autor: 01234567890

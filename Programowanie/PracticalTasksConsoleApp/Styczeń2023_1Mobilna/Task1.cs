@@ -8,6 +8,6 @@ namespace PracticalTasksConsoleApp.Styczeń2023_1Mobilna
 {
     public class Task1
     {
-
+        public static void Task() { }
     }
 }
