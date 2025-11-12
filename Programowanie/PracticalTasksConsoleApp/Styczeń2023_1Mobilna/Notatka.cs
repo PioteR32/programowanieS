@@ -28,6 +28,9 @@ namespace PracticalTasksConsoleApp.Styczeń2023_1Mobilna
             this.notatka = notatka;
         }
         public void WyswietlNotatke() => Console.WriteLine($"tytuł: {tytul}\n{notatka}");
+        /// <summary>
+        /// iloscNotatek;id;tytul;notatka
+        /// </summary>
         public void Diagnostyczna() => Console.WriteLine($"{iloscNotatek};{id};{tytul};{notatka}");
     }
 }

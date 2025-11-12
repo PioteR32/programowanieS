@@ -12,11 +12,13 @@ namespace PracticalTasksConsoleApp.Task2022_06
         {
             Console.WriteLine($"Ilość zarejestrowanych osób  {Osoba.numberOfCreatedClass}");
             Osoba osobaKonstruktorBezparametrowy = new ();
+            
             Console.WriteLine($"Podaj id osoby");
             int id = int.Parse(Console.ReadLine());
             Console.WriteLine("Podaj imię osoby");
             string  imie = Console.ReadLine();
             Osoba osobaKonstruktorDwuparametrowy = new(id, imie);
+            osobaKonstruktorDwuparametrowy.Przywitanie("Jan");
             Osoba osobaKonstruktorKopiujacy = new(osobaKonstruktorDwuparametrowy);
             Console.WriteLine($"Ilość zarejestrowanych osób  {Osoba.numberOfCreatedClass}");
         }

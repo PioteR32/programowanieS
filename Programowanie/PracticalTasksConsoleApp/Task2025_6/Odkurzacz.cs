@@ -9,6 +9,7 @@ namespace PracticalTasksConsoleApp.Task2025_6
     public class Odkurzacz:Urzadzenie
     {
         bool jestWłaczony;
+
         public void On()
         {
             if (!jestWłaczony)

@@ -32,6 +32,7 @@ namespace PracticalTasksConsoleApp.Task2022_06
 
         public void Przywitanie(string imieWitajacego)
         {
+            if(imie == null) Console.WriteLine("Brak danych");
             Console.WriteLine($"Cześć {imieWitajacego}, mam na imię {imie} ");
         }
     }

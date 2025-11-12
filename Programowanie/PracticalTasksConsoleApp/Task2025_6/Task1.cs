@@ -17,6 +17,7 @@ namespace PracticalTasksConsoleApp.Task2025_6
             odkurzacz.On();
             odkurzacz.On();
             odkurzacz.On();
+            odkurzacz.WyswietlKomunikat("odkurzacz się wyładował");
             odkurzacz.Off();
         }
     }
