@@ -8,7 +8,7 @@ namespace PracticalTasksConsoleApp.Task2022_06
 {
     public class Osoba
     {
-        private static long numberOfCreatedClass = 0;
+        public static long numberOfCreatedClass = 0;
         private int id;
         private string imie;
         public Osoba(int id, string imie)
