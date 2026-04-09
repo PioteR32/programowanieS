@@ -84,7 +84,7 @@ namespace LinqPracticalTaskConsoleApp
 			new() { Id=3, FirstName="Ewa",   LastName="Wiśniewska",Age=35, Gender=Gender.Female, City="Kraków", Salary=9800m,  Skills=["JavaScript", "React"] },
 			new() { Id=4, FirstName="Jan",   LastName="Zieliński", Age=43, Gender=Gender.Male,   City="Gdańsk", Salary=12000m, Skills=["C#", "SQL"] },
 			new() { Id=5, FirstName="Ola",   LastName="Maj",       Age=26, Gender=Gender.Female, City="Kielce", Salary=7200m,  Skills=["Python", "ML"] },
-			new() { Id=6, FirstName="Piotr", LastName="Lewandowski",Age=37,Gender=Gender.Male,   City="Warszawa", Salary=13400m, Skills=["C#", "LINQ", "Azure"] },
+			new() { Id=6, FirstName="Piotr", LastName="Lewandowski",Age=37,Gender=Gender.Male,   City="Warszawa", Salary=13400m, Skills=["C#", "LINQ", "SQL"] },
 			new() { Id=7, FirstName="Iga",   LastName="Kowal",     Age=31, Gender=Gender.Female, City="Kraków", Salary=9900m,  Skills=["Go", "Kubernetes"] },
 			new() { Id=8, FirstName="Tomek", LastName="Sikora",    Age=29, Gender=Gender.Male,   City="Kielce", Salary=8800m,  Skills=["C#", "MAUI", "Bluetooth"] },
 		};
@@ -131,7 +131,7 @@ namespace LinqPracticalTaskConsoleApp
 			var q13 = people.Sum(p => p.City == "Kielce" ? p.Salary : 0);
 			Console.WriteLine($"Zadanie 13 {q13}");
 			//14. Znajdź pierwszą osobę, której pensja jest większa niż 10 000.
-			var q14 = people.Where(p => p.Salary > 10000).OrderBy(p => p.Salary).First();
+			var q14 = people.Where(p => p.Salary > 10000).First();
 			Console.WriteLine($"Zadanie 14 {q14}");
 			//15. Znajdź ostatnią osobę w kolejności alfabetycznej po nazwisku.
 			var q15 = people.OrderBy(p => p.LastName).LastOrDefault();
@@ -183,13 +183,12 @@ namespace LinqPracticalTaskConsoleApp
 			var q29 = people.Where(p => p.Age == people.Max(pp => pp.Age));
 			Print("Zadanie 29", q29);
 			//30. Wypisz miasta wraz z liczbą osób pochodzących z każdego miasta.
-			var q30 = people.Select(p => $"{p.City} {people.Count(pp => pp.City == p.City)}");
-			Print("Zadanie 30", q30);
-			//31. Znajdź osoby, które mają identyczny zestaw skilli.
-			var q31 = people
-				.Select(p => people.Where(pp => pp.Skills == p.Skills).Distinct())
-				.Where(p => p.Count() > 1);
+			var townsCount = 
+				people.Select(p => new { City = p.City, Count = people.Count(pp => pp.City == p.City)})
+				.DistinctBy(p => p.City);
 
+			var q30 = townsCount.Select(p => $"{p.City} {p.Count}");
+			Print("Zadanie 30", q30);
 			//32. Posortuj osoby według liczby posiadanych skilli.
 			var q32 = people.OrderBy(p => p.Skills.Count());
 			Print("Zadanie 32", q32);
