@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -84,10 +85,10 @@ internal class Task2
         var q2 = orders.Count(o => o.Product == "Laptop") > 0;
         Console.WriteLine($"Zadanie 2 {q2}");
         //3. Wypisz zam�wienia z ostatnich 30 dni.
-        var q3 = orders.Where(o => o.OrderDate >= DateTime.Today.AddDays(-30));
+        var q3 = orders.Where(o => o.OrderDate >= DateTime.Today.AddDays(-30) && o.OrderDate <= DateTime.Now);
         Print($"Zadanie 3 ", q3);
         //4. Wygeneruj list� tekst�w w formacie: "Klient ? warto�� zam�wienia".
-        var q4 = orders.Select(o => $"Klient {o.Customer}: {o.PricePerItem}");
+        var q4 = orders.Select(o => $"Klient {o.Customer}: {o.PricePerItem * o.Quantity:C}");
         Print($"Zadanie 4", q4);
         //5. Znajd� zam�wienia, w kt�rych nazwa produktu zawiera liter� �o�.
         var q5 = orders.Where(o => o.Product.Contains('o'));
@@ -96,28 +97,37 @@ internal class Task2
         var q6 = orders.Where(o => o.PricePerItem * o.Quantity > 1000 && o.Status != OrderStatus.Cancelled);
         Print($"Zadanie 6", q6);
         //7. Sprawd�, czy wszystkie zam�wienia pochodz� z bie��cego roku.
-        var q7 = orders.Where(o => o.OrderDate.Year == DateTime.Now.Year);
-        Print($"Zadanie 7", q7);
+        var q7 = orders.All(o => o.OrderDate.Year == DateTime.Now.Year);
+        Console.WriteLine($"Zadanie 7 " + ( q7 ? "true" : "false"));
         //8. Znajd� zam�wienia, gdzie klient zam�wi� wi�cej ni� jeden r�ny produkt (czyli klient pojawia si� wi�cej ni� raz z r�nymi produktami).
-        var q8 = orders.Where(o => orders.Count(oo => oo.Customer == o.Customer) > 1).Distinct();
+        var q8 = orders.Where(o => orders.Where(oo => oo.Customer == o.Customer).DistinctBy(c => c.Product).Count() > 1).Distinct();
         Print($"Zadanie 8", q8);
         ///9. Wypisz klient�w wraz z liczb� dni, kt�re min�y od ich najstarszego zam�wienia.
         var q9 = orders.Select(o => new {Customer = o.Customer, OrderDate = o.OrderDate}).OrderBy(o => o.OrderDate).DistinctBy(o => o.Customer);
-        Print($"Zadanie 9", q9);
+        Print($"Zadanie 9","");
+        foreach (var o in q9)
+            Console.WriteLine(o.Customer + " " + (DateTime.Now - o.OrderDate).Days);
         //10. Wypisz wszystkie unikalne pary (Klient, Produkt).
         var q10 = orders.Select(o => new { Customer = o.Customer, Product = o.Product }).Distinct();
-        Print($"Zadanie 10", q10);
+        Print($"Zadanie 10", "");
+        //List<int> p = [1, 2, 3, 4];
+        //List<double> tmp = p.Select(w => (double)w).ToList();
+        //tmp = p.Cast<double>().ToList();
+        foreach (var o in q10)
+            Console.WriteLine(o.Customer + " " + o.Product);
         //11. Znajd� klient�w, kt�rzy maj� co najmniej jedno zam�wienie w statusie �Cancelled� ORAZ co najmniej jedno w statusie �Delivered�.
-        var q11 = orders.Where(o => orders.Where(oo =>o.Customer == oo.Customer && oo.Status == OrderStatus.Cancelled).Count() > 0 &&
-        orders.Where(oo => o.Customer == oo.Customer && oo.Status == OrderStatus.Delivered).Count() > 0);
+        var q11 = orders.Where(o => orders.Where(oo =>o.Customer == oo.Customer && oo.Status == OrderStatus.Cancelled).Count()> 0 
+        && orders.Where(oo => o.Customer == oo.Customer && oo.Status == OrderStatus.Delivered).Count() > 0);
         Print($"Zadanie 11", q11);
         //12. Wypisz zam�wienia, kt�rych warto�� mie�ci si� pomi�dzy 1000 a 3000 z� i zosta�y z�o�one w ci�gu ostatnich 14 dni.
-        var q12 = orders.Where(o => o.Total > 1000 && o.Total < 3000 && o.OrderDate >=  DateTime.Now.AddDays(-14));
+        var q12 = orders.Where(o => o.Total > 1000 && o.Total < 3000 && o.OrderDate >=  DateTime.Now.AddDays(-14) && o.OrderDate <= DateTime.Now);
         Print($"Zadanie 12", q12);
         //13. Znajd� klient�w, kt�rzy zamawiali ten sam produkt w r�nych terminach.
-        var q13 = orders
-            .Where(o => !orders.Where(oo => o.Customer == oo.Customer && o.Product == oo.Product).All(oo => oo.OrderDate == o.OrderDate));
-        Console.WriteLine($"Zadanie 13 {q13}");
+        var q13 = orders.FindAll(o => orders
+        .Where(oo => o.Product == oo.Product && o.Customer == oo.Customer && oo.OrderDate != o.OrderDate).Count() > 0)
+            .DistinctBy(o => o.Customer).Select(o => $"Klienci {o.Customer}");
+        /*.Where(o => !orders.Where(oo => o.Customer == oo.Customer && o.Product == oo.Product).All(oo => oo.OrderDate == o.OrderDate));*/
+        Print($"Zadanie 13", q13);
 
         //14. Znajd� zam�wienia, w kt�rych cena jednostkowa produktu jest wy�sza ni� ��czna warto�� jakiegokolwiek innego zam�wienia.
         var q14 = orders.Where(o => orders.Find(oo => o.PricePerItem > oo.Total) != null);
