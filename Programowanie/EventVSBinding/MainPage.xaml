@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventVSBinding.MainPage">
+    <StackLayout>
+        <Slider x:Name="_slider" 
+                ValueChanged="_slider_ValueChanged"
+                Value='{Binding Source={x:Reference _label},Path=Rotation}'
+                Minimum="0"
+                Maximum="360"/>
+        <Label x:Name="_label"
+            Text="{Binding Source={x:Reference _label},Path=Rotation}" 
+            HorizontalOptions="Start"/>
+    </StackLayout>
+</ContentPage>
