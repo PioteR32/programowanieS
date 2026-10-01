@@ -1,19 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:views="clr-namespace:OrderCostCalculatorMauiApp"
              x:Class="OrderCostCalculatorMauiApp.MainPage">
-
+    <ContentPage.BindingContext>
+        <views:MainPageViewModel/>
+    </ContentPage.BindingContext>
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Entry/>
-            <Entry/>
-            <Stepper Maximum="10" Minimum="1"/>
-            <Label/>
-            <Switch/>
-            <Button/>
-            <Label/>
+            <Entry Text="{Binding Name}"/>
+            <Entry Text="{Binding Price}"/>
+            <Stepper Maximum="10" Minimum="1" Value="{Binding Pieces}"/>
+            <Label Text="{Binding Pieces,StringFormat='Pieces {0}'}"/>
+            <HorizontalStackLayout Spacing="10">
+                <Label Text="Dostawa Priorytetowa: " VerticalTextAlignment="Center"/>
+                <Switch IsToggled="{Binding IsFastDelivery}" />
+            </HorizontalStackLayout>
+            <Button Text="Oblicz" Command="{Binding CalculateCommand}"/>
+            <Label LineBreakMode="WordWrap" Text="{Binding Result}"/>
+            <Picker/>
         </VerticalStackLayout>
     </ScrollView>
 
