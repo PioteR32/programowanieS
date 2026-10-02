@@ -11,7 +11,9 @@ namespace OrderCostCalculatorMauiApp
             CalculateCommand = new Command(() =>
             {
                 int result = _price * _pieces;
-
+                if(IsFastDelivery)
+                    result += 15;
+                Result = result.ToString();
             });
         }
         private string _name;
@@ -27,23 +29,16 @@ namespace OrderCostCalculatorMauiApp
         }
         private int _price;
 
-        public string Price
+        public int Price
         {
-            get { return _price.ToString(); }
+            get { return _price; }
             set
-            {
-                try
-                {
-                    _price = int.Parse(value);
-                }
-                catch
-                {
-                    
-                }
+            {  
+                _price = value;
                 OnPropertyChanged();
             }
         }
-        private int _pieces;
+        private int _pieces = 1;
 
         public int Pieces
         {

@@ -6,12 +6,17 @@
     <ContentPage.BindingContext>
         <views:MainPageViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <views:IntToStringConverter x:Key="IntToString"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
             <Entry Text="{Binding Name}"/>
-            <Entry Text="{Binding Price}"/>
+            <Entry Text="{Binding Price,Converter={StaticResource IntToString}}"/>
             <Stepper Maximum="10" Minimum="1" Value="{Binding Pieces}"/>
             <Label Text="{Binding Pieces,StringFormat='Pieces {0}'}"/>
             <HorizontalStackLayout Spacing="10">
