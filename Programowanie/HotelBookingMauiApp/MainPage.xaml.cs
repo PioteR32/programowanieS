@@ -1,6 +1,4 @@
-﻿using static Android.Provider.ContactsContract.CommonDataKinds;
-using static Android.Renderscripts.ScriptGroup;
-
+﻿
 namespace HotelBookingMauiApp
 {
     public partial class MainPage : ContentPage
