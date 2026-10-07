@@ -6,7 +6,7 @@ namespace HotelBookingMauiApp.ViewModels
 {
     public class MainViewModel : BindableObject
     {
-        private string _fullName;
+        private string _fullName = string.Empty;
         public string FullName
         {
             get => _fullName;
@@ -17,7 +17,7 @@ namespace HotelBookingMauiApp.ViewModels
             }
         }
 
-        private string _email;
+        private string _email= string.Empty;
         public string Email
         {
             get => _email;
@@ -61,7 +61,7 @@ namespace HotelBookingMauiApp.ViewModels
             }
         }
 
-        private RoomType _selectedRoomType;
+        private RoomType _selectedRoomType = null!;
         public RoomType SelectedRoomType
         {
             get => _selectedRoomType;
@@ -112,7 +112,7 @@ namespace HotelBookingMauiApp.ViewModels
             }
         }
 
-        private string _summary;
+        private string _summary = string.Empty;
         public string Summary
         {
             get => _summary;
@@ -134,19 +134,19 @@ namespace HotelBookingMauiApp.ViewModels
         {
             if (string.IsNullOrWhiteSpace(FullName))
             {
-                await Application.Current.MainPage.DisplayAlert("Błąd", "Proszę podać imię i nazwisko.", "OK");
+                await Shell.Current.CurrentPage.DisplayAlertAsync("Błąd", "Proszę podać imię i nazwisko.", "OK");
                 return;
             }
 
             if (SelectedRoomType == null)
             {
-                await Application.Current.MainPage.DisplayAlert("Błąd", "Proszę wybrać rodzaj pokoju.", "OK");
+                await Shell.Current.CurrentPage.DisplayAlertAsync("Błąd", "Proszę wybrać rodzaj pokoju.", "OK");
                 return;
             }
 
             if (CheckInDate.Date < DateTime.Now.Date)
             {
-                await Application.Current.MainPage.DisplayAlert("Błąd", "Data przyjazdu nie może być wcześniejsza niż dzisiejsza.", "OK");
+                await Shell.Current.CurrentPage.DisplayAlertAsync("Błąd", "Data przyjazdu nie może być wcześniejsza niż dzisiejsza.", "OK");
                 return;
             }
 

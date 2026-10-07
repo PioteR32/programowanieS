@@ -16,7 +16,7 @@ namespace OrderCostCalculatorMauiApp
                 Result = result.ToString();
             });
         }
-        private string _name;
+        private string _name = string.Empty;
 
         public string Name
         {
@@ -27,7 +27,7 @@ namespace OrderCostCalculatorMauiApp
                 OnPropertyChanged();
             }
         }
-        private int _price;
+        private int _price = 0;
 
         public int Price
         {
@@ -49,7 +49,7 @@ namespace OrderCostCalculatorMauiApp
                 OnPropertyChanged();
             }
         }
-        private string _result;
+        private string _result = string.Empty;
 
         public string Result
         {
