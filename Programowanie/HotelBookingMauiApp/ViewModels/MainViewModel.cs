@@ -4,48 +4,72 @@ using HotelBookingMauiApp.Models;
 
 namespace HotelBookingMauiApp.ViewModels
 {
-    public class MainViewModel : BaseViewModel
+    public class MainViewModel : BindableObject
     {
         private string _fullName;
         public string FullName
         {
             get => _fullName;
-            set => SetProperty(ref _fullName, value);
+            set
+            {
+                _fullName = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _email;
         public string Email
         {
             get => _email;
-            set => SetProperty(ref _email, value);
+            set
+            {
+                _email = value;
+                OnPropertyChanged();
+            }
         }
 
         private DateTime _checkInDate = DateTime.Now;
         public DateTime CheckInDate
         {
             get => _checkInDate;
-            set => SetProperty(ref _checkInDate, value);
+            set
+            {
+                _checkInDate = value;
+                OnPropertyChanged();
+            }
         }
 
         private int _nights = 1;
         public int Nights
         {
             get => _nights;
-            set => SetProperty(ref _nights, value);
+            set
+            {
+                _nights = value;
+                OnPropertyChanged();
+            }
         }
 
         private int _people = 1;
         public int People
         {
             get => _people;
-            set => SetProperty(ref _people, value);
+            set
+            {
+                _people = value;
+                OnPropertyChanged();
+            }
         }
 
         private RoomType _selectedRoomType;
         public RoomType SelectedRoomType
         {
             get => _selectedRoomType;
-            set => SetProperty(ref _selectedRoomType, value);
+            set
+            {
+                _selectedRoomType = value;
+                OnPropertyChanged();
+            }
         }
 
         public ObservableCollection<RoomType> RoomTypes { get; } = new ObservableCollection<RoomType>
@@ -59,28 +83,44 @@ namespace HotelBookingMauiApp.ViewModels
         public bool HasBreakfast
         {
             get => _hasBreakfast;
-            set => SetProperty(ref _hasBreakfast, value);
+            set
+            {
+                _hasBreakfast = value;
+                OnPropertyChanged() ;
+            }
         }
 
         private bool _hasParking;
         public bool HasParking
         {
             get => _hasParking;
-            set => SetProperty(ref _hasParking, value);
+            set
+            {
+                _hasParking = value;
+                OnPropertyChanged();
+            }
         }
 
         private double _discount = 0;
         public double Discount
         {
             get => _discount;
-            set => SetProperty(ref _discount, value);
+            set
+            {
+                _discount = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _summary;
         public string Summary
         {
             get => _summary;
-            set => SetProperty(ref _summary, value);
+            set
+            {
+                _summary = value;
+                OnPropertyChanged();
+            }
         }
 
         public ICommand CalculateCostCommand { get; }
