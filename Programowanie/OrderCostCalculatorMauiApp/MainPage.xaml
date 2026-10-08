@@ -15,7 +15,11 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <Entry Text="{Binding Name}"/>
+            <HorizontalStackLayout>
+                <Label Text="Nazwa Produktu"/>
+                <Entry Text="{Binding Name}"/>
+            </HorizontalStackLayout>
+            <Label Text="Cena:"/>
             <Entry Text="{Binding Price,Converter={StaticResource IntToString}}"/>
             <Stepper Maximum="10" Minimum="1" Value="{Binding Pieces}"/>
             <Label Text="{Binding Pieces,StringFormat='Pieces {0}'}"/>
