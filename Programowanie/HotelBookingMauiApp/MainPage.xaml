@@ -12,26 +12,22 @@
     <ScrollView>
         <VerticalStackLayout Padding="30" Spacing="15">
             <Label Text="Rezerwacja pokoju hotelowego" FontSize="24" HorizontalOptions="Center" FontAttributes="Bold" />
-
-            <!-- Imię i nazwisko -->
+ 
             <VerticalStackLayout Spacing="5">
                 <Label Text="Imię i nazwisko:" />
                 <Entry Text="{Binding FullName}" Placeholder="Jan Kowalski" />
             </VerticalStackLayout>
 
-            <!-- Adres e-mail -->
             <VerticalStackLayout Spacing="5">
                 <Label Text="Adres e-mail:" />
                 <Entry Text="{Binding Email}" Placeholder="jan@example.com" Keyboard="Email" />
             </VerticalStackLayout>
 
-            <!-- Data przyjazdu -->
             <VerticalStackLayout Spacing="5">
                 <Label Text="Data przyjazdu:" />
                 <DatePicker Date="{Binding CheckInDate}" />
             </VerticalStackLayout>
 
-            <!-- Liczba nocy -->
             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                 <VerticalStackLayout Spacing="5">
                     <Label Text="Liczba nocy:" />
@@ -42,7 +38,6 @@
                 </VerticalStackLayout>
             </HorizontalStackLayout>
 
-            <!-- Liczba osób -->
             <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                 <VerticalStackLayout Spacing="5">
                     <Label Text="Liczba osób:" />
@@ -52,26 +47,22 @@
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
             </HorizontalStackLayout>
-
-            <!-- Rodzaj pokoju -->
+            
             <VerticalStackLayout Spacing="5">
                 <Label Text="Rodzaj pokoju:" />
                 <Picker ItemsSource="{Binding RoomTypes}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedRoomType}" />
             </VerticalStackLayout>
 
-            <!-- Śniadanie -->
             <HorizontalStackLayout Spacing="10">
                 <Label Text="Śniadanie:" VerticalOptions="Center" />
                 <Switch IsToggled="{Binding HasBreakfast}" />
             </HorizontalStackLayout>
 
-            <!-- Miejsce parkingowe -->
             <HorizontalStackLayout Spacing="10">
                 <CheckBox IsChecked="{Binding HasParking}" />
                 <Label Text="Miejsce parkingowe" VerticalOptions="Center" />
             </HorizontalStackLayout>
 
-            <!-- Rabat -->
             <VerticalStackLayout Spacing="5">
                 <HorizontalStackLayout Spacing="10">
                     <Label Text="Rabat:" />

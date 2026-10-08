@@ -25,7 +25,10 @@
             <Label Text="{Binding Pieces,StringFormat='Pieces {0}'}"/>
             <HorizontalStackLayout Spacing="10">
                 <Label Text="Dostawa Priorytetowa: " VerticalTextAlignment="Center"/>
-                <Switch IsToggled="{Binding IsFastDelivery}" />
+                <!--<Switch IsToggled="{Binding IsFastDelivery}" />-->
+                <Picker Title="Wybierz dostawę" SelectedItem="{Binding SelectedDelivery}" ItemsSource="{Binding DeliveryTypes}" ItemDisplayBinding="{Binding Name}">
+                   
+                </Picker>
             </HorizontalStackLayout>
             <Button Text="Oblicz" Command="{Binding CalculateCommand}"/>
             <Label LineBreakMode="WordWrap" Text="{Binding Result}"/>
