@@ -60,7 +60,7 @@ namespace OrderCostCalculatorMauiApp
             }
         }
 
-        public List<OrderType> DeliveryTypes { get; set; } = new List<OrderType>
+        public List<OrderType> DeliveryTypes { get; set; } = new List<OrderType> 
         {
             new OrderType { Name = "Odbiór osobisty", Price = 0 },
             new OrderType { Name = "Kurier", Price = 12 },
