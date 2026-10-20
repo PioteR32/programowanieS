@@ -5,8 +5,9 @@
        
         public MainPage()
         {
-            InitializeComponent();
             BindingContext = new MainPageViewModel();
+            InitializeComponent();
+
         }   
     }
 }
