@@ -8,12 +8,8 @@ namespace VocabularyFlashCardsMauiApp.ViewModels
 {
     public class MainViewModel : BindableObject
     {
-        private Flashcard _currentCard;
-        private bool _isTranslationVisible;
-        private int _currentIndex;
-
         public ObservableCollection<Flashcard> Flashcards { get; set; }
-
+        private Flashcard _currentCard;
         public Flashcard CurrentCard
         {
             get => _currentCard;
@@ -23,31 +19,30 @@ namespace VocabularyFlashCardsMauiApp.ViewModels
                 {
                     _currentCard = value;
                     OnPropertyChanged();
-                    // When card changes, hide translation
                     IsTranslationVisible = false;
-                    // Also update index if it's not set by the user moving the carousel
+                    
                     if (_currentIndex >= 0 && _currentIndex < Flashcards.Count)
                     {
-                        // This part is tricky with CarouselView. 
-                        // Usually we'll update index from view, not vice-versa to avoid loops.
+                        CurrentIndex = Flashcards.IndexOf(_currentCard);
                     }
+
                 }
             }
         }
-
+        private bool _isTranslationVisible;
         public bool IsTranslationVisible
         {
             get => _isTranslationVisible;
             set
             {
-                if (!value.Equals(_isTranslationVisible))
+                if (value != _isTranslationVisible)
                 {
                     _isTranslationVisible = value;
                     OnPropertyChanged();
                 }
             }
         }
-
+        private int _currentIndex;
         public int CurrentIndex
         {
             get => _currentIndex;
@@ -56,9 +51,8 @@ namespace VocabularyFlashCardsMauiApp.ViewModels
                 if (_currentIndex != value)
                 {
                     _currentIndex = value;
-                    OnPropertyChanged();
-                    // When user swipes, hide translation
                     IsTranslationVisible = false;
+                    OnPropertyChanged();                
                 }
             }
         }
@@ -70,15 +64,14 @@ namespace VocabularyFlashCardsMauiApp.ViewModels
         {
             Flashcards = new ObservableCollection<Flashcard>
             {
-                new Flashcard { English = "apple", Polish = "jabłko" },
-                new Flashcard { English = "house", Polish = "dom" },
-                new Flashcard { English = "dog", Polish = "pies" },
-                new Flashcard { English = "book", Polish = "książka" },
-                new Flashcard { English = "bike", Polish = "rower" }
+                new Flashcard { EnglishWord = "apple", PolishWord = "jabłko" },
+                new Flashcard { EnglishWord = "house", PolishWord = "dom" },
+                new Flashcard { EnglishWord = "dog", PolishWord = "pies" },
+                new Flashcard { EnglishWord = "book", PolishWord = "książka" },
+                new Flashcard { EnglishWord = "bike", PolishWord = "rower" }
             };
 
-            _currentCard = Flashcards[0];
-            _currentIndex = 0;
+            CurrentCard = Flashcards[0];
 
             ShowTranslationCommand = new Command(() => IsTranslationVisible = true);
             RestartCommand = new Command(Restart);

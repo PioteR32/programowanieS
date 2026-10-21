@@ -15,7 +15,7 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            <HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="10">
                 <Label Text="Nazwa Produktu"/>
                 <Entry Text="{Binding Name}"/>
             </HorizontalStackLayout>
@@ -32,7 +32,7 @@
             </HorizontalStackLayout>
             <Button Text="Oblicz" Command="{Binding CalculateCommand}"/>
             <Label LineBreakMode="WordWrap" Text="{Binding Result}"/>
-            <Picker/>
+
         </VerticalStackLayout>
     </ScrollView>
 

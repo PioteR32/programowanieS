@@ -18,7 +18,7 @@
                 <DataTemplate>
                     <Border Margin="10" Padding="0" >
                         <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                            <Label Text="{Binding English}"
+                            <Label Text="{Binding EnglishWord}"
                                    FontSize="40"
                                    FontAttributes="Bold"
                                    HorizontalTextAlignment="Center"
@@ -30,11 +30,13 @@
         </CarouselView>
 
         <IndicatorView 
-                        IndicatorColor="Gray"
+                        IndicatorColor="Black"
+                        SelectedIndicatorColor="Gray"
                         ItemsSource="{Binding Flashcards}"
+                        Position="{Binding CurrentIndex}"
                          />
 
-        <Label Text="{Binding CurrentCard.Polish}"
+        <Label Text="{Binding CurrentCard.PolishWord}"
                FontSize="30"
                HorizontalOptions="Center"
                TextColor="DeepSkyBlue"
