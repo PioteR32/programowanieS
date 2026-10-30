@@ -19,7 +19,7 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <!-- NAGŁÓWEK -->
+
             <VerticalStackLayout Spacing="5" Margin="0,10,0,10">
                 <Label Text="Sports Rental" 
                        FontSize="32" 
@@ -32,7 +32,7 @@
                        HorizontalOptions="Center" />
             </VerticalStackLayout>
 
-            <!-- KARTA: DANE KLIENTA -->
+
             <Border StrokeShape="RoundRectangle 15" StrokeThickness="0" BackgroundColor="White" Padding="15">
                 <Border.Shadow>
                     <Shadow Brush="Black" Offset="0,2" Opacity="0.1" />
@@ -46,7 +46,7 @@
                 </VerticalStackLayout>
             </Border>
 
-            <!-- KARTA: WYBÓR SPRZĘTU -->
+
             <VerticalStackLayout Spacing="10">
                 <Label Text="Wybierz sprzęt" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Primary}"/>
                 <Border StrokeShape="RoundRectangle 15" StrokeThickness="1" Stroke="#E0E0E0" BackgroundColor="White" Padding="0">
@@ -77,13 +77,13 @@
                 </Border>
             </VerticalStackLayout>
 
-            <!-- KARTA: KONFIGURACJA (Dni i Ubezpieczenie) -->
+
             <Border StrokeShape="RoundRectangle 15" StrokeThickness="0" BackgroundColor="White" Padding="15">
                 <Border.Shadow>
                     <Shadow Brush="Black" Offset="0,2" Opacity="0.1" />
                 </Border.Shadow>
                 <VerticalStackLayout Spacing="15">
-                    <!-- Sekcja Dni -->
+
                     <Grid ColumnDefinitions="*, Auto" ColumnSpacing="20">
                         <VerticalStackLayout Grid.Column="0" Spacing="5">
                             <Label Text="Liczba dni:" FontSize="16" />
@@ -100,7 +100,6 @@
 
                     <BoxView HeightRequest="1" Color="#F0F0F0" />
 
-                    <!-- Sekcja Ubezpieczenia -->
                     <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
                         <CheckBox IsChecked="{Binding Insurance}" Color="{StaticResource Primary}" />
                         <VerticalStackLayout Spacing="0">
@@ -111,7 +110,7 @@
                 </VerticalStackLayout>
             </Border>
 
-            <!-- PRZYCISK -->
+
             <Button Text="OBLICZ KOSZT" 
                     Command="{Binding CalculateCommand}"
                     CornerRadius="10"
@@ -121,10 +120,8 @@
                     BackgroundColor="{StaticResource Primary}"
                     TextColor="White" />
 
-            <!-- KARTA: PODSUMOWANIE -->
+
             <Border StrokeShape="RoundRectangle 15" StrokeThickness="0" BackgroundColor="#E3F2FD" Padding="20" IsVisible="{Binding Summary, Converter={StaticResource ValueIsNotNullConverter}}">
-                <!-- Uwaga: Jeśli nie masz IsNotNullConverter, użyj po prostu IsVisible="{Binding Summary, Converter={StaticResource StringToBoolConverter}}" 
-                     lub w MAUI najprościej po prostu zostaw to w widoczności zależnej od treści -->
                 <Border.Shadow>
                     <Shadow Brush="Black" Offset="0,4" Opacity="0.1" />
                 </Border.Shadow>
